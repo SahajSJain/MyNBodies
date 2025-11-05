@@ -1,0 +1,24 @@
+ndims   n_bodies	Force_Diagnose
+2       400 		0
+Gravitational_Constant 
+1
+mass_0            radius_0        radius_var (0->0.9)
+0.01                 1               0.
+dt                nsteps          nprint      ndump
+0.0004             16000             1600        1600
+INITIALIZATION_TYPE         ! 1=random, 2=ordered placement, 3=spherical, 4=cylindrical 
+4
+nbx_init(1)       nbx_init(2)      nbx_init(3) 
+20                20                8 
+L_init(1)         L_init(2)        L_init(3) 
+1                 0.8               1
+VELOCITY_INITIALIZATION_TYPE ! 1= rand vel rand speed 2=solid body rotation 3=rand vel fixed speed 
+2
+vel_var       omega_init
+0.1           0.1
+BOUNDARY_CONDITION_TYPE ! 1=open, 2=reflective, 3=periodic (not implemented yet) 
+1
+iReflective_BC(1)     iReflective_BC(2)     iReflective_BC(3) ! is real so keep either 0.0 or 1.0 
+1.0                   1.0                   1.0
+L_bound(1)        L_bound(2)       L_bound(3) 
+2                 2                2

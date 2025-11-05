@@ -1,0 +1,45 @@
+name = "MyNbodies"
+version = "1.0"
+license = "proprietary"
+author = "Sahaj Jain"
+maintainer = "ssjain221@gmail.com"
+
+[build]
+auto-executables = true
+auto-tests = false
+auto-examples = false
+
+[fortran]
+implicit-typing = true
+implicit-external = true
+
+[[executable]]
+name = "mynbodies_serial_out"
+source-dir = "src"
+main = "solver_nbodies_serial.f90"
+dependencies.stdlib = "*"
+
+[[executable]]
+name = "mynbodies_omp_out"
+source-dir = "src"
+main = "solver_nbodies_ompcpu.f90"
+dependencies.stdlib = "*"
+
+[[executable]]
+name = "mynbodies_myomp_out"
+source-dir = "src"
+main = "solver_nbodies_myomp.f90"
+dependencies.stdlib = "*"
+
+[[executable]]
+name = "mynbodies_acc_out"
+source-dir = "src"
+main = "solver_nbodies_acc.f90"
+dependencies.stdlib = "*"
+
+[install]
+library = false
+
+
+[dependencies]
+#stdlib = "*"
