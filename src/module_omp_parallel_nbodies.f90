@@ -1,6 +1,6 @@
 module omp_nbodies
-  !!! This specific OMP module was entirely LLM generated to provide OpenMP parallel implementations 
-  !!! For my personal implementation, look at module_myomp_nbodies.f90 
+  !!! This specific OMP module was entirely LLM generated to provide OpenMP parallel implementations
+  !!! For my personal implementation, look at module_myomp_nbodies.f90
   !!! This was generated for comparison and educational purposes.
   use omp_lib
   use nbodies

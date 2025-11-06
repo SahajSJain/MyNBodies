@@ -7,8 +7,10 @@ program MyOMPNbodiesSolver
 
   type(NBodies_type) :: NB
   integer :: num_threads
-  real :: start_time, end_time
-
+  real(real64) :: cpu_start, cpu_end, cpu_total_time
+  omp_tforces = 0.0_wp
+  omp_tverlet = 0.0_wp
+  omp_tmetrics = 0.0_wp
   ! Get number of threads from environment or set default
   !$omp parallel
   !$omp master
@@ -18,6 +20,8 @@ program MyOMPNbodiesSolver
   ! Initialize the simulation (this reads input and sets up everything)
   print *, "=== My OpenMP N-Body Simulation ==="
   print '(A,I4)', "Number of OpenMP threads: ", num_threads
+  print *, "Maximum threads available:", omp_get_max_threads()
+  print *, "Number of processors:", omp_get_num_procs() 
   print *, "================================"
   call initialize_simulation(NB)
 
@@ -32,18 +36,19 @@ program MyOMPNbodiesSolver
   call dump_data(NB) ! dump initial state
   call softening_length_setup_myomp(NB)
   ! Time integration loop
-  start_time = omp_get_wtime()
+  cpu_start = omp_get_wtime() 
   do istep = 1, nsteps
     ! Compute gravitational forces
     call compute_forces_myomp(NB)
     ! Update positions and velocities
     call update_positions_myomp(NB)
 
-    ! Compute global metrics for diagnostics
-    call get_global_metrics_myomp(NB)
-
     ! Update simulation time
     time = time + dt
+    if(mod(istep, ndump) == 0 .or. mod(istep, nprint) == 0) then
+      call get_global_metrics_myomp(NB)
+    end if
+
     if(mod(istep, ndump) == 0) then
       call dump_data(NB)
     end if
@@ -53,11 +58,14 @@ program MyOMPNbodiesSolver
       call output_diagnostics(NB)
     end if
   end do
-  end_time = omp_get_wtime()
+  cpu_end = omp_get_wtime()
   print *, ""
   print *, "=== Simulation Complete ==="
-  print '(A,F10.3,A)', "Total wall time: ", end_time - start_time, " seconds"
-  print '(A,F10.3,A)', "Time per step: ", (end_time - start_time)/nsteps, " seconds"
+  print '(A,F15.8,A)', "Total wall time: ", cpu_end - cpu_start, " seconds"
+  print '(A,F15.8,A)', "Time per step: ", (cpu_end - cpu_start)/nsteps, " seconds"
+  print '(A,F15.8,A)', "Time in compute_forces_myomp: ", omp_tforces, " seconds"
+  print '(A,F15.8,A)', "Time in update_positions_myomp: ", omp_tverlet, " seconds"
+  print '(A,F15.8,A)', "Time in get_global_metrics_myomp: ", omp_tmetrics, " seconds"
   print *, "==========================="
 
   ! Finalize the simulation

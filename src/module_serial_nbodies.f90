@@ -1,6 +1,8 @@
 module serial_nbodies
   use nbodies
+  use omp_lib
   implicit none
+  real(8) :: s_tstart, s_tend, s_tforces, s_tmetrics, s_tverlet
 contains
   subroutine compute_forces_serial(NB)
     implicit none
@@ -9,6 +11,7 @@ contains
     real(kind=wp) :: pos_diff(ndim)
     real(kind=wp) :: dist, dist_cubed ! distance and distance cubed between bodies
     real(kind=wp) :: dist_squared, dist_squared_soft ! distance squared and softened distance squared
+    s_tstart = omp_get_wtime()
     ! Initialize forces to zero
     NB%force(:, :) = 0.0_wp
     NB%potential_energy = 0.0_wp ! Reset potential energy array
@@ -44,14 +47,15 @@ contains
 
     ! Calculate total potential energy
     NB%total_potential_energy = sum(NB%potential_energy)
-
+    s_tend = omp_get_wtime()
+    s_tforces = s_tforces + (s_tend - s_tstart)
   end subroutine compute_forces_serial
 
   subroutine get_global_metrics_serial(NB)
     implicit none
     type(NBodies_type), intent(inout) :: NB
     integer :: i
-
+    s_tstart = omp_get_wtime()
     NB%total_kinetic_energy = 0.0_wp
     NB%total_potential_energy = 0.0_wp
     NB%total_energy = 0.0_wp
@@ -74,12 +78,15 @@ contains
         NB%mass(i) * NB%vel(i, 1:ndim) * NB%total_mass_inv
     end do
     NB%total_energy = NB%total_kinetic_energy + NB%total_potential_energy
+    s_tend = omp_get_wtime()
+    s_tmetrics = s_tmetrics + (s_tend - s_tstart)
   end subroutine get_global_metrics_serial
 
   subroutine update_positions_serial(NB)
     implicit none
     type(NBodies_type), intent(inout) :: NB
     integer :: i, nd
+    s_tstart = omp_get_wtime()
     ! Use Verlet integration to update positions and velocities
     ! First update accelerations based on forces
     ! Update velocities and positions based on computed forces
@@ -141,6 +148,8 @@ contains
       NB%pos_0(i, 1:ndim) = NB%pos(i, 1:ndim)
       NB%vel_0(i, 1:ndim) = NB%vel(i, 1:ndim)
     end do
+    s_tend = omp_get_wtime()
+    s_tverlet = s_tverlet + (s_tend - s_tstart)
   end subroutine update_positions_serial
   subroutine softening_length_setup_serial(NB)
     implicit none

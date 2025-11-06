@@ -13,7 +13,7 @@ module nbodies
 ! #elif defined(P32)
   ! Single precision
   integer, parameter :: wp = real32
-  character(len=*), parameter :: precision_name = "single (32-bit)" 
+  character(len=*), parameter :: precision_name = "single (32-bit)"
 ! #elif defined(P64)
 !   ! Double precision
 !   integer, parameter :: wp = real64
@@ -80,7 +80,7 @@ module nbodies
   real(kind=wp) :: iReflective_BC(1:3)      ! Reflective BC flags per dimension
   ! Force Diagnose
   integer :: Force_Diagnose           ! 0=off, 1=on (only first timestep)
-  real(kind=wp) :: total_ke, total_pe ! Tolerance for force diagnosis
+  real(kind=wp) :: total_ke, total_pe, total_COM(1:3), total_COM_vel(1:3) ! Tolerance for force diagnosis
   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   ! NBODIES TYPE DEFINITION
   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -133,6 +133,7 @@ module nbodies
   contains
     procedure :: allocate => allocate_nbodies
     procedure :: deallocate => deallocate_nbodies
+    procedure :: estimate_memory => estimate_memory_nbodies
     final :: finalize_nbodies
   end type NBodies_type
   interface
@@ -154,7 +155,44 @@ module nbodies
   end interface
 
 contains
-
+subroutine estimate_memory_nbodies(this)
+    class(NBodies_type), intent(in) :: this
+    integer(kind=8) :: total_bytes
+    integer :: n
+    
+    n = this%n_bodies
+    total_bytes = 0
+    
+    ! Position and velocity arrays (n_bodies x ndim)
+    total_bytes = total_bytes + 5 * n * ndim * storage_size(1.0_wp)/8  ! pos, pos_0, vel, vel_0, vel_h
+    
+    ! Force and acceleration arrays (n_bodies x ndim)
+    total_bytes = total_bytes + 3 * n * ndim * storage_size(1.0_wp)/8  ! accel, force, bc_factor
+    
+    ! Mass and geometry arrays (n_bodies)
+    total_bytes = total_bytes + 3 * n * storage_size(1.0_wp)/8  ! mass, mass_inv, radius
+    
+    ! Energy arrays (n_bodies)
+    total_bytes = total_bytes + 3 * n * storage_size(1.0_wp)/8  ! kinetic_energy, potential_energy, sum_energy
+    
+    ! Center of mass arrays (ndim)
+    total_bytes = total_bytes + 2 * ndim * storage_size(1.0_wp)/8  ! center_of_mass, center_of_mass_velocity
+    
+    ! Random vector (ndim)
+    total_bytes = total_bytes + ndim * storage_size(1.0_wp)/8  ! rand_vec
+    
+    ! Force matrix (n_bodies x n_bodies x ndim)
+    total_bytes = total_bytes + n * n * ndim * storage_size(1.0_wp)/8  ! Force_matrix
+    
+    ! Print results
+    print '(A)', '--- Memory Estimate for NBodies_type ---'
+    print '(A,I0)', 'Number of bodies: ', n
+    print '(A,I0)', 'Number of dimensions: ', ndim
+    print '(A,I0,A)', 'Total memory required: ', total_bytes, ' bytes'
+    print '(A,F0.2,A)', 'Total memory required: ', real(total_bytes)/1024.0, ' KB'
+    print '(A,F0.2,A)', 'Total memory required: ', real(total_bytes)/1048576.0, ' MB'
+    
+end subroutine estimate_memory_nbodies
   subroutine allocate_nbodies(this, num_bodies)
     implicit none
     class(NBodies_type), intent(inout) :: this
@@ -178,7 +216,7 @@ contains
 
     ! Allocate force and acceleration arrays
     allocate(this%accel(this%n_bodies, ndim), source=0.0_wp)
-    allocate(this%force(this%n_bodies, ndim), source=0.0_wp)
+    allocate(this%force(this%n_bodies, 3), source=0.0_wp)
     allocate(this%bc_factor(this%n_bodies, ndim), source=0.0_wp)
 
     ! Allocate mass and geometry arrays
@@ -192,8 +230,8 @@ contains
     allocate(this%sum_energy(this%n_bodies), source=0.0_wp)
 
     ! Allocate center of mass arrays
-    allocate(this%center_of_mass(ndim), source=0.0_wp)
-    allocate(this%center_of_mass_velocity(ndim), source=0.0_wp)
+    allocate(this%center_of_mass(3), source=0.0_wp)
+    allocate(this%center_of_mass_velocity(3), source=0.0_wp) 
 
     ! Allocate temporary arrays
     allocate(this%rand_vec(ndim), source=0.0_wp)
@@ -430,6 +468,7 @@ contains
     print '(A,I8)', " Total steps: ", nsteps
     print '(A,I8)', " Dump frequency: ", ndump
     print *, "==========================================="
+    call estimate_memory_nbodies(NB)
   end subroutine initialize_simulation
 
 

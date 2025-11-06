@@ -6,7 +6,7 @@ program OMPNbodiesSolver
 
   type(NBodies_type) :: NB
   integer :: num_threads
-  real(kind=wp) :: start_time, end_time
+  real(real64) :: start_time, end_time
 
   ! Get number of threads from environment or set default
   !$omp parallel
@@ -42,13 +42,15 @@ program OMPNbodiesSolver
     call update_positions_omp(NB)
     ! Update simulation time
     time = time + dt
+    if(mod(istep, ndump) == 0 .or. mod(istep, nprint) == 0) then
+      call get_global_metrics_omp(NB)
+    end if
+
     if(mod(istep, ndump) == 0) then
       call dump_data(NB)
     end if
     ! Output diagnostics at specified intervals
     if (mod(istep, nprint) == 0) then
-      ! Compute global metrics for diagnostics
-      call get_global_metrics_omp(NB)
       ! call adjust_timestep_acceleration(NB)
       call output_diagnostics(NB)
     end if
