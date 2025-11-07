@@ -9,10 +9,11 @@ Will generate 4 executables:
 3. `mynbodies_omp_out` : An LLM generated OpenMP solver. Similar performance was seen.
 4. `mynbodies_acc_out` : An OpenACC solver for GPU parallelization, featuring a one-time data transfer avoiding redundant and repeated host-device copies.
 
+Saw a 25x speedup on an NVIDA a100 compared with OpenACC compared to an OpenMP CPU simulation on a 48 core Intel Xeon Gold Cascade Lake 6248R  
+
 These will generate .csv file outputs which can be visualized using Paraview. I also experimented with LAMMPS dump format but dumped that idea as ParaView can be a bit glitchy. 
 Shout out to https://github.com/lele394 for help with the pre-processing scripts. Julia pre-processing scripts in the Input folder were LLM generated.
 
 Simulation examples : These setups were obtained from a UMD database (https://bima.astro.umd.edu/nemo/archive/) : 
 1. Galactic collision between the milky way and the andromeda galaxy (Dubinski, Mihos & Hernquist, 1996, ApJ, 462, 576) : ~40k stars 
    ![til](./Galaxy_Collision.gif)
-   Saw a 25x speedup on an NVIDA a100 compared with OpenACC compared to an OpenMP CPU simulation on a 48 core Intel Xeon Gold Cascade Lake 6248R  
