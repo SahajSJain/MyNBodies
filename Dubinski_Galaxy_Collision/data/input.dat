@@ -1,0 +1,26 @@
+ndims   n_bodies        Force_Diagnose (only first timestep)
+3       81920             0
+Gravitational_Constant 
+1.0
+mass_0            radius_0        radius_var (0->0.9)
+1                 0.05            0.0
+dt                nsteps          nprint      ndump
+0.05             20000            50          50
+MASS_INITIALIZATION_TYPE ! 0 = read from file, 1 = normalized
+0
+INITIALIZATION_TYPE         ! 0 = read from file 
+0
+nbx_init(1)       nbx_init(2)      nbx_init(3) 
+1                 1                1
+L_init(1)         L_init(2)        L_init(3) 
+1                 1                1
+VELOCITY_INITIALIZATION_TYPE ! 0 = read from file 
+0
+vel_var       omega_init
+0.0           0.0
+BOUNDARY_CONDITION_TYPE ! 1=open, 2=reflective, 3=periodic (not implemented yet) 
+1
+iReflective_BC(1)     iReflective_BC(2)     iReflective_BC(3) ! is real so keep either 0.0 or 1.0 
+0.0                   0.0                   0.0
+L_bound(1)        L_bound(2)       L_bound(3) 
+42.1                 48.5                41.8
