@@ -1,0 +1,3665 @@
+ │ Hostname: gpu18.cm.cluster
+ │ CPU Model: Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz
+ │ GPU Name: NVIDIA A100-PCIE-40GB
+ │ Compute Capability: 8.0
+ │ GPU Memory: 40960 MiB
+ │ Driver Version: 550.127.05
+ 
+ ╔══════════════════════════════════════════════════════════════╗
+ ║           SYSTEM AND DEVICE INFORMATION                      ║
+ ╚══════════════════════════════════════════════════════════════╝
+ 
+ ┌─── HOST INFORMATION ─────────────────────────────────────────┐
+ │ CPU Threads Available:    1
+ └──────────────────────────────────────────────────────────────┘
+ 
+ ┌─── GPU DEVICE INFORMATION ───────────────────────────────────┐
+ │ Number of GPUs Found:  1
+ │ Active GPU Device ID:  0
+  │
+  │
+  │ ✓ GPU Acceleration ENABLED
+ └──────────────────────────────────────────────────────────────┘
+ 
+ Mass per particle:   1.6089214E-04
+ Total KE:    1.088480    
+ Total PE:   -2.176960    
+ Virial ratio KE/|PE|:   0.5000000    
+ 2*KE + PE:    0.000000    
+ === Input Parameters Read Successfully ===
+Dimensions:   3, Bodies:  43802
+Gravitational constant:    1.000
+Mass:      0.00016089, Radius:    0.200, Radius variation:    0.000radius^2_0 used in softening:    0.040
+Time step: 0.001000, Number of steps:   200000
+Initialization type:  0
+Velocity initialization type:  0
+Boundary condition type:  1
+ =========================================
+ === Simulation Initialized Successfully ===
+ Precision: single (32-bit)
+ Number of bodies:    43802
+ Dimensions:  3
+ Time step (dt):     0.001000
+ Half time step (dt/2):     0.000500
+ Minimum time step (dt_min):     0.000010
+ Maximum time step (dt_max):     0.100000
+ Total steps:   200000
+ Dump frequency:      500
+ ===========================================
+--- Memory Estimate for NBodies_type ---
+Number of bodies: 43802
+Number of dimensions: 3
+Total memory required: -56635284 bytes
+Total memory required: -55307.89 KB
+Total memory required: -54.01 MB
+ === Initializing GPU Computation ===
+  Data transfer to GPU:      0.02736616 seconds
+Step:        0, Time:     0.000000
+  dt:                    0.001000
+  Total KE:           1.08848000E+00
+  Total PE:          -1.48832512E+01
+  Total E:           -1.37947712E+01
+  Delta E:                0.00000000 %
+  Virial F (2KE+PE): -1.27062912E+01
+  COM position:  -7.1775E-02  4.7328E-02  1.5937E-05
+  COM velocity:   2.3801E-03 -8.7812E-04  4.3680E-04
+ 
+ === Starting Main Simulation Loop ===
+  Total steps:   200000 (GPU)
+ 
+Step:      500, Time:     0.499997
+  dt:                    0.001000
+  Total KE:           5.47506857E+00
+  Total PE:          -1.92474289E+01
+  Total E:           -1.37723598E+01
+  Delta E:                0.16246262 %
+  Virial F (2KE+PE): -8.29729176E+00
+  COM position:  -7.0585E-02  4.6889E-02  2.3432E-04
+  COM velocity:   2.3801E-03 -8.7814E-04  4.3672E-04
+    Time Info: 
+    Total time till now:     14.06215906 seconds
+    Total Forces time:     13.99513435 seconds
+    Total Verlet Integration time:      0.01096678 seconds
+    Total Metrics time:      0.00032306 seconds
+    Total Host Update time:      0.00193810 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     1000, Time:     0.999991
+  dt:                    0.001000
+  Total KE:           8.47505379E+00
+  Total PE:          -2.22077675E+01
+  Total E:           -1.37327137E+01
+  Delta E:                0.44986242 %
+  Virial F (2KE+PE): -5.25765991E+00
+  COM position:  -6.9395E-02  4.6450E-02  4.5267E-04
+  COM velocity:   2.3800E-03 -8.7811E-04  4.3674E-04
+    Time Info: 
+    Total time till now:     28.02752614 seconds
+    Total Forces time:     27.84312820 seconds
+    Total Verlet Integration time:      0.02202463 seconds
+    Total Metrics time:      0.00046301 seconds
+    Total Host Update time:      0.00295997 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     1500, Time:     1.500014
+  dt:                    0.001000
+  Total KE:           6.14315033E+00
+  Total PE:          -1.98396149E+01
+  Total E:           -1.36964645E+01
+  Delta E:                0.71263707 %
+  Virial F (2KE+PE): -7.55331421E+00
+  COM position:  -6.8205E-02  4.6011E-02  6.7107E-04
+  COM velocity:   2.3801E-03 -8.7813E-04  4.3687E-04
+    Time Info: 
+    Total time till now:     41.98572993 seconds
+    Total Forces time:     41.68308949 seconds
+    Total Verlet Integration time:      0.03290582 seconds
+    Total Metrics time:      0.00060201 seconds
+    Total Host Update time:      0.00399399 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     2000, Time:     2.000037
+  dt:                    0.001000
+  Total KE:           6.96094990E+00
+  Total PE:          -2.06248741E+01
+  Total E:           -1.36639242E+01
+  Delta E:                0.94852585 %
+  Virial F (2KE+PE): -6.70297432E+00
+  COM position:  -6.7015E-02  4.5571E-02  8.8953E-04
+  COM velocity:   2.3799E-03 -8.7812E-04  4.3699E-04
+    Time Info: 
+    Total time till now:     55.94159102 seconds
+    Total Forces time:     55.52102852 seconds
+    Total Verlet Integration time:      0.04391789 seconds
+    Total Metrics time:      0.00074410 seconds
+    Total Host Update time:      0.00503397 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     2500, Time:     2.500001
+  dt:                    0.001000
+  Total KE:           6.43159962E+00
+  Total PE:          -2.00629578E+01
+  Total E:           -1.36313581E+01
+  Delta E:                1.18460131 %
+  Virial F (2KE+PE): -7.19975853E+00
+  COM position:  -6.5825E-02  4.5132E-02  1.1081E-03
+  COM velocity:   2.3799E-03 -8.7814E-04  4.3722E-04
+    Time Info: 
+    Total time till now:     69.89849401 seconds
+    Total Forces time:     69.35888672 seconds
+    Total Verlet Integration time:      0.05478096 seconds
+    Total Metrics time:      0.00087905 seconds
+    Total Host Update time:      0.00606680 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     3000, Time:     2.999965
+  dt:                    0.001000
+  Total KE:           7.30167532E+00
+  Total PE:          -2.09010735E+01
+  Total E:           -1.35993977E+01
+  Delta E:                1.41628695 %
+  Virial F (2KE+PE): -6.29772282E+00
+  COM position:  -6.4635E-02  4.4693E-02  1.3267E-03
+  COM velocity:   2.3798E-03 -8.7811E-04  4.3744E-04
+    Time Info: 
+    Total time till now:     83.85436296 seconds
+    Total Forces time:     83.19649363 seconds
+    Total Verlet Integration time:      0.06581140 seconds
+    Total Metrics time:      0.00099397 seconds
+    Total Host Update time:      0.00677180 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     3500, Time:     3.499929
+  dt:                    0.001000
+  Total KE:           7.60104465E+00
+  Total PE:          -2.11674824E+01
+  Total E:           -1.35664377E+01
+  Delta E:                1.65521765 %
+  Virial F (2KE+PE): -5.96539307E+00
+  COM position:  -6.3445E-02  4.4254E-02  1.5455E-03
+  COM velocity:   2.3799E-03 -8.7804E-04  4.3771E-04
+    Time Info: 
+    Total time till now:     97.81068611 seconds
+    Total Forces time:     97.03402209 seconds
+    Total Verlet Integration time:      0.07668424 seconds
+    Total Metrics time:      0.00113201 seconds
+    Total Host Update time:      0.00783157 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     4000, Time:     3.999892
+  dt:                    0.001000
+  Total KE:           8.36016178E+00
+  Total PE:          -2.18930531E+01
+  Total E:           -1.35328913E+01
+  Delta E:                1.89839995 %
+  Virial F (2KE+PE): -5.17272949E+00
+  COM position:  -6.2255E-02  4.3815E-02  1.7644E-03
+  COM velocity:   2.3799E-03 -8.7801E-04  4.3791E-04
+    Time Info: 
+    Total time till now:    111.77288508 seconds
+    Total Forces time:    110.87188292 seconds
+    Total Verlet Integration time:      0.08770847 seconds
+    Total Metrics time:      0.00124621 seconds
+    Total Host Update time:      0.00851750 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     4500, Time:     4.499856
+  dt:                    0.001000
+  Total KE:           8.94509506E+00
+  Total PE:          -2.24429531E+01
+  Total E:           -1.34978580E+01
+  Delta E:                2.15235996 %
+  Virial F (2KE+PE): -4.55276299E+00
+  COM position:  -6.1065E-02  4.3376E-02  1.9834E-03
+  COM velocity:   2.3800E-03 -8.7801E-04  4.3799E-04
+    Time Info: 
+    Total time till now:    125.72980404 seconds
+    Total Forces time:    124.70971155 seconds
+    Total Verlet Integration time:      0.09863257 seconds
+    Total Metrics time:      0.00138426 seconds
+    Total Host Update time:      0.00957370 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     5000, Time:     4.999820
+  dt:                    0.001000
+  Total KE:           9.35778236E+00
+  Total PE:          -2.28200359E+01
+  Total E:           -1.34622536E+01
+  Delta E:                2.41046143 %
+  Virial F (2KE+PE): -4.10447121E+00
+  COM position:  -5.9875E-02  4.2937E-02  2.2024E-03
+  COM velocity:   2.3800E-03 -8.7800E-04  4.3787E-04
+    Time Info: 
+    Total time till now:    139.68592596 seconds
+    Total Forces time:    138.54759860 seconds
+    Total Verlet Integration time:      0.10960698 seconds
+    Total Metrics time:      0.00149846 seconds
+    Total Host Update time:      0.01026773 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     5500, Time:     5.499784
+  dt:                    0.001000
+  Total KE:           9.15318584E+00
+  Total PE:          -2.25807648E+01
+  Total E:           -1.34275789E+01
+  Delta E:                2.66182208 %
+  Virial F (2KE+PE): -4.27439308E+00
+  COM position:  -5.8685E-02  4.2498E-02  2.4213E-03
+  COM velocity:   2.3800E-03 -8.7800E-04  4.3777E-04
+    Time Info: 
+    Total time till now:    153.64076710 seconds
+    Total Forces time:    152.38533020 seconds
+    Total Verlet Integration time:      0.12053561 seconds
+    Total Metrics time:      0.00161648 seconds
+    Total Host Update time:      0.01095963 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     6000, Time:     5.999748
+  dt:                    0.001000
+  Total KE:           9.09495354E+00
+  Total PE:          -2.24884911E+01
+  Total E:           -1.33935375E+01
+  Delta E:                2.90859246 %
+  Virial F (2KE+PE): -4.29858398E+00
+  COM position:  -5.7495E-02  4.2059E-02  2.6401E-03
+  COM velocity:   2.3800E-03 -8.7803E-04  4.3768E-04
+    Time Info: 
+    Total time till now:    167.59680700 seconds
+    Total Forces time:    166.22281504 seconds
+    Total Verlet Integration time:      0.13145757 seconds
+    Total Metrics time:      0.00175357 seconds
+    Total Host Update time:      0.01196957 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     6500, Time:     6.499712
+  dt:                    0.001000
+  Total KE:           8.79675770E+00
+  Total PE:          -2.21567554E+01
+  Total E:           -1.33599977E+01
+  Delta E:                3.15172625 %
+  Virial F (2KE+PE): -4.56324005E+00
+  COM position:  -5.6305E-02  4.1620E-02  2.8590E-03
+  COM velocity:   2.3800E-03 -8.7805E-04  4.3767E-04
+    Time Info: 
+    Total time till now:    181.55252695 seconds
+    Total Forces time:    180.06054425 seconds
+    Total Verlet Integration time:      0.14242291 seconds
+    Total Metrics time:      0.00187349 seconds
+    Total Host Update time:      0.01264668 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     7000, Time:     6.999675
+  dt:                    0.001000
+  Total KE:           8.43338776E+00
+  Total PE:          -2.17610569E+01
+  Total E:           -1.33276691E+01
+  Delta E:                3.38608074 %
+  Virial F (2KE+PE): -4.89428139E+00
+  COM position:  -5.5115E-02  4.1181E-02  3.0778E-03
+  COM velocity:   2.3799E-03 -8.7805E-04  4.3770E-04
+    Time Info: 
+    Total time till now:    195.50820208 seconds
+    Total Forces time:    193.89842296 seconds
+    Total Verlet Integration time:      0.15323853 seconds
+    Total Metrics time:      0.00198865 seconds
+    Total Host Update time:      0.01332450 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     7500, Time:     7.499639
+  dt:                    0.001000
+  Total KE:           8.67200184E+00
+  Total PE:          -2.19671688E+01
+  Total E:           -1.32951670E+01
+  Delta E:                3.62169266 %
+  Virial F (2KE+PE): -4.62316513E+00
+  COM position:  -5.3925E-02  4.0742E-02  3.2967E-03
+  COM velocity:   2.3799E-03 -8.7803E-04  4.3774E-04
+    Time Info: 
+    Total time till now:    209.46316099 seconds
+    Total Forces time:    207.73601604 seconds
+    Total Verlet Integration time:      0.16426516 seconds
+    Total Metrics time:      0.00210357 seconds
+    Total Host Update time:      0.01402855 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     8000, Time:     7.999603
+  dt:                    0.001000
+  Total KE:           8.48404026E+00
+  Total PE:          -2.17463131E+01
+  Total E:           -1.32622728E+01
+  Delta E:                3.86014652 %
+  Virial F (2KE+PE): -4.77823257E+00
+  COM position:  -5.2735E-02  4.0303E-02  3.5156E-03
+  COM velocity:   2.3799E-03 -8.7803E-04  4.3780E-04
+    Time Info: 
+    Total time till now:    223.41930699 seconds
+    Total Forces time:    221.57370543 seconds
+    Total Verlet Integration time:      0.17513275 seconds
+    Total Metrics time:      0.00224638 seconds
+    Total Host Update time:      0.01506948 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     8500, Time:     8.499804
+  dt:                    0.001000
+  Total KE:           8.40193653E+00
+  Total PE:          -2.16316376E+01
+  Total E:           -1.32297010E+01
+  Delta E:                4.09626341 %
+  Virial F (2KE+PE): -4.82776451E+00
+  COM position:  -5.1545E-02  3.9864E-02  3.7345E-03
+  COM velocity:   2.3799E-03 -8.7801E-04  4.3774E-04
+    Time Info: 
+    Total time till now:    237.37453604 seconds
+    Total Forces time:    235.41129470 seconds
+    Total Verlet Integration time:      0.18616748 seconds
+    Total Metrics time:      0.00236249 seconds
+    Total Host Update time:      0.01577544 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     9000, Time:     9.000007
+  dt:                    0.001000
+  Total KE:           7.79180098E+00
+  Total PE:          -2.09898643E+01
+  Total E:           -1.31980629E+01
+  Delta E:                4.32561207 %
+  Virial F (2KE+PE): -5.40626240E+00
+  COM position:  -5.0356E-02  3.9425E-02  3.9533E-03
+  COM velocity:   2.3799E-03 -8.7799E-04  4.3773E-04
+    Time Info: 
+    Total time till now:    251.33030891 seconds
+    Total Forces time:    249.24894094 seconds
+    Total Verlet Integration time:      0.19702601 seconds
+    Total Metrics time:      0.00247645 seconds
+    Total Host Update time:      0.01637244 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:     9500, Time:     9.500209
+  dt:                    0.001000
+  Total KE:           7.79134750E+00
+  Total PE:          -2.09588661E+01
+  Total E:           -1.31675186E+01
+  Delta E:                4.54703140 %
+  Virial F (2KE+PE): -5.37617111E+00
+  COM position:  -4.9166E-02  3.8986E-02  4.1722E-03
+  COM velocity:   2.3799E-03 -8.7800E-04  4.3792E-04
+    Time Info: 
+    Total time till now:    265.28549099 seconds
+    Total Forces time:    263.08658743 seconds
+    Total Verlet Integration time:      0.20803785 seconds
+    Total Metrics time:      0.00259352 seconds
+    Total Host Update time:      0.01706958 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    10000, Time:    10.000411
+  dt:                    0.001000
+  Total KE:           7.91446686E+00
+  Total PE:          -2.10505905E+01
+  Total E:           -1.31361237E+01
+  Delta E:                4.77461720 %
+  Virial F (2KE+PE): -5.22165680E+00
+  COM position:  -4.7976E-02  3.8547E-02  4.3912E-03
+  COM velocity:   2.3799E-03 -8.7802E-04  4.3817E-04
+    Time Info: 
+    Total time till now:    279.24223399 seconds
+    Total Forces time:    276.92428160 seconds
+    Total Verlet Integration time:      0.21891356 seconds
+    Total Metrics time:      0.00273252 seconds
+    Total Host Update time:      0.01810050 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    10500, Time:    10.500613
+  dt:                    0.001000
+  Total KE:           7.53599024E+00
+  Total PE:          -2.06410046E+01
+  Total E:           -1.31050148E+01
+  Delta E:                5.00012922 %
+  Virial F (2KE+PE): -5.56902409E+00
+  COM position:  -4.6786E-02  3.8108E-02  4.6104E-03
+  COM velocity:   2.3799E-03 -8.7806E-04  4.3853E-04
+    Time Info: 
+    Total time till now:    293.19760203 seconds
+    Total Forces time:    290.76184845 seconds
+    Total Verlet Integration time:      0.22990084 seconds
+    Total Metrics time:      0.00284839 seconds
+    Total Host Update time:      0.01877642 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    11000, Time:    11.000815
+  dt:                    0.001000
+  Total KE:           7.53853893E+00
+  Total PE:          -2.06130486E+01
+  Total E:           -1.30745096E+01
+  Delta E:                5.22126532 %
+  Virial F (2KE+PE): -5.53597069E+00
+  COM position:  -4.5596E-02  3.7669E-02  4.8298E-03
+  COM velocity:   2.3799E-03 -8.7806E-04  4.3890E-04
+    Time Info: 
+    Total time till now:    307.15276194 seconds
+    Total Forces time:    304.59940195 seconds
+    Total Verlet Integration time:      0.24074984 seconds
+    Total Metrics time:      0.00296140 seconds
+    Total Host Update time:      0.01946735 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    11500, Time:    11.501018
+  dt:                    0.001000
+  Total KE:           7.20742655E+00
+  Total PE:          -2.02518768E+01
+  Total E:           -1.30444508E+01
+  Delta E:                5.43916559 %
+  Virial F (2KE+PE): -5.83702374E+00
+  COM position:  -4.4406E-02  3.7230E-02  5.0493E-03
+  COM velocity:   2.3799E-03 -8.7808E-04  4.3927E-04
+    Time Info: 
+    Total time till now:    321.10846400 seconds
+    Total Forces time:    318.43701839 seconds
+    Total Verlet Integration time:      0.25175476 seconds
+    Total Metrics time:      0.00307727 seconds
+    Total Host Update time:      0.02013326 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    12000, Time:    12.001220
+  dt:                    0.001000
+  Total KE:           7.39296341E+00
+  Total PE:          -2.04076271E+01
+  Total E:           -1.30146637E+01
+  Delta E:                5.65509558 %
+  Virial F (2KE+PE): -5.62170029E+00
+  COM position:  -4.3216E-02  3.6791E-02  5.2690E-03
+  COM velocity:   2.3799E-03 -8.7806E-04  4.3952E-04
+    Time Info: 
+    Total time till now:    335.06544709 seconds
+    Total Forces time:    332.27464437 seconds
+    Total Verlet Integration time:      0.26268125 seconds
+    Total Metrics time:      0.00321436 seconds
+    Total Host Update time:      0.02103329 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    12500, Time:    12.501422
+  dt:                    0.001000
+  Total KE:           7.02772379E+00
+  Total PE:          -2.00128021E+01
+  Total E:           -1.29850788E+01
+  Delta E:                5.86955976 %
+  Virial F (2KE+PE): -5.95735455E+00
+  COM position:  -4.2026E-02  3.6352E-02  5.4888E-03
+  COM velocity:   2.3798E-03 -8.7801E-04  4.3967E-04
+    Time Info: 
+    Total time till now:    349.02125192 seconds
+    Total Forces time:    346.11223698 seconds
+    Total Verlet Integration time:      0.27368164 seconds
+    Total Metrics time:      0.00332642 seconds
+    Total Host Update time:      0.02173543 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    13000, Time:    13.001624
+  dt:                    0.001000
+  Total KE:           7.13910627E+00
+  Total PE:          -2.00950928E+01
+  Total E:           -1.29559860E+01
+  Delta E:                6.08045721 %
+  Virial F (2KE+PE): -5.81688023E+00
+  COM position:  -4.0836E-02  3.5913E-02  5.7087E-03
+  COM velocity:   2.3799E-03 -8.7795E-04  4.3985E-04
+    Time Info: 
+    Total time till now:    362.97584796 seconds
+    Total Forces time:    359.94954419 seconds
+    Total Verlet Integration time:      0.28453112 seconds
+    Total Metrics time:      0.00344324 seconds
+    Total Host Update time:      0.02241659 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    13500, Time:    13.501826
+  dt:                    0.001000
+  Total KE:           7.19354630E+00
+  Total PE:          -2.01198692E+01
+  Total E:           -1.29263229E+01
+  Delta E:                6.29548883 %
+  Virial F (2KE+PE): -5.73277664E+00
+  COM position:  -3.9646E-02  3.5474E-02  5.9286E-03
+  COM velocity:   2.3799E-03 -8.7790E-04  4.3978E-04
+    Time Info: 
+    Total time till now:    376.93127799 seconds
+    Total Forces time:    373.78699684 seconds
+    Total Verlet Integration time:      0.29552388 seconds
+    Total Metrics time:      0.00355625 seconds
+    Total Host Update time:      0.02310443 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    14000, Time:    14.002028
+  dt:                    0.001000
+  Total KE:           6.66511822E+00
+  Total PE:          -1.95628567E+01
+  Total E:           -1.28977385E+01
+  Delta E:                6.50270128 %
+  Virial F (2KE+PE): -6.23262024E+00
+  COM position:  -3.8456E-02  3.5035E-02  6.1485E-03
+  COM velocity:   2.3799E-03 -8.7795E-04  4.3973E-04
+    Time Info: 
+    Total time till now:    390.88753510 seconds
+    Total Forces time:    387.62468839 seconds
+    Total Verlet Integration time:      0.30634093 seconds
+    Total Metrics time:      0.00367236 seconds
+    Total Host Update time:      0.02380133 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    14500, Time:    14.502231
+  dt:                    0.001000
+  Total KE:           7.47873116E+00
+  Total PE:          -2.03473911E+01
+  Total E:           -1.28686600E+01
+  Delta E:                6.71349478 %
+  Virial F (2KE+PE): -5.38992882E+00
+  COM position:  -3.7266E-02  3.4596E-02  6.3684E-03
+  COM velocity:   2.3798E-03 -8.7794E-04  4.3965E-04
+    Time Info: 
+    Total time till now:    404.84435511 seconds
+    Total Forces time:    401.46242285 seconds
+    Total Verlet Integration time:      0.31734109 seconds
+    Total Metrics time:      0.00381541 seconds
+    Total Host Update time:      0.02483749 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    15000, Time:    15.002433
+  dt:                    0.001000
+  Total KE:           7.01720715E+00
+  Total PE:          -1.98561172E+01
+  Total E:           -1.28389101E+01
+  Delta E:                6.92915535 %
+  Virial F (2KE+PE): -5.82170296E+00
+  COM position:  -3.6076E-02  3.4157E-02  6.5881E-03
+  COM velocity:   2.3797E-03 -8.7786E-04  4.3951E-04
+    Time Info: 
+    Total time till now:    418.80013299 seconds
+    Total Forces time:    415.30017686 seconds
+    Total Verlet Integration time:      0.32822251 seconds
+    Total Metrics time:      0.00392938 seconds
+    Total Host Update time:      0.02552438 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    15500, Time:    15.502635
+  dt:                    0.001000
+  Total KE:           7.11373377E+00
+  Total PE:          -1.99241123E+01
+  Total E:           -1.28103790E+01
+  Delta E:                7.13598061 %
+  Virial F (2KE+PE): -5.69664478E+00
+  COM position:  -3.4886E-02  3.3718E-02  6.8079E-03
+  COM velocity:   2.3797E-03 -8.7793E-04  4.3936E-04
+    Time Info: 
+    Total time till now:    432.75604010 seconds
+    Total Forces time:    429.13810587 seconds
+    Total Verlet Integration time:      0.33921432 seconds
+    Total Metrics time:      0.00404143 seconds
+    Total Host Update time:      0.02621436 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    16000, Time:    16.002834
+  dt:                    0.001000
+  Total KE:           7.11164856E+00
+  Total PE:          -1.98930626E+01
+  Total E:           -1.27814140E+01
+  Delta E:                7.34595156 %
+  Virial F (2KE+PE): -5.66976547E+00
+  COM position:  -3.3697E-02  3.3279E-02  7.0275E-03
+  COM velocity:   2.3797E-03 -8.7803E-04  4.3913E-04
+    Time Info: 
+    Total time till now:    446.71087599 seconds
+    Total Forces time:    442.97560000 seconds
+    Total Verlet Integration time:      0.35014629 seconds
+    Total Metrics time:      0.00415945 seconds
+    Total Host Update time:      0.02692652 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    16500, Time:    16.502560
+  dt:                    0.001000
+  Total KE:           6.77170753E+00
+  Total PE:          -1.95252876E+01
+  Total E:           -1.27535801E+01
+  Delta E:                7.54772282 %
+  Virial F (2KE+PE): -5.98187256E+00
+  COM position:  -3.2507E-02  3.2840E-02  7.2470E-03
+  COM velocity:   2.3798E-03 -8.7808E-04  4.3891E-04
+    Time Info: 
+    Total time till now:    460.66622901 seconds
+    Total Forces time:    456.81286931 seconds
+    Total Verlet Integration time:      0.36110544 seconds
+    Total Metrics time:      0.00430155 seconds
+    Total Host Update time:      0.02798963 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    17000, Time:    17.002285
+  dt:                    0.001000
+  Total KE:           7.17822933E+00
+  Total PE:          -1.99040813E+01
+  Total E:           -1.27258520E+01
+  Delta E:                7.74872732 %
+  Virial F (2KE+PE): -5.54762268E+00
+  COM position:  -3.1317E-02  3.2401E-02  7.4664E-03
+  COM velocity:   2.3798E-03 -8.7807E-04  4.3857E-04
+    Time Info: 
+    Total time till now:    474.62061000 seconds
+    Total Forces time:    470.65044785 seconds
+    Total Verlet Integration time:      0.37207413 seconds
+    Total Metrics time:      0.00441766 seconds
+    Total Host Update time:      0.02867055 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    17500, Time:    17.502010
+  dt:                    0.001000
+  Total KE:           7.13326216E+00
+  Total PE:          -1.98306580E+01
+  Total E:           -1.26973953E+01
+  Delta E:                7.95501328 %
+  Virial F (2KE+PE): -5.56413364E+00
+  COM position:  -3.0127E-02  3.1962E-02  7.6856E-03
+  COM velocity:   2.3799E-03 -8.7806E-04  4.3829E-04
+    Time Info: 
+    Total time till now:    488.57610297 seconds
+    Total Forces time:    484.48803902 seconds
+    Total Verlet Integration time:      0.38298774 seconds
+    Total Metrics time:      0.00453162 seconds
+    Total Host Update time:      0.02936673 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    18000, Time:    18.001736
+  dt:                    0.001000
+  Total KE:           7.29036713E+00
+  Total PE:          -1.99598083E+01
+  Total E:           -1.26694412E+01
+  Delta E:                8.15765572 %
+  Virial F (2KE+PE): -5.37907410E+00
+  COM position:  -2.8937E-02  3.1523E-02  7.9047E-03
+  COM velocity:   2.3800E-03 -8.7804E-04  4.3811E-04
+    Time Info: 
+    Total time till now:    502.53321195 seconds
+    Total Forces time:    498.32568502 seconds
+    Total Verlet Integration time:      0.39394331 seconds
+    Total Metrics time:      0.00464964 seconds
+    Total Host Update time:      0.03006172 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    18500, Time:    18.501461
+  dt:                    0.001000
+  Total KE:           7.27137566E+00
+  Total PE:          -1.99126625E+01
+  Total E:           -1.26412868E+01
+  Delta E:                8.36174965 %
+  Virial F (2KE+PE): -5.36991119E+00
+  COM position:  -2.7747E-02  3.1084E-02  8.1237E-03
+  COM velocity:   2.3801E-03 -8.7805E-04  4.3786E-04
+    Time Info: 
+    Total time till now:    516.48982000 seconds
+    Total Forces time:    512.16350961 seconds
+    Total Verlet Integration time:      0.40479136 seconds
+    Total Metrics time:      0.00478864 seconds
+    Total Host Update time:      0.03106856 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    19000, Time:    19.001186
+  dt:                    0.001000
+  Total KE:           7.11757421E+00
+  Total PE:          -1.97316284E+01
+  Total E:           -1.26140537E+01
+  Delta E:                8.55916691 %
+  Virial F (2KE+PE): -5.49647999E+00
+  COM position:  -2.6557E-02  3.0645E-02  8.3425E-03
+  COM velocity:   2.3803E-03 -8.7807E-04  4.3747E-04
+    Time Info: 
+    Total time till now:    530.44575715 seconds
+    Total Forces time:    526.00122261 seconds
+    Total Verlet Integration time:      0.41586328 seconds
+    Total Metrics time:      0.00490379 seconds
+    Total Host Update time:      0.03173971 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    19500, Time:    19.500912
+  dt:                    0.001000
+  Total KE:           7.49879551E+00
+  Total PE:          -2.00854511E+01
+  Total E:           -1.25866556E+01
+  Delta E:                8.75777912 %
+  Virial F (2KE+PE): -5.08786011E+00
+  COM position:  -2.5367E-02  3.0206E-02  8.5611E-03
+  COM velocity:   2.3804E-03 -8.7803E-04  4.3709E-04
+    Time Info: 
+    Total time till now:    544.40089202 seconds
+    Total Forces time:    539.83865023 seconds
+    Total Verlet Integration time:      0.42668653 seconds
+    Total Metrics time:      0.00501895 seconds
+    Total Host Update time:      0.03244066 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    20000, Time:    20.000637
+  dt:                    0.001000
+  Total KE:           7.64809322E+00
+  Total PE:          -2.02063828E+01
+  Total E:           -1.25582895E+01
+  Delta E:                8.96340847 %
+  Virial F (2KE+PE): -4.91019630E+00
+  COM position:  -2.4176E-02  2.9767E-02  8.7796E-03
+  COM velocity:   2.3807E-03 -8.7783E-04  4.3675E-04
+    Time Info: 
+    Total time till now:    558.35604095 seconds
+    Total Forces time:    553.67608714 seconds
+    Total Verlet Integration time:      0.43765521 seconds
+    Total Metrics time:      0.00513482 seconds
+    Total Host Update time:      0.03312159 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    20500, Time:    20.500362
+  dt:                    0.001000
+  Total KE:           7.31257391E+00
+  Total PE:          -1.98431892E+01
+  Total E:           -1.25306149E+01
+  Delta E:                9.16402531 %
+  Virial F (2KE+PE): -5.21804142E+00
+  COM position:  -2.2986E-02  2.9328E-02  8.9979E-03
+  COM velocity:   2.3807E-03 -8.7759E-04  4.3642E-04
+    Time Info: 
+    Total time till now:    572.31162715 seconds
+    Total Forces time:    567.51341653 seconds
+    Total Verlet Integration time:      0.44849968 seconds
+    Total Metrics time:      0.00525689 seconds
+    Total Host Update time:      0.03380466 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    21000, Time:    21.000088
+  dt:                    0.001000
+  Total KE:           7.47097492E+00
+  Total PE:          -1.99742565E+01
+  Total E:           -1.25032816E+01
+  Delta E:                9.36216831 %
+  Virial F (2KE+PE): -5.03230667E+00
+  COM position:  -2.1796E-02  2.8889E-02  9.2161E-03
+  COM velocity:   2.3806E-03 -8.7742E-04  4.3624E-04
+    Time Info: 
+    Total time till now:    586.26769614 seconds
+    Total Forces time:    581.35101295 seconds
+    Total Verlet Integration time:      0.45952606 seconds
+    Total Metrics time:      0.00539899 seconds
+    Total Host Update time:      0.03485584 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    21500, Time:    21.499813
+  dt:                    0.001000
+  Total KE:           7.10773659E+00
+  Total PE:          -1.95838623E+01
+  Total E:           -1.24761257E+01
+  Delta E:                9.55902386 %
+  Virial F (2KE+PE): -5.36838913E+00
+  COM position:  -2.0605E-02  2.8451E-02  9.4341E-03
+  COM velocity:   2.3805E-03 -8.7729E-04  4.3607E-04
+    Time Info: 
+    Total time till now:    600.22153902 seconds
+    Total Forces time:    595.18868685 seconds
+    Total Verlet Integration time:      0.47037005 seconds
+    Total Metrics time:      0.00551486 seconds
+    Total Host Update time:      0.03544164 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    22000, Time:    21.999538
+  dt:                    0.001000
+  Total KE:           7.09816265E+00
+  Total PE:          -1.95481758E+01
+  Total E:           -1.24500132E+01
+  Delta E:                9.74831772 %
+  Virial F (2KE+PE): -5.35185051E+00
+  COM position:  -1.9415E-02  2.8012E-02  9.6521E-03
+  COM velocity:   2.3805E-03 -8.7716E-04  4.3596E-04
+    Time Info: 
+    Total time till now:    614.17558312 seconds
+    Total Forces time:    609.02631140 seconds
+    Total Verlet Integration time:      0.48133540 seconds
+    Total Metrics time:      0.00562906 seconds
+    Total Host Update time:      0.03613472 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    22500, Time:    22.499264
+  dt:                    0.001000
+  Total KE:           7.40279865E+00
+  Total PE:          -1.98260994E+01
+  Total E:           -1.24233007E+01
+  Delta E:                9.94195843 %
+  Virial F (2KE+PE): -5.02050209E+00
+  COM position:  -1.8225E-02  2.7574E-02  9.8701E-03
+  COM velocity:   2.3805E-03 -8.7702E-04  4.3577E-04
+    Time Info: 
+    Total time till now:    628.13080311 seconds
+    Total Forces time:    622.86414576 seconds
+    Total Verlet Integration time:      0.49220204 seconds
+    Total Metrics time:      0.00574517 seconds
+    Total Host Update time:      0.03682685 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    23000, Time:    22.998989
+  dt:                    0.001000
+  Total KE:           7.30558729E+00
+  Total PE:          -1.97019768E+01
+  Total E:           -1.23963890E+01
+  Delta E:               10.13704491 %
+  Virial F (2KE+PE): -5.09080219E+00
+  COM position:  -1.7035E-02  2.7135E-02  1.0088E-02
+  COM velocity:   2.3805E-03 -8.7693E-04  4.3559E-04
+    Time Info: 
+    Total time till now:    642.08660698 seconds
+    Total Forces time:    636.70166516 seconds
+    Total Verlet Integration time:      0.50325441 seconds
+    Total Metrics time:      0.00588799 seconds
+    Total Host Update time:      0.03787875 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    23500, Time:    23.498714
+  dt:                    0.001000
+  Total KE:           7.51234627E+00
+  Total PE:          -1.98818665E+01
+  Total E:           -1.23695202E+01
+  Delta E:               10.33182049 %
+  Virial F (2KE+PE): -4.85717392E+00
+  COM position:  -1.5844E-02  2.6697E-02  1.0306E-02
+  COM velocity:   2.3805E-03 -8.7689E-04  4.3541E-04
+    Time Info: 
+    Total time till now:    656.04215002 seconds
+    Total Forces time:    650.53917694 seconds
+    Total Verlet Integration time:      0.51411867 seconds
+    Total Metrics time:      0.00600290 seconds
+    Total Host Update time:      0.03856468 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    24000, Time:    23.998440
+  dt:                    0.001000
+  Total KE:           7.55474854E+00
+  Total PE:          -1.98971863E+01
+  Total E:           -1.23424377E+01
+  Delta E:               10.52814388 %
+  Virial F (2KE+PE): -4.78768921E+00
+  COM position:  -1.4654E-02  2.6258E-02  1.0523E-02
+  COM velocity:   2.3805E-03 -8.7696E-04  4.3524E-04
+    Time Info: 
+    Total time till now:    669.99827409 seconds
+    Total Forces time:    664.37683797 seconds
+    Total Verlet Integration time:      0.52499247 seconds
+    Total Metrics time:      0.00611496 seconds
+    Total Host Update time:      0.03922462 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    24500, Time:    24.498165
+  dt:                    0.001000
+  Total KE:           7.43050623E+00
+  Total PE:          -1.97464771E+01
+  Total E:           -1.23159714E+01
+  Delta E:               10.72000313 %
+  Virial F (2KE+PE): -4.88546467E+00
+  COM position:  -1.3464E-02  2.5820E-02  1.0741E-02
+  COM velocity:   2.3804E-03 -8.7697E-04  4.3517E-04
+    Time Info: 
+    Total time till now:    683.95206594 seconds
+    Total Forces time:    678.21421409 seconds
+    Total Verlet Integration time:      0.53585458 seconds
+    Total Metrics time:      0.00623512 seconds
+    Total Host Update time:      0.03974867 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    25000, Time:    24.997890
+  dt:                    0.001000
+  Total KE:           7.78942966E+00
+  Total PE:          -2.00784912E+01
+  Total E:           -1.22890615E+01
+  Delta E:               10.91507530 %
+  Virial F (2KE+PE): -4.49963188E+00
+  COM position:  -1.2274E-02  2.5381E-02  1.0959E-02
+  COM velocity:   2.3804E-03 -8.7712E-04  4.3514E-04
+    Time Info: 
+    Total time till now:    697.90806794 seconds
+    Total Forces time:    692.05186176 seconds
+    Total Verlet Integration time:      0.54673791 seconds
+    Total Metrics time:      0.00637603 seconds
+    Total Host Update time:      0.04077435 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    25500, Time:    25.497616
+  dt:                    0.001000
+  Total KE:           7.54474545E+00
+  Total PE:          -1.98067303E+01
+  Total E:           -1.22619848E+01
+  Delta E:               11.11135769 %
+  Virial F (2KE+PE): -4.71723938E+00
+  COM position:  -1.1084E-02  2.4943E-02  1.1176E-02
+  COM velocity:   2.3803E-03 -8.7716E-04  4.3503E-04
+    Time Info: 
+    Total time till now:    711.86434507 seconds
+    Total Forces time:    705.88937569 seconds
+    Total Verlet Integration time:      0.55760384 seconds
+    Total Metrics time:      0.00649500 seconds
+    Total Host Update time:      0.04146338 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    26000, Time:    25.997341
+  dt:                    0.001000
+  Total KE:           7.44873428E+00
+  Total PE:          -1.96845703E+01
+  Total E:           -1.22358360E+01
+  Delta E:               11.30091286 %
+  Virial F (2KE+PE): -4.78710175E+00
+  COM position:  -9.8934E-03  2.4504E-02  1.1394E-02
+  COM velocity:   2.3804E-03 -8.7712E-04  4.3494E-04
+    Time Info: 
+    Total time till now:    725.88443899 seconds
+    Total Forces time:    719.72687984 seconds
+    Total Verlet Integration time:      0.56844020 seconds
+    Total Metrics time:      0.00661111 seconds
+    Total Host Update time:      0.04214716 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    26500, Time:    26.497066
+  dt:                    0.001000
+  Total KE:           7.55260515E+00
+  Total PE:          -1.97621002E+01
+  Total E:           -1.22094955E+01
+  Delta E:               11.49185944 %
+  Virial F (2KE+PE): -4.65688992E+00
+  COM position:  -8.7032E-03  2.4066E-02  1.1611E-02
+  COM velocity:   2.3804E-03 -8.7706E-04  4.3482E-04
+    Time Info: 
+    Total time till now:    739.83987093 seconds
+    Total Forces time:    733.56430459 seconds
+    Total Verlet Integration time:      0.57928777 seconds
+    Total Metrics time:      0.00672913 seconds
+    Total Host Update time:      0.04284620 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    27000, Time:    26.996792
+  dt:                    0.001000
+  Total KE:           7.15207338E+00
+  Total PE:          -1.93357544E+01
+  Total E:           -1.21836815E+01
+  Delta E:               11.67898846 %
+  Virial F (2KE+PE): -5.03160763E+00
+  COM position:  -7.5130E-03  2.3627E-02  1.1828E-02
+  COM velocity:   2.3804E-03 -8.7699E-04  4.3471E-04
+    Time Info: 
+    Total time till now:    753.79636312 seconds
+    Total Forces time:    747.40181541 seconds
+    Total Verlet Integration time:      0.59015799 seconds
+    Total Metrics time:      0.00686598 seconds
+    Total Host Update time:      0.04388022 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    27500, Time:    27.496517
+  dt:                    0.001000
+  Total KE:           7.28465652E+00
+  Total PE:          -1.94433575E+01
+  Total E:           -1.21587009E+01
+  Delta E:               11.86007595 %
+  Virial F (2KE+PE): -4.87404442E+00
+  COM position:  -6.3228E-03  2.3189E-02  1.2046E-02
+  COM velocity:   2.3804E-03 -8.7700E-04  4.3467E-04
+    Time Info: 
+    Total time till now:    767.75128913 seconds
+    Total Forces time:    761.23915672 seconds
+    Total Verlet Integration time:      0.60102868 seconds
+    Total Metrics time:      0.00698304 seconds
+    Total Host Update time:      0.04456043 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    28000, Time:    27.996243
+  dt:                    0.001000
+  Total KE:           7.56257248E+00
+  Total PE:          -1.96953793E+01
+  Total E:           -1.21328068E+01
+  Delta E:               12.04778576 %
+  Virial F (2KE+PE): -4.57023430E+00
+  COM position:  -5.1326E-03  2.2750E-02  1.2263E-02
+  COM velocity:   2.3804E-03 -8.7701E-04  4.3467E-04
+    Time Info: 
+    Total time till now:    781.70610714 seconds
+    Total Forces time:    775.07663774 seconds
+    Total Verlet Integration time:      0.61188793 seconds
+    Total Metrics time:      0.00709915 seconds
+    Total Host Update time:      0.04523849 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    28500, Time:    28.495968
+  dt:                    0.001000
+  Total KE:           7.25711727E+00
+  Total PE:          -1.93645229E+01
+  Total E:           -1.21074057E+01
+  Delta E:               12.23192120 %
+  Virial F (2KE+PE): -4.85028839E+00
+  COM position:  -3.9424E-03  2.2312E-02  1.2480E-02
+  COM velocity:   2.3804E-03 -8.7694E-04  4.3469E-04
+    Time Info: 
+    Total time till now:    795.66216612 seconds
+    Total Forces time:    788.91409540 seconds
+    Total Verlet Integration time:      0.62272501 seconds
+    Total Metrics time:      0.00721407 seconds
+    Total Host Update time:      0.04591775 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    29000, Time:    28.995693
+  dt:                    0.001000
+  Total KE:           7.56855202E+00
+  Total PE:          -1.96508522E+01
+  Total E:           -1.20823002E+01
+  Delta E:               12.41391373 %
+  Virial F (2KE+PE): -4.51374817E+00
+  COM position:  -2.7522E-03  2.1873E-02  1.2698E-02
+  COM velocity:   2.3804E-03 -8.7687E-04  4.3466E-04
+    Time Info: 
+    Total time till now:    809.61575198 seconds
+    Total Forces time:    802.75133419 seconds
+    Total Verlet Integration time:      0.63357687 seconds
+    Total Metrics time:      0.00732708 seconds
+    Total Host Update time:      0.04659176 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    29500, Time:    29.495419
+  dt:                    0.001000
+  Total KE:           7.56694889E+00
+  Total PE:          -1.96234589E+01
+  Total E:           -1.20565100E+01
+  Delta E:               12.60087013 %
+  Virial F (2KE+PE): -4.48956108E+00
+  COM position:  -1.5620E-03  2.1435E-02  1.2915E-02
+  COM velocity:   2.3804E-03 -8.7676E-04  4.3458E-04
+    Time Info: 
+    Total time till now:    823.57207608 seconds
+    Total Forces time:    816.58918929 seconds
+    Total Verlet Integration time:      0.64444685 seconds
+    Total Metrics time:      0.00747323 seconds
+    Total Host Update time:      0.04763389 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    30000, Time:    29.995144
+  dt:                    0.001000
+  Total KE:           7.21673870E+00
+  Total PE:          -1.92484837E+01
+  Total E:           -1.20317450E+01
+  Delta E:               12.78039551 %
+  Virial F (2KE+PE): -4.81500626E+00
+  COM position:  -3.7175E-04  2.0996E-02  1.3132E-02
+  COM velocity:   2.3805E-03 -8.7673E-04  4.3451E-04
+    Time Info: 
+    Total time till now:    837.52709198 seconds
+    Total Forces time:    830.42664886 seconds
+    Total Verlet Integration time:      0.65531373 seconds
+    Total Metrics time:      0.00758719 seconds
+    Total Host Update time:      0.04833889 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    30500, Time:    30.494869
+  dt:                    0.001000
+  Total KE:           7.71901751E+00
+  Total PE:          -1.97257824E+01
+  Total E:           -1.20067654E+01
+  Delta E:               12.96147537 %
+  Virial F (2KE+PE): -4.28774738E+00
+  COM position:   8.1853E-04  2.0558E-02  1.3350E-02
+  COM velocity:   2.3806E-03 -8.7672E-04  4.3431E-04
+    Time Info: 
+    Total time till now:    851.48124504 seconds
+    Total Forces time:    844.26410866 seconds
+    Total Verlet Integration time:      0.66616631 seconds
+    Total Metrics time:      0.00770020 seconds
+    Total Host Update time:      0.04902291 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    31000, Time:    30.994595
+  dt:                    0.001000
+  Total KE:           7.56868696E+00
+  Total PE:          -1.95498352E+01
+  Total E:           -1.19811478E+01
+  Delta E:               13.14717960 %
+  Virial F (2KE+PE): -4.41246128E+00
+  COM position:   2.0089E-03  2.0120E-02  1.3567E-02
+  COM velocity:   2.3808E-03 -8.7663E-04  4.3409E-04
+    Time Info: 
+    Total time till now:    865.43733692 seconds
+    Total Forces time:    858.10171437 seconds
+    Total Verlet Integration time:      0.67704535 seconds
+    Total Metrics time:      0.00781322 seconds
+    Total Host Update time:      0.04964900 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    31500, Time:    31.494320
+  dt:                    0.001000
+  Total KE:           7.26169538E+00
+  Total PE:          -1.92184925E+01
+  Total E:           -1.19567966E+01
+  Delta E:               13.32370472 %
+  Virial F (2KE+PE): -4.69510174E+00
+  COM position:   3.1993E-03  1.9681E-02  1.3784E-02
+  COM velocity:   2.3809E-03 -8.7661E-04  4.3399E-04
+    Time Info: 
+    Total time till now:    879.39282393 seconds
+    Total Forces time:    871.93924379 seconds
+    Total Verlet Integration time:      0.68789458 seconds
+    Total Metrics time:      0.00795317 seconds
+    Total Host Update time:      0.05067897 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    32000, Time:    31.994045
+  dt:                    0.001000
+  Total KE:           7.56592274E+00
+  Total PE:          -1.94982281E+01
+  Total E:           -1.19323053E+01
+  Delta E:               13.50124454 %
+  Virial F (2KE+PE): -4.36638260E+00
+  COM position:   4.3898E-03  1.9243E-02  1.4001E-02
+  COM velocity:   2.3811E-03 -8.7657E-04  4.3393E-04
+    Time Info: 
+    Total time till now:    893.34822392 seconds
+    Total Forces time:    885.77689195 seconds
+    Total Verlet Integration time:      0.69877839 seconds
+    Total Metrics time:      0.00806928 seconds
+    Total Host Update time:      0.05135512 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    32500, Time:    32.493771
+  dt:                    0.001000
+  Total KE:           7.29804039E+00
+  Total PE:          -1.92057076E+01
+  Total E:           -1.19076672E+01
+  Delta E:               13.67984962 %
+  Virial F (2KE+PE): -4.60962677E+00
+  COM position:   5.5804E-03  1.8805E-02  1.4218E-02
+  COM velocity:   2.3813E-03 -8.7656E-04  4.3386E-04
+    Time Info: 
+    Total time till now:    907.30312896 seconds
+    Total Forces time:    899.61426115 seconds
+    Total Verlet Integration time:      0.70958161 seconds
+    Total Metrics time:      0.00818229 seconds
+    Total Host Update time:      0.05202723 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    33000, Time:    32.993496
+  dt:                    0.001000
+  Total KE:           7.18919516E+00
+  Total PE:          -1.90732460E+01
+  Total E:           -1.18840504E+01
+  Delta E:               13.85105133 %
+  Virial F (2KE+PE): -4.69485569E+00
+  COM position:   6.7711E-03  1.8366E-02  1.4435E-02
+  COM velocity:   2.3814E-03 -8.7664E-04  4.3385E-04
+    Time Info: 
+    Total time till now:    921.25914097 seconds
+    Total Forces time:    913.45187235 seconds
+    Total Verlet Integration time:      0.72044396 seconds
+    Total Metrics time:      0.00829530 seconds
+    Total Host Update time:      0.05271006 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    33500, Time:    33.493221
+  dt:                    0.001000
+  Total KE:           7.60767555E+00
+  Total PE:          -1.94673500E+01
+  Total E:           -1.18596745E+01
+  Delta E:               14.02775478 %
+  Virial F (2KE+PE): -4.25199890E+00
+  COM position:   7.9619E-03  1.7928E-02  1.4651E-02
+  COM velocity:   2.3816E-03 -8.7674E-04  4.3390E-04
+    Time Info: 
+    Total time till now:    935.21434212 seconds
+    Total Forces time:    927.28922033 seconds
+    Total Verlet Integration time:      0.73130584 seconds
+    Total Metrics time:      0.00843143 seconds
+    Total Host Update time:      0.05373621 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    34000, Time:    33.992947
+  dt:                    0.001000
+  Total KE:           7.33656120E+00
+  Total PE:          -1.91717529E+01
+  Total E:           -1.18351917E+01
+  Delta E:               14.20523357 %
+  Virial F (2KE+PE): -4.49863052E+00
+  COM position:   9.1527E-03  1.7490E-02  1.4868E-02
+  COM velocity:   2.3817E-03 -8.7686E-04  4.3387E-04
+    Time Info: 
+    Total time till now:    949.17039013 seconds
+    Total Forces time:    941.12681508 seconds
+    Total Verlet Integration time:      0.74216986 seconds
+    Total Metrics time:      0.00854445 seconds
+    Total Host Update time:      0.05431724 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    34500, Time:    34.492672
+  dt:                    0.001000
+  Total KE:           7.26475334E+00
+  Total PE:          -1.90763683E+01
+  Total E:           -1.18116150E+01
+  Delta E:               14.37614441 %
+  Virial F (2KE+PE): -4.54686165E+00
+  COM position:   1.0344E-02  1.7051E-02  1.5085E-02
+  COM velocity:   2.3818E-03 -8.7687E-04  4.3381E-04
+    Time Info: 
+    Total time till now:    963.12605095 seconds
+    Total Forces time:    954.96433759 seconds
+    Total Verlet Integration time:      0.75300980 seconds
+    Total Metrics time:      0.00866055 seconds
+    Total Host Update time:      0.05500531 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    35000, Time:    34.992397
+  dt:                    0.001000
+  Total KE:           7.52326107E+00
+  Total PE:          -1.93108635E+01
+  Total E:           -1.17876024E+01
+  Delta E:               14.55021477 %
+  Virial F (2KE+PE): -4.26434135E+00
+  COM position:   1.1534E-02  1.6613E-02  1.5302E-02
+  COM velocity:   2.3820E-03 -8.7687E-04  4.3357E-04
+    Time Info: 
+    Total time till now:    977.08074498 seconds
+    Total Forces time:    968.80174303 seconds
+    Total Verlet Integration time:      0.76384306 seconds
+    Total Metrics time:      0.00877357 seconds
+    Total Host Update time:      0.05569124 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    35500, Time:    35.492123
+  dt:                    0.001000
+  Total KE:           7.11563158E+00
+  Total PE:          -1.88793678E+01
+  Total E:           -1.17637367E+01
+  Delta E:               14.72321892 %
+  Virial F (2KE+PE): -4.64810467E+00
+  COM position:   1.2725E-02  1.6174E-02  1.5519E-02
+  COM velocity:   2.3821E-03 -8.7692E-04  4.3333E-04
+    Time Info: 
+    Total time till now:    991.03629112 seconds
+    Total Forces time:    982.63950372 seconds
+    Total Verlet Integration time:      0.77463436 seconds
+    Total Metrics time:      0.00889063 seconds
+    Total Host Update time:      0.05637336 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    36000, Time:    35.991848
+  dt:                    0.001000
+  Total KE:           7.09396648E+00
+  Total PE:          -1.88351402E+01
+  Total E:           -1.17411737E+01
+  Delta E:               14.88678169 %
+  Virial F (2KE+PE): -4.64720726E+00
+  COM position:   1.3917E-02  1.5736E-02  1.5736E-02
+  COM velocity:   2.3822E-03 -8.7698E-04  4.3315E-04
+    Time Info: 
+    Total time till now:   1004.99140811 seconds
+    Total Forces time:    996.47707534 seconds
+    Total Verlet Integration time:      0.78550935 seconds
+    Total Metrics time:      0.00903153 seconds
+    Total Host Update time:      0.05741549 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    36500, Time:    36.491573
+  dt:                    0.001000
+  Total KE:           7.57707930E+00
+  Total PE:          -1.92947311E+01
+  Total E:           -1.17176514E+01
+  Delta E:               15.05729866 %
+  Virial F (2KE+PE): -4.14057255E+00
+  COM position:   1.5108E-02  1.5297E-02  1.5952E-02
+  COM velocity:   2.3824E-03 -8.7702E-04  4.3293E-04
+    Time Info: 
+    Total time till now:   1018.94692302 seconds
+    Total Forces time:   1010.31467462 seconds
+    Total Verlet Integration time:      0.79635525 seconds
+    Total Metrics time:      0.00914860 seconds
+    Total Host Update time:      0.05808854 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    37000, Time:    36.991299
+  dt:                    0.001000
+  Total KE:           7.32163095E+00
+  Total PE:          -1.90154228E+01
+  Total E:           -1.16937923E+01
+  Delta E:               15.23025513 %
+  Virial F (2KE+PE): -4.37216091E+00
+  COM position:   1.6299E-02  1.4859E-02  1.6168E-02
+  COM velocity:   2.3825E-03 -8.7706E-04  4.3267E-04
+    Time Info: 
+    Total time till now:   1032.90254211 seconds
+    Total Forces time:   1024.15196896 seconds
+    Total Verlet Integration time:      0.80721545 seconds
+    Total Metrics time:      0.00926256 seconds
+    Total Host Update time:      0.05862141 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    37500, Time:    37.491024
+  dt:                    0.001000
+  Total KE:           7.28898096E+00
+  Total PE:          -1.89597702E+01
+  Total E:           -1.16707897E+01
+  Delta E:               15.39700317 %
+  Virial F (2KE+PE): -4.38180828E+00
+  COM position:   1.7490E-02  1.4420E-02  1.6385E-02
+  COM velocity:   2.3826E-03 -8.7708E-04  4.3251E-04
+    Time Info: 
+    Total time till now:   1046.85702896 seconds
+    Total Forces time:   1037.98933744 seconds
+    Total Verlet Integration time:      0.81811857 seconds
+    Total Metrics time:      0.00937843 seconds
+    Total Host Update time:      0.05931926 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    38000, Time:    37.990749
+  dt:                    0.001000
+  Total KE:           7.33914089E+00
+  Total PE:          -1.89868145E+01
+  Total E:           -1.16476736E+01
+  Delta E:               15.56457615 %
+  Virial F (2KE+PE): -4.30853271E+00
+  COM position:   1.8682E-02  1.3982E-02  1.6601E-02
+  COM velocity:   2.3826E-03 -8.7711E-04  4.3236E-04
+    Time Info: 
+    Total time till now:   1060.81282306 seconds
+    Total Forces time:   1051.82667446 seconds
+    Total Verlet Integration time:      0.82899904 seconds
+    Total Metrics time:      0.00952125 seconds
+    Total Host Update time:      0.06035924 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    38500, Time:    38.490475
+  dt:                    0.001000
+  Total KE:           7.12670898E+00
+  Total PE:          -1.87516060E+01
+  Total E:           -1.16248970E+01
+  Delta E:               15.72968674 %
+  Virial F (2KE+PE): -4.49818802E+00
+  COM position:   1.9873E-02  1.3543E-02  1.6817E-02
+  COM velocity:   2.3827E-03 -8.7715E-04  4.3213E-04
+    Time Info: 
+    Total time till now:   1074.76698399 seconds
+    Total Forces time:   1065.66397977 seconds
+    Total Verlet Integration time:      0.83981991 seconds
+    Total Metrics time:      0.00964212 seconds
+    Total Host Update time:      0.06105018 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    39000, Time:    38.990200
+  dt:                    0.001000
+  Total KE:           7.15282345E+00
+  Total PE:          -1.87553444E+01
+  Total E:           -1.16025209E+01
+  Delta E:               15.89189339 %
+  Virial F (2KE+PE): -4.44969749E+00
+  COM position:   2.1064E-02  1.3105E-02  1.7033E-02
+  COM velocity:   2.3827E-03 -8.7716E-04  4.3186E-04
+    Time Info: 
+    Total time till now:   1088.72161102 seconds
+    Total Forces time:   1079.50143623 seconds
+    Total Verlet Integration time:      0.85064292 seconds
+    Total Metrics time:      0.00975800 seconds
+    Total Host Update time:      0.06173706 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    39500, Time:    39.489925
+  dt:                    0.001000
+  Total KE:           7.26589870E+00
+  Total PE:          -1.88456669E+01
+  Total E:           -1.15797682E+01
+  Delta E:               16.05682945 %
+  Virial F (2KE+PE): -4.31386948E+00
+  COM position:   2.2256E-02  1.2666E-02  1.7249E-02
+  COM velocity:   2.3829E-03 -8.7717E-04  4.3156E-04
+    Time Info: 
+    Total time till now:   1102.67685604 seconds
+    Total Forces time:   1093.33887410 seconds
+    Total Verlet Integration time:      0.86150813 seconds
+    Total Metrics time:      0.00987315 seconds
+    Total Host Update time:      0.06241202 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    40000, Time:    39.989651
+  dt:                    0.001000
+  Total KE:           7.05296993E+00
+  Total PE:          -1.86103802E+01
+  Total E:           -1.15574102E+01
+  Delta E:               16.21890450 %
+  Virial F (2KE+PE): -4.50444031E+00
+  COM position:   2.3447E-02  1.2227E-02  1.7465E-02
+  COM velocity:   2.3829E-03 -8.7722E-04  4.3133E-04
+    Time Info: 
+    Total time till now:   1116.63221908 seconds
+    Total Forces time:   1107.17663980 seconds
+    Total Verlet Integration time:      0.87235808 seconds
+    Total Metrics time:      0.01001120 seconds
+    Total Host Update time:      0.06347108 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    40500, Time:    40.489376
+  dt:                    0.001000
+  Total KE:           7.14566612E+00
+  Total PE:          -1.86811905E+01
+  Total E:           -1.15355244E+01
+  Delta E:               16.37755966 %
+  Virial F (2KE+PE): -4.38985825E+00
+  COM position:   2.4638E-02  1.1789E-02  1.7680E-02
+  COM velocity:   2.3829E-03 -8.7732E-04  4.3116E-04
+    Time Info: 
+    Total time till now:   1130.58771801 seconds
+    Total Forces time:   1121.01435184 seconds
+    Total Verlet Integration time:      0.88323784 seconds
+    Total Metrics time:      0.01012921 seconds
+    Total Host Update time:      0.06416512 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    41000, Time:    40.989101
+  dt:                    0.001000
+  Total KE:           7.38423824E+00
+  Total PE:          -1.88971539E+01
+  Total E:           -1.15129156E+01
+  Delta E:               16.54145241 %
+  Virial F (2KE+PE): -4.12867737E+00
+  COM position:   2.5830E-02  1.1350E-02  1.7896E-02
+  COM velocity:   2.3828E-03 -8.7732E-04  4.3088E-04
+    Time Info: 
+    Total time till now:   1144.54392695 seconds
+    Total Forces time:   1134.85185075 seconds
+    Total Verlet Integration time:      0.89413714 seconds
+    Total Metrics time:      0.01024532 seconds
+    Total Host Update time:      0.06486130 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    41500, Time:    41.488827
+  dt:                    0.001000
+  Total KE:           7.13446760E+00
+  Total PE:          -1.86249657E+01
+  Total E:           -1.14904976E+01
+  Delta E:               16.70396423 %
+  Virial F (2KE+PE): -4.35603046E+00
+  COM position:   2.7021E-02  1.0912E-02  1.8111E-02
+  COM velocity:   2.3829E-03 -8.7727E-04  4.3056E-04
+    Time Info: 
+    Total time till now:   1158.50026512 seconds
+    Total Forces time:   1148.68973470 seconds
+    Total Verlet Integration time:      0.90499926 seconds
+    Total Metrics time:      0.01035929 seconds
+    Total Host Update time:      0.06554747 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    42000, Time:    41.988552
+  dt:                    0.001000
+  Total KE:           7.01605844E+00
+  Total PE:          -1.84851418E+01
+  Total E:           -1.14690838E+01
+  Delta E:               16.85919380 %
+  Virial F (2KE+PE): -4.45302486E+00
+  COM position:   2.8213E-02  1.0473E-02  1.8326E-02
+  COM velocity:   2.3829E-03 -8.7730E-04  4.3031E-04
+    Time Info: 
+    Total time till now:   1172.45532203 seconds
+    Total Forces time:   1162.52719069 seconds
+    Total Verlet Integration time:      0.91583109 seconds
+    Total Metrics time:      0.01047635 seconds
+    Total Host Update time:      0.06622744 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    42500, Time:    42.488277
+  dt:                    0.001000
+  Total KE:           7.28257561E+00
+  Total PE:          -1.87299423E+01
+  Total E:           -1.14473667E+01
+  Delta E:               17.01662445 %
+  Virial F (2KE+PE): -4.16479111E+00
+  COM position:   2.9404E-02  1.0034E-02  1.8541E-02
+  COM velocity:   2.3829E-03 -8.7738E-04  4.3003E-04
+    Time Info: 
+    Total time till now:   1186.41075206 seconds
+    Total Forces time:   1176.36468554 seconds
+    Total Verlet Integration time:      0.92670608 seconds
+    Total Metrics time:      0.01061726 seconds
+    Total Host Update time:      0.06727839 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    43000, Time:    42.988003
+  dt:                    0.001000
+  Total KE:           7.23611355E+00
+  Total PE:          -1.86614532E+01
+  Total E:           -1.14253397E+01
+  Delta E:               17.17630196 %
+  Virial F (2KE+PE): -4.18922615E+00
+  COM position:   3.0596E-02  9.5955E-03  1.8756E-02
+  COM velocity:   2.3829E-03 -8.7750E-04  4.2967E-04
+    Time Info: 
+    Total time till now:   1200.36585307 seconds
+    Total Forces time:   1190.20201874 seconds
+    Total Verlet Integration time:      0.93760252 seconds
+    Total Metrics time:      0.01073122 seconds
+    Total Host Update time:      0.06797743 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    43500, Time:    43.487728
+  dt:                    0.001000
+  Total KE:           7.05267429E+00
+  Total PE:          -1.84567146E+01
+  Total E:           -1.14040403E+01
+  Delta E:               17.33070374 %
+  Virial F (2KE+PE): -4.35136604E+00
+  COM position:   3.1787E-02  9.1567E-03  1.8971E-02
+  COM velocity:   2.3829E-03 -8.7756E-04  4.2940E-04
+    Time Info: 
+    Total time till now:   1214.32061505 seconds
+    Total Forces time:   1204.03974891 seconds
+    Total Verlet Integration time:      0.94845295 seconds
+    Total Metrics time:      0.01084614 seconds
+    Total Host Update time:      0.06860733 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    44000, Time:    43.987453
+  dt:                    0.001000
+  Total KE:           7.32374668E+00
+  Total PE:          -1.87063293E+01
+  Total E:           -1.13825827E+01
+  Delta E:               17.48625183 %
+  Virial F (2KE+PE): -4.05883598E+00
+  COM position:   3.2979E-02  8.7179E-03  1.9186E-02
+  COM velocity:   2.3829E-03 -8.7756E-04  4.2912E-04
+    Time Info: 
+    Total time till now:   1228.27647114 seconds
+    Total Forces time:   1217.87749720 seconds
+    Total Verlet Integration time:      0.95930696 seconds
+    Total Metrics time:      0.01096320 seconds
+    Total Host Update time:      0.06928325 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    44500, Time:    44.487179
+  dt:                    0.001000
+  Total KE:           7.30760002E+00
+  Total PE:          -1.86683273E+01
+  Total E:           -1.13607273E+01
+  Delta E:               17.64468384 %
+  Virial F (2KE+PE): -4.05312729E+00
+  COM position:   3.4170E-02  8.2792E-03  1.9400E-02
+  COM velocity:   2.3829E-03 -8.7756E-04  4.2879E-04
+    Time Info: 
+    Total time till now:   1242.23270607 seconds
+    Total Forces time:   1231.71506023 seconds
+    Total Verlet Integration time:      0.97022390 seconds
+    Total Metrics time:      0.01110530 seconds
+    Total Host Update time:      0.07031608 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    45000, Time:    44.986904
+  dt:                    0.001000
+  Total KE:           7.10259819E+00
+  Total PE:          -1.84422073E+01
+  Total E:           -1.13396091E+01
+  Delta E:               17.79777336 %
+  Virial F (2KE+PE): -4.23701096E+00
+  COM position:   3.5361E-02  7.8404E-03  1.9615E-02
+  COM velocity:   2.3829E-03 -8.7755E-04  4.2849E-04
+    Time Info: 
+    Total time till now:   1256.18685198 seconds
+    Total Forces time:   1245.55243587 seconds
+    Total Verlet Integration time:      0.98119521 seconds
+    Total Metrics time:      0.01121831 seconds
+    Total Host Update time:      0.07100582 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    45500, Time:    45.486629
+  dt:                    0.001000
+  Total KE:           7.30450535E+00
+  Total PE:          -1.86231308E+01
+  Total E:           -1.13186255E+01
+  Delta E:               17.94988632 %
+  Virial F (2KE+PE): -4.01412010E+00
+  COM position:   3.6553E-02  7.4016E-03  1.9829E-02
+  COM velocity:   2.3829E-03 -8.7748E-04  4.2823E-04
+    Time Info: 
+    Total time till now:   1270.14227915 seconds
+    Total Forces time:   1259.39002728 seconds
+    Total Verlet Integration time:      0.99198008 seconds
+    Total Metrics time:      0.01133347 seconds
+    Total Host Update time:      0.07169199 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    46000, Time:    45.986355
+  dt:                    0.001000
+  Total KE:           7.40389538E+00
+  Total PE:          -1.87010670E+01
+  Total E:           -1.12971716E+01
+  Delta E:               18.10540771 %
+  Virial F (2KE+PE): -3.89327621E+00
+  COM position:   3.7744E-02  6.9629E-03  2.0043E-02
+  COM velocity:   2.3829E-03 -8.7748E-04  4.2794E-04
+    Time Info: 
+    Total time till now:   1284.09679103 seconds
+    Total Forces time:   1273.22739339 seconds
+    Total Verlet Integration time:      1.00290394 seconds
+    Total Metrics time:      0.01145148 seconds
+    Total Host Update time:      0.07239389 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    46500, Time:    46.486080
+  dt:                    0.001000
+  Total KE:           7.20759392E+00
+  Total PE:          -1.84837551E+01
+  Total E:           -1.12761612E+01
+  Delta E:               18.25771523 %
+  Virial F (2KE+PE): -4.06856728E+00
+  COM position:   3.8936E-02  6.5242E-03  2.0257E-02
+  COM velocity:   2.3830E-03 -8.7748E-04  4.2777E-04
+    Time Info: 
+    Total time till now:   1298.05232906 seconds
+    Total Forces time:   1287.06522942 seconds
+    Total Verlet Integration time:      1.01381874 seconds
+    Total Metrics time:      0.01159239 seconds
+    Total Host Update time:      0.07333207 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    47000, Time:    46.985806
+  dt:                    0.001000
+  Total KE:           7.36867237E+00
+  Total PE:          -1.86241493E+01
+  Total E:           -1.12554770E+01
+  Delta E:               18.40765762 %
+  Virial F (2KE+PE): -3.88680458E+00
+  COM position:   4.0127E-02  6.0854E-03  2.0471E-02
+  COM velocity:   2.3830E-03 -8.7755E-04  4.2765E-04
+    Time Info: 
+    Total time till now:   1312.00788307 seconds
+    Total Forces time:   1300.90255785 seconds
+    Total Verlet Integration time:      1.02475977 seconds
+    Total Metrics time:      0.01170635 seconds
+    Total Host Update time:      0.07401204 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    47500, Time:    47.485531
+  dt:                    0.001000
+  Total KE:           7.59095240E+00
+  Total PE:          -1.88251362E+01
+  Total E:           -1.12341843E+01
+  Delta E:               18.56201172 %
+  Virial F (2KE+PE): -3.64323139E+00
+  COM position:   4.1319E-02  5.6466E-03  2.0684E-02
+  COM velocity:   2.3829E-03 -8.7758E-04  4.2743E-04
+    Time Info: 
+    Total time till now:   1325.96330214 seconds
+    Total Forces time:   1314.73982906 seconds
+    Total Verlet Integration time:      1.03560281 seconds
+    Total Metrics time:      0.01182127 seconds
+    Total Host Update time:      0.07470083 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    48000, Time:    47.985256
+  dt:                    0.001000
+  Total KE:           7.29530144E+00
+  Total PE:          -1.85084763E+01
+  Total E:           -1.12131748E+01
+  Delta E:               18.71430969 %
+  Virial F (2KE+PE): -3.91787338E+00
+  COM position:   4.2510E-02  5.2078E-03  2.0898E-02
+  COM velocity:   2.3829E-03 -8.7762E-04  4.2716E-04
+    Time Info: 
+    Total time till now:   1339.91889405 seconds
+    Total Forces time:   1328.57771254 seconds
+    Total Verlet Integration time:      1.04653835 seconds
+    Total Metrics time:      0.01193619 seconds
+    Total Host Update time:      0.07538080 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    48500, Time:    48.484982
+  dt:                    0.001000
+  Total KE:           7.28394508E+00
+  Total PE:          -1.84769268E+01
+  Total E:           -1.11929817E+01
+  Delta E:               18.86069298 %
+  Virial F (2KE+PE): -3.90903664E+00
+  COM position:   4.3702E-02  4.7690E-03  2.1111E-02
+  COM velocity:   2.3829E-03 -8.7762E-04  4.2684E-04
+    Time Info: 
+    Total time till now:   1353.87390995 seconds
+    Total Forces time:   1342.41510963 seconds
+    Total Verlet Integration time:      1.05744338 seconds
+    Total Metrics time:      0.01205111 seconds
+    Total Host Update time:      0.07606673 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    49000, Time:    48.984707
+  dt:                    0.001000
+  Total KE:           7.51381063E+00
+  Total PE:          -1.86860046E+01
+  Total E:           -1.11721935E+01
+  Delta E:               19.01138878 %
+  Virial F (2KE+PE): -3.65838337E+00
+  COM position:   4.4893E-02  4.3302E-03  2.1325E-02
+  COM velocity:   2.3828E-03 -8.7753E-04  4.2643E-04
+    Time Info: 
+    Total time till now:   1367.82926512 seconds
+    Total Forces time:   1356.25276089 seconds
+    Total Verlet Integration time:      1.06832409 seconds
+    Total Metrics time:      0.01220226 seconds
+    Total Host Update time:      0.07710862 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    49500, Time:    49.484432
+  dt:                    0.001000
+  Total KE:           7.33471775E+00
+  Total PE:          -1.84861679E+01
+  Total E:           -1.11514502E+01
+  Delta E:               19.16176033 %
+  Virial F (2KE+PE): -3.81673241E+00
+  COM position:   4.6084E-02  3.8915E-03  2.1538E-02
+  COM velocity:   2.3827E-03 -8.7750E-04  4.2590E-04
+    Time Info: 
+    Total time till now:   1381.85575509 seconds
+    Total Forces time:   1370.09059191 seconds
+    Total Verlet Integration time:      1.07913566 seconds
+    Total Metrics time:      0.01231909 seconds
+    Total Host Update time:      0.07763457 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    50000, Time:    49.984158
+  dt:                    0.001000
+  Total KE:           7.19295406E+00
+  Total PE:          -1.83243313E+01
+  Total E:           -1.11313772E+01
+  Delta E:               19.30727196 %
+  Virial F (2KE+PE): -3.93842316E+00
+  COM position:   4.7276E-02  3.4527E-03  2.1751E-02
+  COM velocity:   2.3826E-03 -8.7750E-04  4.2540E-04
+    Time Info: 
+    Total time till now:   1395.81032610 seconds
+    Total Forces time:   1383.92795730 seconds
+    Total Verlet Integration time:      1.09001184 seconds
+    Total Metrics time:      0.01243305 seconds
+    Total Host Update time:      0.07832241 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    50500, Time:    50.483883
+  dt:                    0.001000
+  Total KE:           7.31588125E+00
+  Total PE:          -1.84271431E+01
+  Total E:           -1.11112614E+01
+  Delta E:               19.45309258 %
+  Virial F (2KE+PE): -3.79538059E+00
+  COM position:   4.8467E-02  3.0140E-03  2.1963E-02
+  COM velocity:   2.3826E-03 -8.7752E-04  4.2497E-04
+    Time Info: 
+    Total time till now:   1409.76453209 seconds
+    Total Forces time:   1397.76524377 seconds
+    Total Verlet Integration time:      1.10088015 seconds
+    Total Metrics time:      0.01255012 seconds
+    Total Host Update time:      0.07901049 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    51000, Time:    50.983608
+  dt:                    0.001000
+  Total KE:           7.26695538E+00
+  Total PE:          -1.83578949E+01
+  Total E:           -1.10909395E+01
+  Delta E:               19.60040855 %
+  Virial F (2KE+PE): -3.82398415E+00
+  COM position:   4.9658E-02  2.5752E-03  2.2176E-02
+  COM velocity:   2.3827E-03 -8.7757E-04  4.2452E-04
+    Time Info: 
+    Total time till now:   1423.71899295 seconds
+    Total Forces time:   1411.60284257 seconds
+    Total Verlet Integration time:      1.11177397 seconds
+    Total Metrics time:      0.01269913 seconds
+    Total Host Update time:      0.08004832 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    51500, Time:    51.483334
+  dt:                    0.001000
+  Total KE:           7.03943920E+00
+  Total PE:          -1.81107292E+01
+  Total E:           -1.10712900E+01
+  Delta E:               19.74285126 %
+  Virial F (2KE+PE): -4.03185081E+00
+  COM position:   5.0850E-02  2.1364E-03  2.2388E-02
+  COM velocity:   2.3828E-03 -8.7762E-04  4.2416E-04
+    Time Info: 
+    Total time till now:   1437.67254806 seconds
+    Total Forces time:   1425.44048452 seconds
+    Total Verlet Integration time:      1.12265015 seconds
+    Total Metrics time:      0.01281905 seconds
+    Total Host Update time:      0.08073735 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    52000, Time:    51.983059
+  dt:                    0.001000
+  Total KE:           7.25448322E+00
+  Total PE:          -1.83062019E+01
+  Total E:           -1.10517187E+01
+  Delta E:               19.88472557 %
+  Virial F (2KE+PE): -3.79723549E+00
+  COM position:   5.2041E-02  1.6976E-03  2.2600E-02
+  COM velocity:   2.3828E-03 -8.7761E-04  4.2396E-04
+    Time Info: 
+    Total time till now:   1451.62672114 seconds
+    Total Forces time:   1439.27811003 seconds
+    Total Verlet Integration time:      1.13349485 seconds
+    Total Metrics time:      0.01293421 seconds
+    Total Host Update time:      0.08141732 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    52500, Time:    52.482784
+  dt:                    0.001000
+  Total KE:           7.38785887E+00
+  Total PE:          -1.84193649E+01
+  Total E:           -1.10315056E+01
+  Delta E:               20.03125381 %
+  Virial F (2KE+PE): -3.64364719E+00
+  COM position:   5.3233E-02  1.2588E-03  2.2812E-02
+  COM velocity:   2.3827E-03 -8.7762E-04  4.2377E-04
+    Time Info: 
+    Total time till now:   1465.58303213 seconds
+    Total Forces time:   1453.11569190 seconds
+    Total Verlet Integration time:      1.14441848 seconds
+    Total Metrics time:      0.01305032 seconds
+    Total Host Update time:      0.08208847 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    53000, Time:    52.982510
+  dt:                    0.001000
+  Total KE:           7.13258696E+00
+  Total PE:          -1.81443043E+01
+  Total E:           -1.10117168E+01
+  Delta E:               20.17470360 %
+  Virial F (2KE+PE): -3.87913036E+00
+  COM position:   5.4424E-02  8.1999E-04  2.3024E-02
+  COM velocity:   2.3827E-03 -8.7761E-04  4.2349E-04
+    Time Info: 
+    Total time till now:   1479.53775001 seconds
+    Total Forces time:   1466.95303726 seconds
+    Total Verlet Integration time:      1.15528536 seconds
+    Total Metrics time:      0.01319122 seconds
+    Total Host Update time:      0.08314657 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    53500, Time:    53.482235
+  dt:                    0.001000
+  Total KE:           7.15067720E+00
+  Total PE:          -1.81431770E+01
+  Total E:           -1.09925003E+01
+  Delta E:               20.31400871 %
+  Virial F (2KE+PE): -3.84182262E+00
+  COM position:   5.5615E-02  3.8119E-04  2.3235E-02
+  COM velocity:   2.3827E-03 -8.7761E-04  4.2326E-04
+    Time Info: 
+    Total time till now:   1493.49166012 seconds
+    Total Forces time:   1480.79047441 seconds
+    Total Verlet Integration time:      1.16618586 seconds
+    Total Metrics time:      0.01330829 seconds
+    Total Host Update time:      0.08383656 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    54000, Time:    53.981960
+  dt:                    0.001000
+  Total KE:           7.42480850E+00
+  Total PE:          -1.83975239E+01
+  Total E:           -1.09727154E+01
+  Delta E:               20.45743179 %
+  Virial F (2KE+PE): -3.54790688E+00
+  COM position:   5.6807E-02 -5.7637E-05  2.3447E-02
+  COM velocity:   2.3827E-03 -8.7766E-04  4.2302E-04
+    Time Info: 
+    Total time till now:   1507.44696999 seconds
+    Total Forces time:   1494.62784553 seconds
+    Total Verlet Integration time:      1.17705393 seconds
+    Total Metrics time:      0.01342130 seconds
+    Total Host Update time:      0.08452153 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    54500, Time:    54.481686
+  dt:                    0.001000
+  Total KE:           7.09276772E+00
+  Total PE:          -1.80457859E+01
+  Total E:           -1.09530182E+01
+  Delta E:               20.60021973 %
+  Virial F (2KE+PE): -3.86025047E+00
+  COM position:   5.7998E-02 -4.9647E-04  2.3658E-02
+  COM velocity:   2.3827E-03 -8.7770E-04  4.2272E-04
+    Time Info: 
+    Total time till now:   1521.40116692 seconds
+    Total Forces time:   1508.46540093 seconds
+    Total Verlet Integration time:      1.18794274 seconds
+    Total Metrics time:      0.01353836 seconds
+    Total Host Update time:      0.08521152 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    55000, Time:    54.981411
+  dt:                    0.001000
+  Total KE:           6.97485495E+00
+  Total PE:          -1.79092369E+01
+  Total E:           -1.09343815E+01
+  Delta E:               20.73531914 %
+  Virial F (2KE+PE): -3.95952702E+00
+  COM position:   5.9189E-02 -9.3534E-04  2.3870E-02
+  COM velocity:   2.3826E-03 -8.7773E-04  4.2245E-04
+    Time Info: 
+    Total time till now:   1535.35720897 seconds
+    Total Forces time:   1522.30292153 seconds
+    Total Verlet Integration time:      1.19893146 seconds
+    Total Metrics time:      0.01368046 seconds
+    Total Host Update time:      0.08628750 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    55500, Time:    55.481136
+  dt:                    0.001000
+  Total KE:           7.28128815E+00
+  Total PE:          -1.81965675E+01
+  Total E:           -1.09152794E+01
+  Delta E:               20.87379074 %
+  Virial F (2KE+PE): -3.63399124E+00
+  COM position:   6.0381E-02 -1.3742E-03  2.4081E-02
+  COM velocity:   2.3826E-03 -8.7778E-04  4.2216E-04
+    Time Info: 
+    Total time till now:   1549.31353211 seconds
+    Total Forces time:   1536.14057732 seconds
+    Total Verlet Integration time:      1.20978856 seconds
+    Total Metrics time:      0.01379752 seconds
+    Total Host Update time:      0.08695745 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    56000, Time:    55.980862
+  dt:                    0.001000
+  Total KE:           7.24881077E+00
+  Total PE:          -1.81444702E+01
+  Total E:           -1.08956594E+01
+  Delta E:               21.01601982 %
+  Virial F (2KE+PE): -3.64684868E+00
+  COM position:   6.1572E-02 -1.8131E-03  2.4292E-02
+  COM velocity:   2.3825E-03 -8.7781E-04  4.2178E-04
+    Time Info: 
+    Total time till now:   1563.26744294 seconds
+    Total Forces time:   1549.97819519 seconds
+    Total Verlet Integration time:      1.22063613 seconds
+    Total Metrics time:      0.01391244 seconds
+    Total Host Update time:      0.08759475 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    56500, Time:    56.480587
+  dt:                    0.001000
+  Total KE:           6.94813251E+00
+  Total PE:          -1.78249397E+01
+  Total E:           -1.08768072E+01
+  Delta E:               21.15268135 %
+  Virial F (2KE+PE): -3.92867470E+00
+  COM position:   6.2763E-02 -2.2520E-03  2.4503E-02
+  COM velocity:   2.3824E-03 -8.7779E-04  4.2142E-04
+    Time Info: 
+    Total time till now:   1577.28656507 seconds
+    Total Forces time:   1563.81606436 seconds
+    Total Verlet Integration time:      1.23148346 seconds
+    Total Metrics time:      0.01402831 seconds
+    Total Host Update time:      0.08828068 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    57000, Time:    56.980312
+  dt:                    0.001000
+  Total KE:           7.08815670E+00
+  Total PE:          -1.79464951E+01
+  Total E:           -1.08583384E+01
+  Delta E:               21.28656387 %
+  Virial F (2KE+PE): -3.77018166E+00
+  COM position:   6.3954E-02 -2.6909E-03  2.4713E-02
+  COM velocity:   2.3825E-03 -8.7777E-04  4.2108E-04
+    Time Info: 
+    Total time till now:   1591.24273705 seconds
+    Total Forces time:   1577.65430927 seconds
+    Total Verlet Integration time:      1.24235296 seconds
+    Total Metrics time:      0.01414728 seconds
+    Total Host Update time:      0.08895087 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    57500, Time:    57.480038
+  dt:                    0.001000
+  Total KE:           7.27253056E+00
+  Total PE:          -1.81117439E+01
+  Total E:           -1.08392134E+01
+  Delta E:               21.42520332 %
+  Virial F (2KE+PE): -3.56668282E+00
+  COM position:   6.5145E-02 -3.1298E-03  2.4924E-02
+  COM velocity:   2.3825E-03 -8.7780E-04  4.2069E-04
+    Time Info: 
+    Total time till now:   1605.19900203 seconds
+    Total Forces time:   1591.49214101 seconds
+    Total Verlet Integration time:      1.25333810 seconds
+    Total Metrics time:      0.01429534 seconds
+    Total Host Update time:      0.08998489 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    58000, Time:    57.979763
+  dt:                    0.001000
+  Total KE:           6.99937963E+00
+  Total PE:          -1.78197422E+01
+  Total E:           -1.08203621E+01
+  Delta E:               21.56185913 %
+  Virial F (2KE+PE): -3.82098293E+00
+  COM position:   6.6337E-02 -3.5687E-03  2.5134E-02
+  COM velocity:   2.3824E-03 -8.7783E-04  4.2030E-04
+    Time Info: 
+    Total time till now:   1619.15360403 seconds
+    Total Forces time:   1605.32965207 seconds
+    Total Verlet Integration time:      1.26418686 seconds
+    Total Metrics time:      0.01441240 seconds
+    Total Host Update time:      0.09068012 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    58500, Time:    58.479488
+  dt:                    0.001000
+  Total KE:           6.83724880E+00
+  Total PE:          -1.76396065E+01
+  Total E:           -1.08023577E+01
+  Delta E:               21.69237518 %
+  Virial F (2KE+PE): -3.96510887E+00
+  COM position:   6.7528E-02 -4.0076E-03  2.5344E-02
+  COM velocity:   2.3825E-03 -8.7785E-04  4.1998E-04
+    Time Info: 
+    Total time till now:   1633.15408301 seconds
+    Total Forces time:   1619.21426845 seconds
+    Total Verlet Integration time:      1.27500463 seconds
+    Total Metrics time:      0.01452637 seconds
+    Total Host Update time:      0.09136891 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    59000, Time:    58.979214
+  dt:                    0.001000
+  Total KE:           7.23068905E+00
+  Total PE:          -1.80147896E+01
+  Total E:           -1.07841005E+01
+  Delta E:               21.82472420 %
+  Virial F (2KE+PE): -3.55341148E+00
+  COM position:   6.8719E-02 -4.4465E-03  2.5554E-02
+  COM velocity:   2.3825E-03 -8.7783E-04  4.1964E-04
+    Time Info: 
+    Total time till now:   1647.20598412 seconds
+    Total Forces time:   1633.14863706 seconds
+    Total Verlet Integration time:      1.28605270 seconds
+    Total Metrics time:      0.01464128 seconds
+    Total Host Update time:      0.09194493 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    59500, Time:    59.478939
+  dt:                    0.001000
+  Total KE:           7.26968336E+00
+  Total PE:          -1.80348282E+01
+  Total E:           -1.07651443E+01
+  Delta E:               21.96213913 %
+  Virial F (2KE+PE): -3.49546146E+00
+  COM position:   6.9911E-02 -4.8855E-03  2.5764E-02
+  COM velocity:   2.3826E-03 -8.7784E-04  4.1924E-04
+    Time Info: 
+    Total time till now:   1661.24749494 seconds
+    Total Forces time:   1647.07110095 seconds
+    Total Verlet Integration time:      1.29698181 seconds
+    Total Metrics time:      0.01477838 seconds
+    Total Host Update time:      0.09296894 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    60000, Time:    59.978664
+  dt:                    0.001000
+  Total KE:           7.02636862E+00
+  Total PE:          -1.77731342E+01
+  Total E:           -1.07467651E+01
+  Delta E:               22.09537125 %
+  Virial F (2KE+PE): -3.72039700E+00
+  COM position:   7.1102E-02 -5.3244E-03  2.5973E-02
+  COM velocity:   2.3827E-03 -8.7781E-04  4.1883E-04
+    Time Info: 
+    Total time till now:   1675.20135808 seconds
+    Total Forces time:   1660.90887403 seconds
+    Total Verlet Integration time:      1.30787802 seconds
+    Total Metrics time:      0.01489425 seconds
+    Total Host Update time:      0.09365678 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    60500, Time:    60.478390
+  dt:                    0.001000
+  Total KE:           7.15207148E+00
+  Total PE:          -1.78808327E+01
+  Total E:           -1.07287617E+01
+  Delta E:               22.22588158 %
+  Virial F (2KE+PE): -3.57668972E+00
+  COM position:   7.2293E-02 -5.7633E-03  2.6182E-02
+  COM velocity:   2.3827E-03 -8.7775E-04  4.1838E-04
+    Time Info: 
+    Total time till now:   1689.20095897 seconds
+    Total Forces time:   1674.79161429 seconds
+    Total Verlet Integration time:      1.31877518 seconds
+    Total Metrics time:      0.01501012 seconds
+    Total Host Update time:      0.09434056 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    61000, Time:    60.978115
+  dt:                    0.001000
+  Total KE:           7.26277733E+00
+  Total PE:          -1.79730377E+01
+  Total E:           -1.07102604E+01
+  Delta E:               22.36000061 %
+  Virial F (2KE+PE): -3.44748306E+00
+  COM position:   7.3485E-02 -6.2021E-03  2.6391E-02
+  COM velocity:   2.3827E-03 -8.7765E-04  4.1792E-04
+    Time Info: 
+    Total time till now:   1703.22480798 seconds
+    Total Forces time:   1688.69999409 seconds
+    Total Verlet Integration time:      1.32971549 seconds
+    Total Metrics time:      0.01512527 seconds
+    Total Host Update time:      0.09501767 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    61500, Time:    61.477840
+  dt:                    0.001000
+  Total KE:           6.98385906E+00
+  Total PE:          -1.76759338E+01
+  Total E:           -1.06920748E+01
+  Delta E:               22.49182892 %
+  Virial F (2KE+PE): -3.70821571E+00
+  COM position:   7.4676E-02 -6.6409E-03  2.6600E-02
+  COM velocity:   2.3828E-03 -8.7760E-04  4.1747E-04
+    Time Info: 
+    Total time till now:   1717.22769403 seconds
+    Total Forces time:   1702.58557987 seconds
+    Total Verlet Integration time:      1.34058285 seconds
+    Total Metrics time:      0.01526523 seconds
+    Total Host Update time:      0.09604359 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    62000, Time:    61.977566
+  dt:                    0.001000
+  Total KE:           6.96406078E+00
+  Total PE:          -1.76386871E+01
+  Total E:           -1.06746264E+01
+  Delta E:               22.61831474 %
+  Virial F (2KE+PE): -3.71056557E+00
+  COM position:   7.5867E-02 -7.0797E-03  2.6809E-02
+  COM velocity:   2.3828E-03 -8.7760E-04  4.1704E-04
+    Time Info: 
+    Total time till now:   1731.18173194 seconds
+    Total Forces time:   1716.42310119 seconds
+    Total Verlet Integration time:      1.35145545 seconds
+    Total Metrics time:      0.01538014 seconds
+    Total Host Update time:      0.09656167 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    62500, Time:    62.477291
+  dt:                    0.001000
+  Total KE:           7.26533794E+00
+  Total PE:          -1.79220352E+01
+  Total E:           -1.06566973E+01
+  Delta E:               22.74828529 %
+  Virial F (2KE+PE): -3.39135933E+00
+  COM position:   7.7059E-02 -7.5185E-03  2.7017E-02
+  COM velocity:   2.3829E-03 -8.7755E-04  4.1653E-04
+    Time Info: 
+    Total time till now:   1745.13527608 seconds
+    Total Forces time:   1730.26053596 seconds
+    Total Verlet Integration time:      1.36236072 seconds
+    Total Metrics time:      0.01549697 seconds
+    Total Host Update time:      0.09724355 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    63000, Time:    62.977016
+  dt:                    0.001000
+  Total KE:           7.22812128E+00
+  Total PE:          -1.78664246E+01
+  Total E:           -1.06383038E+01
+  Delta E:               22.88162231 %
+  Virial F (2KE+PE): -3.41018200E+00
+  COM position:   7.8250E-02 -7.9573E-03  2.7225E-02
+  COM velocity:   2.3830E-03 -8.7749E-04  4.1596E-04
+    Time Info: 
+    Total time till now:   1759.09032202 seconds
+    Total Forces time:   1744.09827518 seconds
+    Total Verlet Integration time:      1.37321877 seconds
+    Total Metrics time:      0.01560998 seconds
+    Total Host Update time:      0.09793472 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    63500, Time:    63.476742
+  dt:                    0.001000
+  Total KE:           6.95449734E+00
+  Total PE:          -1.75752182E+01
+  Total E:           -1.06207209E+01
+  Delta E:               23.00908279 %
+  Virial F (2KE+PE): -3.66622353E+00
+  COM position:   7.9442E-02 -8.3960E-03  2.7433E-02
+  COM velocity:   2.3831E-03 -8.7744E-04  4.1539E-04
+    Time Info: 
+    Total time till now:   1773.04502296 seconds
+    Total Forces time:   1757.93620372 seconds
+    Total Verlet Integration time:      1.38406157 seconds
+    Total Metrics time:      0.01572490 seconds
+    Total Host Update time:      0.09861994 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    64000, Time:    63.976467
+  dt:                    0.001000
+  Total KE:           7.09856510E+00
+  Total PE:          -1.77019730E+01
+  Total E:           -1.06034079E+01
+  Delta E:               23.13458633 %
+  Virial F (2KE+PE): -3.50484276E+00
+  COM position:   8.0633E-02 -8.8347E-03  2.7641E-02
+  COM velocity:   2.3832E-03 -8.7747E-04  4.1484E-04
+    Time Info: 
+    Total time till now:   1787.00033212 seconds
+    Total Forces time:   1771.77399135 seconds
+    Total Verlet Integration time:      1.39497447 seconds
+    Total Metrics time:      0.01587987 seconds
+    Total Host Update time:      0.09967279 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    64500, Time:    64.476196
+  dt:                    0.001000
+  Total KE:           7.28100300E+00
+  Total PE:          -1.78665142E+01
+  Total E:           -1.05855112E+01
+  Delta E:               23.26432228 %
+  Virial F (2KE+PE): -3.30450821E+00
+  COM position:   8.1825E-02 -9.2735E-03  2.7848E-02
+  COM velocity:   2.3833E-03 -8.7761E-04  4.1422E-04
+    Time Info: 
+    Total time till now:   1800.95509100 seconds
+    Total Forces time:   1785.61183786 seconds
+    Total Verlet Integration time:      1.40583849 seconds
+    Total Metrics time:      0.01599598 seconds
+    Total Host Update time:      0.10036564 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    65000, Time:    64.975922
+  dt:                    0.001000
+  Total KE:           7.07232618E+00
+  Total PE:          -1.76401138E+01
+  Total E:           -1.05677872E+01
+  Delta E:               23.39280510 %
+  Virial F (2KE+PE): -3.49546146E+00
+  COM position:   8.3016E-02 -9.7123E-03  2.8055E-02
+  COM velocity:   2.3833E-03 -8.7767E-04  4.1361E-04
+    Time Info: 
+    Total time till now:   1814.90913701 seconds
+    Total Forces time:   1799.44931316 seconds
+    Total Verlet Integration time:      1.41673684 seconds
+    Total Metrics time:      0.01611304 seconds
+    Total Host Update time:      0.10104752 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    65500, Time:    65.475647
+  dt:                    0.001000
+  Total KE:           6.95175648E+00
+  Total PE:          -1.75024452E+01
+  Total E:           -1.05506887E+01
+  Delta E:               23.51675415 %
+  Virial F (2KE+PE): -3.59893227E+00
+  COM position:   8.4208E-02 -1.0151E-02  2.8262E-02
+  COM velocity:   2.3833E-03 -8.7772E-04  4.1301E-04
+    Time Info: 
+    Total time till now:   1828.86258101 seconds
+    Total Forces time:   1813.28667140 seconds
+    Total Verlet Integration time:      1.42762446 seconds
+    Total Metrics time:      0.01622820 seconds
+    Total Host Update time:      0.10173059 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    66000, Time:    65.975372
+  dt:                    0.001000
+  Total KE:           7.10746241E+00
+  Total PE:          -1.76410522E+01
+  Total E:           -1.05335903E+01
+  Delta E:               23.64070320 %
+  Virial F (2KE+PE): -3.42612743E+00
+  COM position:   8.5400E-02 -1.0590E-02  2.8468E-02
+  COM velocity:   2.3834E-03 -8.7780E-04  4.1236E-04
+    Time Info: 
+    Total time till now:   1842.81726003 seconds
+    Total Forces time:   1827.12431312 seconds
+    Total Verlet Integration time:      1.43851137 seconds
+    Total Metrics time:      0.01636624 seconds
+    Total Host Update time:      0.10277152 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    66500, Time:    66.475098
+  dt:                    0.001000
+  Total KE:           7.11778831E+00
+  Total PE:          -1.76339569E+01
+  Total E:           -1.05161686E+01
+  Delta E:               23.76699448 %
+  Virial F (2KE+PE): -3.39838028E+00
+  COM position:   8.6592E-02 -1.1029E-02  2.8674E-02
+  COM velocity:   2.3835E-03 -8.7788E-04  4.1165E-04
+    Time Info: 
+    Total time till now:   1856.77106500 seconds
+    Total Forces time:   1840.96172309 seconds
+    Total Verlet Integration time:      1.44936538 seconds
+    Total Metrics time:      0.01648521 seconds
+    Total Host Update time:      0.10343814 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    67000, Time:    66.974823
+  dt:                    0.001000
+  Total KE:           6.97054958E+00
+  Total PE:          -1.74696312E+01
+  Total E:           -1.04990816E+01
+  Delta E:               23.89085960 %
+  Virial F (2KE+PE): -3.52853203E+00
+  COM position:   8.7783E-02 -1.1468E-02  2.8880E-02
+  COM velocity:   2.3835E-03 -8.7788E-04  4.1091E-04
+    Time Info: 
+    Total time till now:   1870.72444010 seconds
+    Total Forces time:   1854.79927325 seconds
+    Total Verlet Integration time:      1.46019459 seconds
+    Total Metrics time:      0.01659918 seconds
+    Total Host Update time:      0.10411406 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    67500, Time:    67.474548
+  dt:                    0.001000
+  Total KE:           6.96909142E+00
+  Total PE:          -1.74514217E+01
+  Total E:           -1.04823303E+01
+  Delta E:               24.01229286 %
+  Virial F (2KE+PE): -3.51323891E+00
+  COM position:   8.8975E-02 -1.1907E-02  2.9085E-02
+  COM velocity:   2.3835E-03 -8.7790E-04  4.1018E-04
+    Time Info: 
+    Total time till now:   1884.67927098 seconds
+    Total Forces time:   1868.63673782 seconds
+    Total Verlet Integration time:      1.47106147 seconds
+    Total Metrics time:      0.01671624 seconds
+    Total Host Update time:      0.10480809 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    68000, Time:    67.974274
+  dt:                    0.001000
+  Total KE:           7.16873646E+00
+  Total PE:          -1.76341133E+01
+  Total E:           -1.04653769E+01
+  Delta E:               24.13519096 %
+  Virial F (2KE+PE): -3.29664040E+00
+  COM position:   9.0167E-02 -1.2346E-02  2.9290E-02
+  COM velocity:   2.3835E-03 -8.7789E-04  4.0943E-04
+    Time Info: 
+    Total time till now:   1898.63388801 seconds
+    Total Forces time:   1882.47432017 seconds
+    Total Verlet Integration time:      1.48189998 seconds
+    Total Metrics time:      0.01685405 seconds
+    Total Host Update time:      0.10585213 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    68500, Time:    68.473999
+  dt:                    0.001000
+  Total KE:           7.09578896E+00
+  Total PE:          -1.75439644E+01
+  Total E:           -1.04481754E+01
+  Delta E:               24.25988579 %
+  Virial F (2KE+PE): -3.35238647E+00
+  COM position:   9.1359E-02 -1.2785E-02  2.9494E-02
+  COM velocity:   2.3836E-03 -8.7791E-04  4.0871E-04
+    Time Info: 
+    Total time till now:   1912.58707809 seconds
+    Total Forces time:   1896.31193781 seconds
+    Total Verlet Integration time:      1.49276567 seconds
+    Total Metrics time:      0.01696610 seconds
+    Total Host Update time:      0.10647702 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    69000, Time:    68.973724
+  dt:                    0.001000
+  Total KE:           6.94605923E+00
+  Total PE:          -1.73776073E+01
+  Total E:           -1.04315481E+01
+  Delta E:               24.38042068 %
+  Virial F (2KE+PE): -3.48548889E+00
+  COM position:   9.2550E-02 -1.3224E-02  2.9699E-02
+  COM velocity:   2.3836E-03 -8.7796E-04  4.0803E-04
+    Time Info: 
+    Total time till now:   1926.54005408 seconds
+    Total Forces time:   1910.14959168 seconds
+    Total Verlet Integration time:      1.50355840 seconds
+    Total Metrics time:      0.01708412 seconds
+    Total Host Update time:      0.10714507 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    69500, Time:    69.473450
+  dt:                    0.001000
+  Total KE:           7.04003143E+00
+  Total PE:          -1.74550934E+01
+  Total E:           -1.04150620E+01
+  Delta E:               24.49992943 %
+  Virial F (2KE+PE): -3.37503052E+00
+  COM position:   9.3742E-02 -1.3663E-02  2.9902E-02
+  COM velocity:   2.3837E-03 -8.7801E-04  4.0737E-04
+    Time Info: 
+    Total time till now:   1940.51021695 seconds
+    Total Forces time:   1924.00372910 seconds
+    Total Verlet Integration time:      1.51443243 seconds
+    Total Metrics time:      0.01720214 seconds
+    Total Host Update time:      0.10782194 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    70000, Time:    69.973175
+  dt:                    0.001000
+  Total KE:           7.14871931E+00
+  Total PE:          -1.75469437E+01
+  Total E:           -1.03982239E+01
+  Delta E:               24.62199020 %
+  Virial F (2KE+PE): -3.24950504E+00
+  COM position:   9.4934E-02 -1.4102E-02  3.0106E-02
+  COM velocity:   2.3837E-03 -8.7803E-04  4.0666E-04
+    Time Info: 
+    Total time till now:   1954.52864504 seconds
+    Total Forces time:   1937.90545988 seconds
+    Total Verlet Integration time:      1.52529407 seconds
+    Total Metrics time:      0.01731730 seconds
+    Total Host Update time:      0.10849690 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    70500, Time:    70.472900
+  dt:                    0.001000
+  Total KE:           7.02314091E+00
+  Total PE:          -1.74046097E+01
+  Total E:           -1.03814688E+01
+  Delta E:               24.74345207 %
+  Virial F (2KE+PE): -3.35832787E+00
+  COM position:   9.6126E-02 -1.4541E-02  3.0309E-02
+  COM velocity:   2.3838E-03 -8.7807E-04  4.0596E-04
+    Time Info: 
+    Total time till now:   1968.55541706 seconds
+    Total Forces time:   1951.81394339 seconds
+    Total Verlet Integration time:      1.53619456 seconds
+    Total Metrics time:      0.01746345 seconds
+    Total Host Update time:      0.10953784 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    71000, Time:    70.972626
+  dt:                    0.001000
+  Total KE:           6.90070820E+00
+  Total PE:          -1.72659760E+01
+  Total E:           -1.03652678E+01
+  Delta E:               24.86089516 %
+  Virial F (2KE+PE): -3.46455956E+00
+  COM position:   9.7318E-02 -1.4980E-02  3.0512E-02
+  COM velocity:   2.3838E-03 -8.7810E-04  4.0531E-04
+    Time Info: 
+    Total time till now:   1982.58413410 seconds
+    Total Forces time:   1965.72576928 seconds
+    Total Verlet Integration time:      1.54722595 seconds
+    Total Metrics time:      0.01757860 seconds
+    Total Host Update time:      0.11023498 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    71500, Time:    71.472351
+  dt:                    0.001000
+  Total KE:           7.12477684E+00
+  Total PE:          -1.74737015E+01
+  Total E:           -1.03489246E+01
+  Delta E:               24.97936821 %
+  Virial F (2KE+PE): -3.22414780E+00
+  COM position:   9.8510E-02 -1.5419E-02  3.0714E-02
+  COM velocity:   2.3838E-03 -8.7815E-04  4.0470E-04
+    Time Info: 
+    Total time till now:   1996.59434104 seconds
+    Total Forces time:   1979.61864901 seconds
+    Total Verlet Integration time:      1.55811119 seconds
+    Total Metrics time:      0.01769257 seconds
+    Total Host Update time:      0.11080885 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    72000, Time:    71.972076
+  dt:                    0.001000
+  Total KE:           7.19987488E+00
+  Total PE:          -1.75318756E+01
+  Total E:           -1.03320007E+01
+  Delta E:               25.10205269 %
+  Virial F (2KE+PE): -3.13212585E+00
+  COM position:   9.9702E-02 -1.5858E-02  3.0917E-02
+  COM velocity:   2.3839E-03 -8.7820E-04  4.0405E-04
+    Time Info: 
+    Total time till now:   2010.58699203 seconds
+    Total Forces time:   1993.49526644 seconds
+    Total Verlet Integration time:      1.56894755 seconds
+    Total Metrics time:      0.01780677 seconds
+    Total Host Update time:      0.11148763 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    72500, Time:    72.471802
+  dt:                    0.001000
+  Total KE:           6.83932114E+00
+  Total PE:          -1.71550426E+01
+  Total E:           -1.03157215E+01
+  Delta E:               25.22006035 %
+  Virial F (2KE+PE): -3.47640038E+00
+  COM position:   1.0089E-01 -1.6297E-02  3.1118E-02
+  COM velocity:   2.3840E-03 -8.7829E-04  4.0345E-04
+    Time Info: 
+    Total time till now:   2024.60450292 seconds
+    Total Forces time:   2007.39488673 seconds
+    Total Verlet Integration time:      1.57982349 seconds
+    Total Metrics time:      0.01795363 seconds
+    Total Host Update time:      0.11251163 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    73000, Time:    72.971527
+  dt:                    0.001000
+  Total KE:           6.75377655E+00
+  Total PE:          -1.70539761E+01
+  Total E:           -1.03001995E+01
+  Delta E:               25.33258247 %
+  Virial F (2KE+PE): -3.54642296E+00
+  COM position:   1.0209E-01 -1.6736E-02  3.1320E-02
+  COM velocity:   2.3840E-03 -8.7839E-04  4.0296E-04
+    Time Info: 
+    Total time till now:   2038.63130498 seconds
+    Total Forces time:   2021.30245543 seconds
+    Total Verlet Integration time:      1.59076357 seconds
+    Total Metrics time:      0.01806784 seconds
+    Total Host Update time:      0.11318469 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    73500, Time:    73.471252
+  dt:                    0.001000
+  Total KE:           7.05058193E+00
+  Total PE:          -1.73349438E+01
+  Total E:           -1.02843618E+01
+  Delta E:               25.44738960 %
+  Virial F (2KE+PE): -3.23377991E+00
+  COM position:   1.0328E-01 -1.7175E-02  3.1521E-02
+  COM velocity:   2.3841E-03 -8.7845E-04  4.0243E-04
+    Time Info: 
+    Total time till now:   2052.65058899 seconds
+    Total Forces time:   2035.20431113 seconds
+    Total Verlet Integration time:      1.60160398 seconds
+    Total Metrics time:      0.01818180 seconds
+    Total Host Update time:      0.11387062 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    74000, Time:    73.970978
+  dt:                    0.001000
+  Total KE:           7.10965538E+00
+  Total PE:          -1.73775864E+01
+  Total E:           -1.02679310E+01
+  Delta E:               25.56649971 %
+  Virial F (2KE+PE): -3.15827560E+00
+  COM position:   1.0447E-01 -1.7615E-02  3.1723E-02
+  COM velocity:   2.3842E-03 -8.7852E-04  4.0185E-04
+    Time Info: 
+    Total time till now:   2066.65262008 seconds
+    Total Forces time:   2049.08817029 seconds
+    Total Verlet Integration time:      1.61245537 seconds
+    Total Metrics time:      0.01829886 seconds
+    Total Host Update time:      0.11455464 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    74500, Time:    74.470703
+  dt:                    0.001000
+  Total KE:           6.87721443E+00
+  Total PE:          -1.71293068E+01
+  Total E:           -1.02520924E+01
+  Delta E:               25.68131638 %
+  Virial F (2KE+PE): -3.37487793E+00
+  COM position:   1.0566E-01 -1.8054E-02  3.1923E-02
+  COM velocity:   2.3842E-03 -8.7857E-04  4.0130E-04
+    Time Info: 
+    Total time till now:   2080.65008497 seconds
+    Total Forces time:   2062.96883464 seconds
+    Total Verlet Integration time:      1.62330079 seconds
+    Total Metrics time:      0.01844001 seconds
+    Total Host Update time:      0.11544180 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    75000, Time:    74.970428
+  dt:                    0.001000
+  Total KE:           7.00210571E+00
+  Total PE:          -1.72386398E+01
+  Total E:           -1.02365341E+01
+  Delta E:               25.79410172 %
+  Virial F (2KE+PE): -3.23442841E+00
+  COM position:   1.0685E-01 -1.8493E-02  3.2124E-02
+  COM velocity:   2.3842E-03 -8.7861E-04  4.0080E-04
+    Time Info: 
+    Total time till now:   2094.64038110 seconds
+    Total Forces time:   2076.84257293 seconds
+    Total Verlet Integration time:      1.63421512 seconds
+    Total Metrics time:      0.01856112 seconds
+    Total Host Update time:      0.11611962 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    75500, Time:    75.470154
+  dt:                    0.001000
+  Total KE:           7.26460171E+00
+  Total PE:          -1.74849758E+01
+  Total E:           -1.02203741E+01
+  Delta E:               25.91124535 %
+  Virial F (2KE+PE): -2.95577240E+00
+  COM position:   1.0805E-01 -1.8933E-02  3.2324E-02
+  COM velocity:   2.3842E-03 -8.7861E-04  4.0022E-04
+    Time Info: 
+    Total time till now:   2108.62332797 seconds
+    Total Forces time:   2090.70865059 seconds
+    Total Verlet Integration time:      1.64510369 seconds
+    Total Metrics time:      0.01867414 seconds
+    Total Host Update time:      0.11681485 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    76000, Time:    75.969879
+  dt:                    0.001000
+  Total KE:           7.10381842E+00
+  Total PE:          -1.73078995E+01
+  Total E:           -1.02040806E+01
+  Delta E:               26.02935982 %
+  Virial F (2KE+PE): -3.10026264E+00
+  COM position:   1.0924E-01 -1.9372E-02  3.2524E-02
+  COM velocity:   2.3841E-03 -8.7862E-04  3.9964E-04
+    Time Info: 
+    Total time till now:   2122.60641313 seconds
+    Total Forces time:   2104.57494497 seconds
+    Total Verlet Integration time:      1.65598154 seconds
+    Total Metrics time:      0.01879311 seconds
+    Total Host Update time:      0.11749601 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    76500, Time:    76.469604
+  dt:                    0.001000
+  Total KE:           6.83117867E+00
+  Total PE:          -1.70198860E+01
+  Total E:           -1.01887074E+01
+  Delta E:               26.14080238 %
+  Virial F (2KE+PE): -3.35752869E+00
+  COM position:   1.1043E-01 -1.9811E-02  3.2724E-02
+  COM velocity:   2.3841E-03 -8.7860E-04  3.9915E-04
+    Time Info: 
+    Total time till now:   2136.62326908 seconds
+    Total Forces time:   2118.47452736 seconds
+    Total Verlet Integration time:      1.66704345 seconds
+    Total Metrics time:      0.01892996 seconds
+    Total Host Update time:      0.11854720 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    77000, Time:    76.969330
+  dt:                    0.001000
+  Total KE:           6.93581390E+00
+  Total PE:          -1.71094513E+01
+  Total E:           -1.01736374E+01
+  Delta E:               26.25004578 %
+  Virial F (2KE+PE): -3.23782349E+00
+  COM position:   1.1162E-01 -2.0250E-02  3.2923E-02
+  COM velocity:   2.3841E-03 -8.7863E-04  3.9870E-04
+    Time Info: 
+    Total time till now:   2150.64787292 seconds
+    Total Forces time:   2132.38216043 seconds
+    Total Verlet Integration time:      1.67819762 seconds
+    Total Metrics time:      0.01904511 seconds
+    Total Host Update time:      0.11922932 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    77500, Time:    77.469055
+  dt:                    0.001000
+  Total KE:           7.12577820E+00
+  Total PE:          -1.72838058E+01
+  Total E:           -1.01580276E+01
+  Delta E:               26.36320305 %
+  Virial F (2KE+PE): -3.03224945E+00
+  COM position:   1.1281E-01 -2.0690E-02  3.3122E-02
+  COM velocity:   2.3841E-03 -8.7867E-04  3.9815E-04
+    Time Info: 
+    Total time till now:   2164.62776113 seconds
+    Total Forces time:   2146.24464846 seconds
+    Total Verlet Integration time:      1.68928695 seconds
+    Total Metrics time:      0.01916218 seconds
+    Total Host Update time:      0.11990428 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    78000, Time:    77.968781
+  dt:                    0.001000
+  Total KE:           7.04523230E+00
+  Total PE:          -1.71875019E+01
+  Total E:           -1.01422691E+01
+  Delta E:               26.47743797 %
+  Virial F (2KE+PE): -3.09703732E+00
+  COM position:   1.1401E-01 -2.1129E-02  3.3321E-02
+  COM velocity:   2.3841E-03 -8.7868E-04  3.9752E-04
+    Time Info: 
+    Total time till now:   2178.58206010 seconds
+    Total Forces time:   2160.08250976 seconds
+    Total Verlet Integration time:      1.70028543 seconds
+    Total Metrics time:      0.01927614 seconds
+    Total Host Update time:      0.12058711 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    78500, Time:    78.468506
+  dt:                    0.001000
+  Total KE:           6.84147072E+00
+  Total PE:          -1.69685936E+01
+  Total E:           -1.01271229E+01
+  Delta E:               26.58723640 %
+  Virial F (2KE+PE): -3.28565216E+00
+  COM position:   1.1520E-01 -2.1568E-02  3.3520E-02
+  COM velocity:   2.3842E-03 -8.7866E-04  3.9696E-04
+    Time Info: 
+    Total time till now:   2192.53752303 seconds
+    Total Forces time:   2173.92052937 seconds
+    Total Verlet Integration time:      1.71128368 seconds
+    Total Metrics time:      0.01938915 seconds
+    Total Host Update time:      0.12127113 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    79000, Time:    78.968231
+  dt:                    0.001000
+  Total KE:           7.04014969E+00
+  Total PE:          -1.71522160E+01
+  Total E:           -1.01120663E+01
+  Delta E:               26.69638443 %
+  Virial F (2KE+PE): -3.07191658E+00
+  COM position:   1.1639E-01 -2.2008E-02  3.3718E-02
+  COM velocity:   2.3842E-03 -8.7865E-04  3.9641E-04
+    Time Info: 
+    Total time till now:   2206.49287605 seconds
+    Total Forces time:   2187.75797272 seconds
+    Total Verlet Integration time:      1.72214317 seconds
+    Total Metrics time:      0.01953197 seconds
+    Total Host Update time:      0.12231517 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    79500, Time:    79.467957
+  dt:                    0.001000
+  Total KE:           7.15075064E+00
+  Total PE:          -1.72472591E+01
+  Total E:           -1.00965080E+01
+  Delta E:               26.80916786 %
+  Virial F (2KE+PE): -2.94575787E+00
+  COM position:   1.1758E-01 -2.2447E-02  3.3916E-02
+  COM velocity:   2.3842E-03 -8.7865E-04  3.9584E-04
+    Time Info: 
+    Total time till now:   2220.44821906 seconds
+    Total Forces time:   2201.59555030 seconds
+    Total Verlet Integration time:      1.73305011 seconds
+    Total Metrics time:      0.01964712 seconds
+    Total Host Update time:      0.12298822 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    80000, Time:    79.967682
+  dt:                    0.001000
+  Total KE:           6.98779488E+00
+  Total PE:          -1.70687771E+01
+  Total E:           -1.00809822E+01
+  Delta E:               26.92171669 %
+  Virial F (2KE+PE): -3.09318733E+00
+  COM position:   1.1877E-01 -2.2886E-02  3.4114E-02
+  COM velocity:   2.3842E-03 -8.7867E-04  3.9525E-04
+    Time Info: 
+    Total time till now:   2234.40195203 seconds
+    Total Forces time:   2215.43290997 seconds
+    Total Verlet Integration time:      1.74390697 seconds
+    Total Metrics time:      0.01976299 seconds
+    Total Host Update time:      0.12367105 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    80500, Time:    80.467407
+  dt:                    0.001000
+  Total KE:           6.74536753E+00
+  Total PE:          -1.68117008E+01
+  Total E:           -1.00663338E+01
+  Delta E:               27.02790260 %
+  Virial F (2KE+PE): -3.32096577E+00
+  COM position:   1.1997E-01 -2.3326E-02  3.4312E-02
+  COM velocity:   2.3842E-03 -8.7869E-04  3.9477E-04
+    Time Info: 
+    Total time till now:   2248.35643101 seconds
+    Total Forces time:   2229.27081132 seconds
+    Total Verlet Integration time:      1.75482845 seconds
+    Total Metrics time:      0.01988101 seconds
+    Total Host Update time:      0.12434602 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    81000, Time:    80.967133
+  dt:                    0.001000
+  Total KE:           6.89674664E+00
+  Total PE:          -1.69484844E+01
+  Total E:           -1.00517378E+01
+  Delta E:               27.13371277 %
+  Virial F (2KE+PE): -3.15499115E+00
+  COM position:   1.2116E-01 -2.3765E-02  3.4509E-02
+  COM velocity:   2.3842E-03 -8.7871E-04  3.9431E-04
+    Time Info: 
+    Total time till now:   2262.31121898 seconds
+    Total Forces time:   2243.10837221 seconds
+    Total Verlet Integration time:      1.76569366 seconds
+    Total Metrics time:      0.02002096 seconds
+    Total Host Update time:      0.12535691 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    81500, Time:    81.466858
+  dt:                    0.001000
+  Total KE:           7.06922197E+00
+  Total PE:          -1.71059113E+01
+  Total E:           -1.00366898E+01
+  Delta E:               27.24279785 %
+  Virial F (2KE+PE): -2.96746731E+00
+  COM position:   1.2235E-01 -2.4204E-02  3.4706E-02
+  COM velocity:   2.3841E-03 -8.7869E-04  3.9377E-04
+    Time Info: 
+    Total time till now:   2276.26497293 seconds
+    Total Forces time:   2256.94610524 seconds
+    Total Verlet Integration time:      1.77657771 seconds
+    Total Metrics time:      0.02013803 seconds
+    Total Host Update time:      0.12605095 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    82000, Time:    81.966583
+  dt:                    0.001000
+  Total KE:           6.98736858E+00
+  Total PE:          -1.70089035E+01
+  Total E:           -1.00215349E+01
+  Delta E:               27.35265541 %
+  Virial F (2KE+PE): -3.03416634E+00
+  COM position:   1.2354E-01 -2.4644E-02  3.4903E-02
+  COM velocity:   2.3841E-03 -8.7866E-04  3.9323E-04
+    Time Info: 
+    Total time till now:   2290.21838498 seconds
+    Total Forces time:   2270.78362131 seconds
+    Total Verlet Integration time:      1.78736591 seconds
+    Total Metrics time:      0.02025223 seconds
+    Total Host Update time:      0.12673283 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    82500, Time:    82.466309
+  dt:                    0.001000
+  Total KE:           6.86687756E+00
+  Total PE:          -1.68737602E+01
+  Total E:           -1.00068827E+01
+  Delta E:               27.45886993 %
+  Virial F (2KE+PE): -3.14000511E+00
+  COM position:   1.2474E-01 -2.5083E-02  3.5099E-02
+  COM velocity:   2.3841E-03 -8.7864E-04  3.9279E-04
+    Time Info: 
+    Total time till now:   2304.17250299 seconds
+    Total Forces time:   2284.62130785 seconds
+    Total Verlet Integration time:      1.79823422 seconds
+    Total Metrics time:      0.02037120 seconds
+    Total Host Update time:      0.12741065 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    83000, Time:    82.966034
+  dt:                    0.001000
+  Total KE:           6.92876530E+00
+  Total PE:          -1.69211063E+01
+  Total E:           -9.99234104E+00
+  Delta E:               27.56428719 %
+  Virial F (2KE+PE): -3.06357574E+00
+  COM position:   1.2593E-01 -2.5522E-02  3.5295E-02
+  COM velocity:   2.3841E-03 -8.7860E-04  3.9232E-04
+    Time Info: 
+    Total time till now:   2318.14990592 seconds
+    Total Forces time:   2298.45877409 seconds
+    Total Verlet Integration time:      1.80909824 seconds
+    Total Metrics time:      0.02050900 seconds
+    Total Host Update time:      0.12844157 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    83500, Time:    83.465759
+  dt:                    0.001000
+  Total KE:           7.01674843E+00
+  Total PE:          -1.69943047E+01
+  Total E:           -9.97755623E+00
+  Delta E:               27.67146301 %
+  Virial F (2KE+PE): -2.96080780E+00
+  COM position:   1.2712E-01 -2.5962E-02  3.5491E-02
+  COM velocity:   2.3840E-03 -8.7858E-04  3.9181E-04
+    Time Info: 
+    Total time till now:   2332.10396910 seconds
+    Total Forces time:   2312.29617095 seconds
+    Total Verlet Integration time:      1.82002354 seconds
+    Total Metrics time:      0.02062392 seconds
+    Total Host Update time:      0.12912560 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    84000, Time:    83.965485
+  dt:                    0.001000
+  Total KE:           6.87043667E+00
+  Total PE:          -1.68333931E+01
+  Total E:           -9.96295643E+00
+  Delta E:               27.77729988 %
+  Virial F (2KE+PE): -3.09251976E+00
+  COM position:   1.2831E-01 -2.6401E-02  3.5687E-02
+  COM velocity:   2.3840E-03 -8.7861E-04  3.9136E-04
+    Time Info: 
+    Total time till now:   2346.05849409 seconds
+    Total Forces time:   2326.13372588 seconds
+    Total Verlet Integration time:      1.83086729 seconds
+    Total Metrics time:      0.02073789 seconds
+    Total Host Update time:      0.12970352 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    84500, Time:    84.465210
+  dt:                    0.001000
+  Total KE:           6.76540470E+00
+  Total PE:          -1.67142143E+01
+  Total E:           -9.94880962E+00
+  Delta E:               27.87984848 %
+  Virial F (2KE+PE): -3.18340492E+00
+  COM position:   1.2950E-01 -2.6840E-02  3.5883E-02
+  COM velocity:   2.3840E-03 -8.7861E-04  3.9097E-04
+    Time Info: 
+    Total time till now:   2360.01226997 seconds
+    Total Forces time:   2339.97078633 seconds
+    Total Verlet Integration time:      1.84175587 seconds
+    Total Metrics time:      0.02085185 seconds
+    Total Host Update time:      0.13038778 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    85000, Time:    84.964935
+  dt:                    0.001000
+  Total KE:           6.91428947E+00
+  Total PE:          -1.68490372E+01
+  Total E:           -9.93474770E+00
+  Delta E:               27.98178864 %
+  Virial F (2KE+PE): -3.02045822E+00
+  COM position:   1.3070E-01 -2.7280E-02  3.6078E-02
+  COM velocity:   2.3839E-03 -8.7866E-04  3.9053E-04
+    Time Info: 
+    Total time till now:   2373.96566701 seconds
+    Total Forces time:   2353.80828667 seconds
+    Total Verlet Integration time:      1.85261321 seconds
+    Total Metrics time:      0.02096701 seconds
+    Total Host Update time:      0.13107181 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    85500, Time:    85.464661
+  dt:                    0.001000
+  Total KE:           7.07860184E+00
+  Total PE:          -1.69987793E+01
+  Total E:           -9.92017746E+00
+  Delta E:               28.08740807 %
+  Virial F (2KE+PE): -2.84157562E+00
+  COM position:   1.3189E-01 -2.7719E-02  3.6273E-02
+  COM velocity:   2.3839E-03 -8.7870E-04  3.9000E-04
+    Time Info: 
+    Total time till now:   2387.92017102 seconds
+    Total Forces time:   2367.64567423 seconds
+    Total Verlet Integration time:      1.86343050 seconds
+    Total Metrics time:      0.02110815 seconds
+    Total Host Update time:      0.13212371 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    86000, Time:    85.964386
+  dt:                    0.001000
+  Total KE:           7.05130482E+00
+  Total PE:          -1.69568329E+01
+  Total E:           -9.90552807E+00
+  Delta E:               28.19360542 %
+  Virial F (2KE+PE): -2.85422325E+00
+  COM position:   1.3308E-01 -2.8158E-02  3.6468E-02
+  COM velocity:   2.3838E-03 -8.7870E-04  3.8947E-04
+    Time Info: 
+    Total time till now:   2401.87442708 seconds
+    Total Forces time:   2381.48308516 seconds
+    Total Verlet Integration time:      1.87437749 seconds
+    Total Metrics time:      0.02122521 seconds
+    Total Host Update time:      0.13280749 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    86500, Time:    86.464111
+  dt:                    0.001000
+  Total KE:           6.92333889E+00
+  Total PE:          -1.68145256E+01
+  Total E:           -9.89118671E+00
+  Delta E:               28.29756737 %
+  Virial F (2KE+PE): -2.96784782E+00
+  COM position:   1.3427E-01 -2.8598E-02  3.6663E-02
+  COM velocity:   2.3838E-03 -8.7872E-04  3.8902E-04
+    Time Info: 
+    Total time till now:   2415.82850909 seconds
+    Total Forces time:   2395.32071185 seconds
+    Total Verlet Integration time:      1.88523602 seconds
+    Total Metrics time:      0.02134109 seconds
+    Total Host Update time:      0.13347626 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    87000, Time:    86.963837
+  dt:                    0.001000
+  Total KE:           6.94970465E+00
+  Total PE:          -1.68268013E+01
+  Total E:           -9.87709618E+00
+  Delta E:               28.39970970 %
+  Virial F (2KE+PE): -2.92739201E+00
+  COM position:   1.3546E-01 -2.9037E-02  3.6857E-02
+  COM velocity:   2.3838E-03 -8.7876E-04  3.8865E-04
+    Time Info: 
+    Total time till now:   2429.78283215 seconds
+    Total Forces time:   2409.15846109 seconds
+    Total Verlet Integration time:      1.89614511 seconds
+    Total Metrics time:      0.02145696 seconds
+    Total Host Update time:      0.13400340 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    87500, Time:    87.463562
+  dt:                    0.001000
+  Total KE:           6.98915768E+00
+  Total PE:          -1.68520317E+01
+  Total E:           -9.86287403E+00
+  Delta E:               28.50280762 %
+  Virial F (2KE+PE): -2.87371635E+00
+  COM position:   1.3665E-01 -2.9476E-02  3.7052E-02
+  COM velocity:   2.3838E-03 -8.7880E-04  3.8826E-04
+    Time Info: 
+    Total time till now:   2443.73797703 seconds
+    Total Forces time:   2422.99575949 seconds
+    Total Verlet Integration time:      1.90699840 seconds
+    Total Metrics time:      0.02159595 seconds
+    Total Host Update time:      0.13504553 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    88000, Time:    87.963287
+  dt:                    0.001000
+  Total KE:           6.91157103E+00
+  Total PE:          -1.67602081E+01
+  Total E:           -9.84863663E+00
+  Delta E:               28.60601616 %
+  Virial F (2KE+PE): -2.93706608E+00
+  COM position:   1.3785E-01 -2.9916E-02  3.7246E-02
+  COM velocity:   2.3837E-03 -8.7887E-04  3.8787E-04
+    Time Info: 
+    Total time till now:   2457.69319105 seconds
+    Total Forces time:   2436.83371472 seconds
+    Total Verlet Integration time:      1.91787219 seconds
+    Total Metrics time:      0.02170992 seconds
+    Total Host Update time:      0.13574338 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    88500, Time:    88.463013
+  dt:                    0.001000
+  Total KE:           6.82184076E+00
+  Total PE:          -1.66566410E+01
+  Total E:           -9.83480072E+00
+  Delta E:               28.70631599 %
+  Virial F (2KE+PE): -3.01295948E+00
+  COM position:   1.3904E-01 -3.0355E-02  3.7439E-02
+  COM velocity:   2.3837E-03 -8.7889E-04  3.8754E-04
+    Time Info: 
+    Total time till now:   2471.64727306 seconds
+    Total Forces time:   2450.67158318 seconds
+    Total Verlet Integration time:      1.92875433 seconds
+    Total Metrics time:      0.02182412 seconds
+    Total Host Update time:      0.13642526 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    89000, Time:    88.962738
+  dt:                    0.001000
+  Total KE:           6.82634830E+00
+  Total PE:          -1.66474838E+01
+  Total E:           -9.82113552E+00
+  Delta E:               28.80537415 %
+  Virial F (2KE+PE): -2.99478722E+00
+  COM position:   1.4023E-01 -3.0795E-02  3.7633E-02
+  COM velocity:   2.3836E-03 -8.7895E-04  3.8724E-04
+    Time Info: 
+    Total time till now:   2485.60128593 seconds
+    Total Forces time:   2464.50931144 seconds
+    Total Verlet Integration time:      1.93963528 seconds
+    Total Metrics time:      0.02193904 seconds
+    Total Host Update time:      0.13711119 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    89500, Time:    89.462463
+  dt:                    0.001000
+  Total KE:           6.96944809E+00
+  Total PE:          -1.67767181E+01
+  Total E:           -9.80727005E+00
+  Delta E:               28.90588951 %
+  Virial F (2KE+PE): -2.83782196E+00
+  COM position:   1.4142E-01 -3.1234E-02  3.7827E-02
+  COM velocity:   2.3836E-03 -8.7903E-04  3.8693E-04
+    Time Info: 
+    Total time till now:   2499.55636692 seconds
+    Total Forces time:   2478.34719062 seconds
+    Total Verlet Integration time:      1.95045161 seconds
+    Total Metrics time:      0.02207899 seconds
+    Total Host Update time:      0.13815904 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    90000, Time:    89.962189
+  dt:                    0.001000
+  Total KE:           7.05994606E+00
+  Total PE:          -1.68530464E+01
+  Total E:           -9.79310036E+00
+  Delta E:               29.00860596 %
+  Virial F (2KE+PE): -2.73315430E+00
+  COM position:   1.4261E-01 -3.1674E-02  3.8020E-02
+  COM velocity:   2.3835E-03 -8.7914E-04  3.8656E-04
+    Time Info: 
+    Total time till now:   2513.51208115 seconds
+    Total Forces time:   2492.18502235 seconds
+    Total Verlet Integration time:      1.96135330 seconds
+    Total Metrics time:      0.02219296 seconds
+    Total Host Update time:      0.13886404 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    90500, Time:    90.461914
+  dt:                    0.001000
+  Total KE:           6.87258244E+00
+  Total PE:          -1.66517887E+01
+  Total E:           -9.77920628E+00
+  Delta E:               29.10932541 %
+  Virial F (2KE+PE): -2.90662384E+00
+  COM position:   1.4381E-01 -3.2113E-02  3.8213E-02
+  COM velocity:   2.3835E-03 -8.7925E-04  3.8617E-04
+    Time Info: 
+    Total time till now:   2527.46586704 seconds
+    Total Forces time:   2506.02277350 seconds
+    Total Verlet Integration time:      1.97218752 seconds
+    Total Metrics time:      0.02231097 seconds
+    Total Host Update time:      0.13954306 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    91000, Time:    90.961639
+  dt:                    0.001000
+  Total KE:           6.80547857E+00
+  Total PE:          -1.65712318E+01
+  Total E:           -9.76575279E+00
+  Delta E:               29.20685196 %
+  Virial F (2KE+PE): -2.96027470E+00
+  COM position:   1.4500E-01 -3.2553E-02  3.8406E-02
+  COM velocity:   2.3835E-03 -8.7934E-04  3.8579E-04
+    Time Info: 
+    Total time till now:   2541.42115903 seconds
+    Total Forces time:   2519.86060357 seconds
+    Total Verlet Integration time:      1.98306465 seconds
+    Total Metrics time:      0.02242780 seconds
+    Total Host Update time:      0.14022708 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    91500, Time:    91.461365
+  dt:                    0.001000
+  Total KE:           6.89731693E+00
+  Total PE:          -1.66495972E+01
+  Total E:           -9.75228024E+00
+  Delta E:               29.30451584 %
+  Virial F (2KE+PE): -2.85496330E+00
+  COM position:   1.4619E-01 -3.2993E-02  3.8599E-02
+  COM velocity:   2.3835E-03 -8.7942E-04  3.8541E-04
+    Time Info: 
+    Total time till now:   2555.43376899 seconds
+    Total Forces time:   2533.75581026 seconds
+    Total Verlet Integration time:      1.99395418 seconds
+    Total Metrics time:      0.02254295 seconds
+    Total Host Update time:      0.14089727 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    92000, Time:    91.961090
+  dt:                    0.001000
+  Total KE:           6.99533701E+00
+  Total PE:          -1.67338047E+01
+  Total E:           -9.73846817E+00
+  Delta E:               29.40464020 %
+  Virial F (2KE+PE): -2.74313068E+00
+  COM position:   1.4738E-01 -3.3432E-02  3.8792E-02
+  COM velocity:   2.3835E-03 -8.7951E-04  3.8506E-04
+    Time Info: 
+    Total time till now:   2569.49054909 seconds
+    Total Forces time:   2547.69481540 seconds
+    Total Verlet Integration time:      2.00492263 seconds
+    Total Metrics time:      0.02268600 seconds
+    Total Host Update time:      0.14193416 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    92500, Time:    92.460815
+  dt:                    0.001000
+  Total KE:           6.88218594E+00
+  Total PE:          -1.66069489E+01
+  Total E:           -9.72476292E+00
+  Delta E:               29.50399208 %
+  Virial F (2KE+PE): -2.84257698E+00
+  COM position:   1.4857E-01 -3.3872E-02  3.8984E-02
+  COM velocity:   2.3834E-03 -8.7959E-04  3.8473E-04
+    Time Info: 
+    Total time till now:   2583.50959706 seconds
+    Total Forces time:   2561.59660888 seconds
+    Total Verlet Integration time:      2.01578069 seconds
+    Total Metrics time:      0.02280092 seconds
+    Total Host Update time:      0.14264107 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    93000, Time:    92.960541
+  dt:                    0.001000
+  Total KE:           6.77382469E+00
+  Total PE:          -1.64852867E+01
+  Total E:           -9.71146202E+00
+  Delta E:               29.60041237 %
+  Virial F (2KE+PE): -2.93763733E+00
+  COM position:   1.4976E-01 -3.4312E-02  3.9176E-02
+  COM velocity:   2.3834E-03 -8.7968E-04  3.8445E-04
+    Time Info: 
+    Total time till now:   2597.47800493 seconds
+    Total Forces time:   2575.44869709 seconds
+    Total Verlet Integration time:      2.02663374 seconds
+    Total Metrics time:      0.02291799 seconds
+    Total Host Update time:      0.14332914 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    93500, Time:    93.460266
+  dt:                    0.001000
+  Total KE:           6.79948997E+00
+  Total PE:          -1.64977684E+01
+  Total E:           -9.69827843E+00
+  Delta E:               29.69598198 %
+  Virial F (2KE+PE): -2.89878845E+00
+  COM position:   1.5096E-01 -3.4752E-02  3.9368E-02
+  COM velocity:   2.3834E-03 -8.7975E-04  3.8417E-04
+    Time Info: 
+    Total time till now:   2611.43434596 seconds
+    Total Forces time:   2589.28712273 seconds
+    Total Verlet Integration time:      2.03749776 seconds
+    Total Metrics time:      0.02304196 seconds
+    Total Host Update time:      0.14397001 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    94000, Time:    93.959991
+  dt:                    0.001000
+  Total KE:           6.92658901E+00
+  Total PE:          -1.66114864E+01
+  Total E:           -9.68489742E+00
+  Delta E:               29.79298210 %
+  Virial F (2KE+PE): -2.75830841E+00
+  COM position:   1.5215E-01 -3.5192E-02  3.9560E-02
+  COM velocity:   2.3834E-03 -8.7981E-04  3.8388E-04
+    Time Info: 
+    Total time till now:   2625.38878012 seconds
+    Total Forces time:   2603.12452769 seconds
+    Total Verlet Integration time:      2.04840302 seconds
+    Total Metrics time:      0.02318287 seconds
+    Total Host Update time:      0.14499903 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    94500, Time:    94.459717
+  dt:                    0.001000
+  Total KE:           6.90675545E+00
+  Total PE:          -1.65782127E+01
+  Total E:           -9.67145729E+00
+  Delta E:               29.89041138 %
+  Virial F (2KE+PE): -2.76470184E+00
+  COM position:   1.5334E-01 -3.5632E-02  3.9752E-02
+  COM velocity:   2.3834E-03 -8.7987E-04  3.8358E-04
+    Time Info: 
+    Total time till now:   2639.34254313 seconds
+    Total Forces time:   2616.96195221 seconds
+    Total Verlet Integration time:      2.05926394 seconds
+    Total Metrics time:      0.02329779 seconds
+    Total Host Update time:      0.14567089 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    95000, Time:    94.959442
+  dt:                    0.001000
+  Total KE:           6.83256912E+00
+  Total PE:          -1.64907799E+01
+  Total E:           -9.65821075E+00
+  Delta E:               29.98643875 %
+  Virial F (2KE+PE): -2.82564163E+00
+  COM position:   1.5453E-01 -3.6072E-02  3.9944E-02
+  COM velocity:   2.3834E-03 -8.7993E-04  3.8337E-04
+    Time Info: 
+    Total time till now:   2653.29613900 seconds
+    Total Forces time:   2630.79934525 seconds
+    Total Verlet Integration time:      2.07016993 seconds
+    Total Metrics time:      0.02341270 seconds
+    Total Host Update time:      0.14636302 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    95500, Time:    95.459167
+  dt:                    0.001000
+  Total KE:           6.85743761E+00
+  Total PE:          -1.65025616E+01
+  Total E:           -9.64512444E+00
+  Delta E:               30.08130264 %
+  Virial F (2KE+PE): -2.78768635E+00
+  COM position:   1.5572E-01 -3.6512E-02  4.0136E-02
+  COM velocity:   2.3834E-03 -8.7994E-04  3.8321E-04
+    Time Info: 
+    Total time till now:   2667.25288701 seconds
+    Total Forces time:   2644.63710380 seconds
+    Total Verlet Integration time:      2.08129406 seconds
+    Total Metrics time:      0.02352786 seconds
+    Total Host Update time:      0.14703798 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    96000, Time:    95.958893
+  dt:                    0.001000
+  Total KE:           6.87818527E+00
+  Total PE:          -1.65101662E+01
+  Total E:           -9.63198090E+00
+  Delta E:               30.17658043 %
+  Virial F (2KE+PE): -2.75379562E+00
+  COM position:   1.5691E-01 -3.6952E-02  4.0327E-02
+  COM velocity:   2.3833E-03 -8.7997E-04  3.8306E-04
+    Time Info: 
+    Total time till now:   2681.20815992 seconds
+    Total Forces time:   2658.47465348 seconds
+    Total Verlet Integration time:      2.09243560 seconds
+    Total Metrics time:      0.02366781 seconds
+    Total Host Update time:      0.14806533 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    96500, Time:    96.458618
+  dt:                    0.001000
+  Total KE:           6.86465502E+00
+  Total PE:          -1.64834003E+01
+  Total E:           -9.61874580E+00
+  Delta E:               30.27252197 %
+  Virial F (2KE+PE): -2.75409031E+00
+  COM position:   1.5811E-01 -3.7392E-02  4.0519E-02
+  COM velocity:   2.3833E-03 -8.8002E-04  3.8291E-04
+    Time Info: 
+    Total time till now:   2695.16276097 seconds
+    Total Forces time:   2672.31249118 seconds
+    Total Verlet Integration time:      2.10362148 seconds
+    Total Metrics time:      0.02378273 seconds
+    Total Host Update time:      0.14864731 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    97000, Time:    96.958344
+  dt:                    0.001000
+  Total KE:           6.73389912E+00
+  Total PE:          -1.63396778E+01
+  Total E:           -9.60577869E+00
+  Delta E:               30.36652565 %
+  Virial F (2KE+PE): -2.87187958E+00
+  COM position:   1.5930E-01 -3.7832E-02  4.0710E-02
+  COM velocity:   2.3833E-03 -8.8002E-04  3.8274E-04
+    Time Info: 
+    Total time till now:   2709.11793208 seconds
+    Total Forces time:   2686.15055513 seconds
+    Total Verlet Integration time:      2.11477828 seconds
+    Total Metrics time:      0.02391672 seconds
+    Total Host Update time:      0.14951420 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    97500, Time:    97.458069
+  dt:                    0.001000
+  Total KE:           6.72186279E+00
+  Total PE:          -1.63149586E+01
+  Total E:           -9.59309578E+00
+  Delta E:               30.45846558 %
+  Virial F (2KE+PE): -2.87123299E+00
+  COM position:   1.6049E-01 -3.8272E-02  4.0902E-02
+  COM velocity:   2.3832E-03 -8.8001E-04  3.8251E-04
+    Time Info: 
+    Total time till now:   2723.07445312 seconds
+    Total Forces time:   2699.98844957 seconds
+    Total Verlet Integration time:      2.12603164 seconds
+    Total Metrics time:      0.02403069 seconds
+    Total Host Update time:      0.15020823 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    98000, Time:    97.957794
+  dt:                    0.001000
+  Total KE:           6.84386301E+00
+  Total PE:          -1.64241982E+01
+  Total E:           -9.58033562E+00
+  Delta E:               30.55096245 %
+  Virial F (2KE+PE): -2.73647213E+00
+  COM position:   1.6168E-01 -3.8712E-02  4.1093E-02
+  COM velocity:   2.3832E-03 -8.8000E-04  3.8227E-04
+    Time Info: 
+    Total time till now:   2737.02788115 seconds
+    Total Forces time:   2713.82595539 seconds
+    Total Verlet Integration time:      2.13718176 seconds
+    Total Metrics time:      0.02414560 seconds
+    Total Host Update time:      0.15087318 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    98500, Time:    98.457520
+  dt:                    0.001000
+  Total KE:           6.93993664E+00
+  Total PE:          -1.65072155E+01
+  Total E:           -9.56727886E+00
+  Delta E:               30.64561462 %
+  Virial F (2KE+PE): -2.62734222E+00
+  COM position:   1.6287E-01 -3.9152E-02  4.1284E-02
+  COM velocity:   2.3832E-03 -8.8000E-04  3.8206E-04
+    Time Info: 
+    Total time till now:   2750.98408413 seconds
+    Total Forces time:   2727.66412711 seconds
+    Total Verlet Integration time:      2.14840460 seconds
+    Total Metrics time:      0.02429056 seconds
+    Total Host Update time:      0.15190411 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    99000, Time:    98.957245
+  dt:                    0.001000
+  Total KE:           6.89888287E+00
+  Total PE:          -1.64531403E+01
+  Total E:           -9.55425739E+00
+  Delta E:               30.74000740 %
+  Virial F (2KE+PE): -2.65537453E+00
+  COM position:   1.6406E-01 -3.9592E-02  4.1475E-02
+  COM velocity:   2.3832E-03 -8.7998E-04  3.8182E-04
+    Time Info: 
+    Total time till now:   2764.96965313 seconds
+    Total Forces time:   2741.53275752 seconds
+    Total Verlet Integration time:      2.15964770 seconds
+    Total Metrics time:      0.02440262 seconds
+    Total Host Update time:      0.15257645 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:    99500, Time:    99.456970
+  dt:                    0.001000
+  Total KE:           6.74793577E+00
+  Total PE:          -1.62895393E+01
+  Total E:           -9.54160309E+00
+  Delta E:               30.83174133 %
+  Virial F (2KE+PE): -2.79366779E+00
+  COM position:   1.6526E-01 -4.0032E-02  4.1666E-02
+  COM velocity:   2.3832E-03 -8.7996E-04  3.8156E-04
+    Time Info: 
+    Total time till now:   2778.93929315 seconds
+    Total Forces time:   2755.38607287 seconds
+    Total Verlet Integration time:      2.17087984 seconds
+    Total Metrics time:      0.02451658 seconds
+    Total Host Update time:      0.15309954 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:   100000, Time:    99.956696
+  dt:                    0.001000
+  Total KE:           6.75279760E+00
+  Total PE:          -1.62818794E+01
+  Total E:           -9.52908134E+00
+  Delta E:               30.92251205 %
+  Virial F (2KE+PE): -2.77628422E+00
+  COM position:   1.6645E-01 -4.0472E-02  4.1856E-02
+  COM velocity:   2.3831E-03 -8.7999E-04  3.8130E-04
+    Time Info: 
+    Total time till now:   2792.89326096 seconds
+    Total Forces time:   2769.22383523 seconds
+    Total Verlet Integration time:      2.18203974 seconds
+    Total Metrics time:      0.02463245 seconds
+    Total Host Update time:      0.15377331 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:   100500, Time:   100.456421
+  dt:                    0.001000
+  Total KE:           6.84758902E+00
+  Total PE:          -1.63639984E+01
+  Total E:           -9.51640892E+00
+  Delta E:               31.01437759 %
+  Virial F (2KE+PE): -2.66882038E+00
+  COM position:   1.6764E-01 -4.0912E-02  4.2047E-02
+  COM velocity:   2.3831E-03 -8.7999E-04  3.8105E-04
+    Time Info: 
+    Total time till now:   2806.84700203 seconds
+    Total Forces time:   2783.06178880 seconds
+    Total Verlet Integration time:      2.19322872 seconds
+    Total Metrics time:      0.02477551 seconds
+    Total Host Update time:      0.15480828 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:   101000, Time:   100.956146
+  dt:                    0.001000
+  Total KE:           6.85349798E+00
+  Total PE:          -1.63571434E+01
+  Total E:           -9.50364494E+00
+  Delta E:               31.10690498 %
+  Virial F (2KE+PE): -2.65014744E+00
+  COM position:   1.6883E-01 -4.1352E-02  4.2237E-02
+  COM velocity:   2.3832E-03 -8.7999E-04  3.8078E-04
+    Time Info: 
+    Total time till now:   2820.80207896 seconds
+    Total Forces time:   2796.89946318 seconds
+    Total Verlet Integration time:      2.20418143 seconds
+    Total Metrics time:      0.02489233 seconds
+    Total Host Update time:      0.15548539 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:   101500, Time:   101.455872
+  dt:                    0.001000
+  Total KE:           6.67157698E+00
+  Total PE:          -1.61627731E+01
+  Total E:           -9.49119568E+00
+  Delta E:               31.19715118 %
+  Virial F (2KE+PE): -2.81961918E+00
+  COM position:   1.7002E-01 -4.1792E-02  4.2428E-02
+  COM velocity:   2.3832E-03 -8.8001E-04  3.8052E-04
+    Time Info: 
+    Total time till now:   2834.75537300 seconds
+    Total Forces time:   2810.73709297 seconds
+    Total Verlet Integration time:      2.21500754 seconds
+    Total Metrics time:      0.02500939 seconds
+    Total Host Update time:      0.15617943 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:   102000, Time:   101.955597
+  dt:                    0.001000
+  Total KE:           6.67915821E+00
+  Total PE:          -1.61581326E+01
+  Total E:           -9.47897434E+00
+  Delta E:               31.28574562 %
+  Virial F (2KE+PE): -2.79981613E+00
+  COM position:   1.7121E-01 -4.2232E-02  4.2618E-02
+  COM velocity:   2.3832E-03 -8.8001E-04  3.8029E-04
+    Time Info: 
+    Total time till now:   2848.71122909 seconds
+    Total Forces time:   2824.57470846 seconds
+    Total Verlet Integration time:      2.22588730 seconds
+    Total Metrics time:      0.02512455 seconds
+    Total Host Update time:      0.15686369 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:   102500, Time:   102.455322
+  dt:                    0.001000
+  Total KE:           6.81752491E+00
+  Total PE:          -1.62841854E+01
+  Total E:           -9.46666050E+00
+  Delta E:               31.37500954 %
+  Virial F (2KE+PE): -2.64913559E+00
+  COM position:   1.7241E-01 -4.2672E-02  4.2808E-02
+  COM velocity:   2.3832E-03 -8.8000E-04  3.8006E-04
+    Time Info: 
+    Total time till now:   2862.66631794 seconds
+    Total Forces time:   2838.41221881 seconds
+    Total Verlet Integration time:      2.23680782 seconds
+    Total Metrics time:      0.02527070 seconds
+    Total Host Update time:      0.15791750 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:   103000, Time:   102.955048
+  dt:                    0.001000
+  Total KE:           6.87729549E+00
+  Total PE:          -1.63314018E+01
+  Total E:           -9.45410633E+00
+  Delta E:               31.46601677 %
+  Virial F (2KE+PE): -2.57681084E+00
+  COM position:   1.7360E-01 -4.3112E-02  4.2998E-02
+  COM velocity:   2.3832E-03 -8.8000E-04  3.7984E-04
+    Time Info: 
+    Total time till now:   2876.61944604 seconds
+    Total Forces time:   2852.24957657 seconds
+    Total Verlet Integration time:      2.24768424 seconds
+    Total Metrics time:      0.02538753 seconds
+    Total Host Update time:      0.15860343 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:   103500, Time:   103.454773
+  dt:                    0.001000
+  Total KE:           6.73914242E+00
+  Total PE:          -1.61808090E+01
+  Total E:           -9.44166660E+00
+  Delta E:               31.55619240 %
+  Virial F (2KE+PE): -2.70252419E+00
+  COM position:   1.7479E-01 -4.3552E-02  4.3188E-02
+  COM velocity:   2.3832E-03 -8.7999E-04  3.7967E-04
+    Time Info: 
+    Total time till now:   2890.57301211 seconds
+    Total Forces time:   2866.08711267 seconds
+    Total Verlet Integration time:      2.25852299 seconds
+    Total Metrics time:      0.02550149 seconds
+    Total Host Update time:      0.15928125 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:   104000, Time:   103.954498
+  dt:                    0.001000
+  Total KE:           6.60303116E+00
+  Total PE:          -1.60326843E+01
+  Total E:           -9.42965317E+00
+  Delta E:               31.64328003 %
+  Virial F (2KE+PE): -2.82662201E+00
+  COM position:   1.7598E-01 -4.3992E-02  4.3378E-02
+  COM velocity:   2.3832E-03 -8.7999E-04  3.7953E-04
+    Time Info: 
+    Total time till now:   2904.52563214 seconds
+    Total Forces time:   2879.92475390 seconds
+    Total Verlet Integration time:      2.26941872 seconds
+    Total Metrics time:      0.02561736 seconds
+    Total Host Update time:      0.15995216 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:   104500, Time:   104.454224
+  dt:                    0.001000
+  Total KE:           6.66895771E+00
+  Total PE:          -1.60866661E+01
+  Total E:           -9.41770840E+00
+  Delta E:               31.72986794 %
+  Virial F (2KE+PE): -2.74875069E+00
+  COM position:   1.7717E-01 -4.4432E-02  4.3567E-02
+  COM velocity:   2.3832E-03 -8.8001E-04  3.7940E-04
+    Time Info: 
+    Total time till now:   2918.51460314 seconds
+    Total Forces time:   2893.79729986 seconds
+    Total Verlet Integration time:      2.28030849 seconds
+    Total Metrics time:      0.02575231 seconds
+    Total Host Update time:      0.16099405 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:   105000, Time:   104.953949
+  dt:                    0.001000
+  Total KE:           6.79834938E+00
+  Total PE:          -1.62038918E+01
+  Total E:           -9.40554237E+00
+  Delta E:               31.81806183 %
+  Virial F (2KE+PE): -2.60719299E+00
+  COM position:   1.7836E-01 -4.4872E-02  4.3757E-02
+  COM velocity:   2.3831E-03 -8.8003E-04  3.7925E-04
+    Time Info: 
+    Total time till now:   2932.55741596 seconds
+    Total Forces time:   2907.72377586 seconds
+    Total Verlet Integration time:      2.29124451 seconds
+    Total Metrics time:      0.02586627 seconds
+    Total Host Update time:      0.16169930 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:   105500, Time:   105.453674
+  dt:                    0.001000
+  Total KE:           6.80369949E+00
+  Total PE:          -1.61969299E+01
+  Total E:           -9.39323044E+00
+  Delta E:               31.90731049 %
+  Virial F (2KE+PE): -2.58953094E+00
+  COM position:   1.7956E-01 -4.5312E-02  4.3947E-02
+  COM velocity:   2.3831E-03 -8.8007E-04  3.7913E-04
+    Time Info: 
+    Total time till now:   2946.55549192 seconds
+    Total Forces time:   2921.60546184 seconds
+    Total Verlet Integration time:      2.30206084 seconds
+    Total Metrics time:      0.02597928 seconds
+    Total Host Update time:      0.16238427 seconds
+    Total Data Upload time:      0.02735400 seconds
+---------------------------------------------------------------------------
+Step:   106000, Time:   105.953400
+  dt:                    0.001000
+  Total KE:           6.72758675E+00
+  Total PE:          -1.61087227E+01
+  Total E:           -9.38113594E+00
+  Delta E:               31.99498749 %
+  Virial F (2KE+PE): -2.65354919E+00
+  COM position:   1.8075E-01 -4.5752E-02  4.4136E-02
+  COM velocity:   2.3831E-03 -8.801
