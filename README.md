@@ -11,3 +11,7 @@ Will generate 4 executables:
 
 These will generate .csv file outputs which can be visualized using Paraview. I also experimented with LAMMPS dump format but dumped that idea as ParaView can be a bit glitchy. 
 Shout out to https://github.com/lele394 for help with the pre-processing scripts. Julia pre-processing scripts in the Input folder were LLM generated.
+
+Simulation examples : These setups were obtained from a UMD database (https://bima.astro.umd.edu/nemo/archive/) : 
+1. Galactic collision between the milky way and the andromeda galaxy (Dubinski, Mihos & Hernquist, 1996, ApJ, 462, 576) 
+   ![til](./Galaxy_Collision.gif)
