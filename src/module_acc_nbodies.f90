@@ -26,7 +26,7 @@ contains
     !$acc enter data copyin(NB%mass(1:N)) async(1)
     !$acc enter data copyin(NB%mass_inv(1:N)) async(1)
     !$acc enter data copyin(NB%radius(1:N)) async(1)
-
+    !$acc enter data copyin(NB%radius2(1:N)) async(1) ! new array for softening
     ! Arrays that will be computed on device - create them
     !$acc enter data create(NB%vel_h(1:N,1:nd)) async(1)
     !$acc enter data create(NB%accel(1:N,1:nd)) async(1)
@@ -45,13 +45,12 @@ contains
     !$acc enter data copyin(NB%total_mass_inv) async(1)
     !$acc enter data copyin(ndim) async(1)
     !$acc enter data copyin(Gravitational_Constant) async(1)
-    !$acc enter data copyin(Softening_Length, softening_length_squared) async(1)
     ! small_number is a parameter - don't copy it
     !$acc enter data copyin(dt, dt_half) async(1)
     !$acc enter data copyin(REFLECTIVE_BC) async(1)
     !$acc enter data copyin(iReflective_BC(1:3)) async(1)
     !$acc enter data copyin(L_bound(1:3)) async(1)
-    ! Create temporary variables for reductions 
+    ! Create temporary variables for reductions
     !$acc enter data create(total_KE, total_PE)   async(1)
     !$acc enter data create(total_COM(1:3), total_COM_vel(1:3))   async(1)
     !$acc wait(1)
@@ -102,11 +101,10 @@ contains
     type(NBodies_type), intent(inout) :: NB
     integer :: N, nd
     N = NB%N_bodies
-    nd = ndim;  
-
+    nd = ndim; 
     ! ~~~~~~~~~~~~~~~~~~~~~ CLEANUP ARRAYS ~~~~~~~~~~~~~~~~~~~~~~
     ! Delete allocatable arrays first
-    !$acc exit data delete(NB%pos(1:N,1:nd)) 
+    !$acc exit data delete(NB%pos(1:N,1:nd))
     !$acc exit data delete(NB%pos_0(1:N,1:nd))
     !$acc exit data delete(NB%vel(1:N,1:nd))
     !$acc exit data delete(NB%vel_0(1:N,1:nd))
@@ -117,6 +115,7 @@ contains
     !$acc exit data delete(NB%mass(1:N))
     !$acc exit data delete(NB%mass_inv(1:N))
     !$acc exit data delete(NB%radius(1:N))
+    !$acc exit data delete(NB%radius2(1:N)) ! new array for softening
     !$acc exit data delete(NB%kinetic_energy(1:N))
     !$acc exit data delete(NB%potential_energy(1:N))
     !$acc exit data delete(NB%sum_energy(1:N))
@@ -130,7 +129,6 @@ contains
     ! ~~~~~~~~~~~~~~~~~~~~~ CLEANUP OTHER VARIABLES ~~~~~~~~~~~~~~~~~~~~~~
     !$acc exit data delete(ndim)
     !$acc exit data delete(Gravitational_Constant)
-    !$acc exit data delete(Softening_Length, softening_length_squared)
     !$acc exit data delete(dt, dt_half)
     !$acc exit data delete(REFLECTIVE_BC)
     !$acc exit data delete(iReflective_BC(1:3))
@@ -143,7 +141,7 @@ contains
     !$acc exit data delete(NB%total_energy_initial)
   end subroutine cleanup_device_acc
 
-subroutine compute_forces_acc(NB)
+  subroutine compute_forces_acc(NB)
     implicit none
     type(NBodies_type), intent(inout) :: NB
     integer :: i_r, i_d, i, nd, k
@@ -153,9 +151,9 @@ subroutine compute_forces_acc(NB)
     real(kind=wp) :: dist_squared, dist_squared_soft
     real(kind=wp) :: prefactor
     real(kind=wp) :: pe_local
-    
+
     t_start = omp_get_wtime()
-    
+
     ! Initialize forces to zero
     !$acc kernels present(NB, NB%total_potential_energy, NB%total_kinetic_energy, NB%total_energy)
     NB%total_potential_energy = 0.0_wp
@@ -165,75 +163,75 @@ subroutine compute_forces_acc(NB)
 
     !$acc parallel loop gang vector private(i,nd) &
     !$acc& present(NB, NB%force, NB%potential_energy, NB%N_bodies, ndim, NB%kinetic_energy) default(none)
-    do i = 1, NB%N_bodies 
+    do i = 1, NB%N_bodies
       !$acc loop seq
       do nd = 1, ndim
-        NB%force(i, nd)     = 0.0_wp
+        NB%force(i, nd) = 0.0_wp
       end do
-        NB%potential_energy(i)  = 0.0_wp
-        NB%kinetic_energy(i)    = 0.0_wp
+      NB%potential_energy(i) = 0.0_wp
+      NB%kinetic_energy(i) = 0.0_wp
     end do
     !$acc end parallel loop
 
 !$acc parallel loop gang vector present(NB, NB%pos, NB%mass, NB%force, NB%potential_energy, &
-!$acc& NB%N_bodies, ndim, Gravitational_Constant, softening_length_squared) &
+!$acc& NB%N_bodies, ndim, Gravitational_Constant, NB%radius2) &
 !$acc& private(i_r,i_d,k,dist_squared,dist_squared_soft,dist,dist_cubed,pe_local, pos_diff_1, pos_diff_2, pos_diff_3, force_local_1, force_local_2, force_local_3) default(none)
-do i_r = 1, NB%n_bodies
-  ! Initialize with scalar operations
-  force_local_1 = 0.0_wp
-  force_local_2 = 0.0_wp
-  force_local_3 = 0.0_wp
-  pos_diff_1 = 0.0_wp
-  pos_diff_2 = 0.0_wp
-  pos_diff_3 = 0.0_wp
-  pe_local = 0.0_wp
-  
-  !$acc loop seq
-  do i_d = 1, NB%n_bodies
-    if (i_r /= i_d) then
-      ! Calculate everything with explicit scalar operations
-      pos_diff_1 = NB%pos(i_d, 1) - NB%pos(i_r, 1)
-      if(ndim >= 2) then
-        pos_diff_2 = NB%pos(i_d, 2) - NB%pos(i_r, 2)
-      end if
-      if(ndim == 3) then
-        pos_diff_3 = NB%pos(i_d, 3) - NB%pos(i_r, 3)
-      end if
-      dist_squared = pos_diff_1**2 + pos_diff_2**2 + pos_diff_3**2
+    do i_r = 1, NB%n_bodies
+      ! Initialize with scalar operations
+      force_local_1 = 0.0_wp
+      force_local_2 = 0.0_wp
+      force_local_3 = 0.0_wp
+      pos_diff_1 = 0.0_wp
+      pos_diff_2 = 0.0_wp
+      pos_diff_3 = 0.0_wp
+      pe_local = 0.0_wp
 
-      dist_squared_soft = dist_squared + softening_length_squared
-      dist = sqrt(dist_squared_soft)
-      dist_cubed = dist_squared_soft * dist
-      
-      force_local_1 = force_local_1 + &
-        Gravitational_Constant * NB%mass(i_r) * NB%mass(i_d) * pos_diff_1 / dist_cubed
-      if(ndim >= 2) then
-        force_local_2 = force_local_2 + &
-          Gravitational_Constant * NB%mass(i_r) * NB%mass(i_d) * pos_diff_2 / dist_cubed
+      !$acc loop seq
+      do i_d = 1, NB%n_bodies
+        if (i_r /= i_d) then
+          ! Calculate everything with explicit scalar operations
+          pos_diff_1 = NB%pos(i_d, 1) - NB%pos(i_r, 1)
+          if (ndim >= 2) then
+            pos_diff_2 = NB%pos(i_d, 2) - NB%pos(i_r, 2)
+          end if
+          if (ndim == 3) then
+            pos_diff_3 = NB%pos(i_d, 3) - NB%pos(i_r, 3)
+          end if
+          dist_squared = pos_diff_1**2 + pos_diff_2**2 + pos_diff_3**2
+
+          dist_squared_soft = dist_squared + NB%radius2(i_r) + NB%radius2(i_d)
+          dist = sqrt(dist_squared_soft)
+          dist_cubed = dist_squared_soft*dist
+
+          force_local_1 = force_local_1 + &
+                          Gravitational_Constant*NB%mass(i_r)*NB%mass(i_d)*pos_diff_1/dist_cubed
+          if (ndim >= 2) then
+            force_local_2 = force_local_2 + &
+                            Gravitational_Constant*NB%mass(i_r)*NB%mass(i_d)*pos_diff_2/dist_cubed
+          end if
+          if (ndim == 3) then
+            force_local_3 = force_local_3 + &
+                            Gravitational_Constant*NB%mass(i_r)*NB%mass(i_d)*pos_diff_3/dist_cubed
+          end if
+          ! Update potential energy with scalar operations
+          pe_local = pe_local - &
+                     0.50_wp*Gravitational_Constant*NB%mass(i_r)*NB%mass(i_d)/dist
+        end if
+      end do
+      ! Store results with scalar operations
+      NB%force(i_r, 1) = force_local_1
+      if (ndim >= 2) then
+        NB%force(i_r, 2) = force_local_2
       end if
-      if(ndim == 3) then
-        force_local_3 = force_local_3 + &
-          Gravitational_Constant * NB%mass(i_r) * NB%mass(i_d) * pos_diff_3 / dist_cubed
+      if (ndim == 3) then
+        NB%force(i_r, 3) = force_local_3
       end if
-      ! Update potential energy with scalar operations
-      pe_local = pe_local - &
-        0.50_wp * Gravitational_Constant * NB%mass(i_r) * NB%mass(i_d) / dist
-    end if
-  end do
-  ! Store results with scalar operations
-  NB%force(i_r, 1) = force_local_1
-  if(ndim >= 2) then
-    NB%force(i_r, 2) = force_local_2
-  end if
-  if(ndim == 3) then
-    NB%force(i_r, 3) = force_local_3
-  end if
-  NB%potential_energy(i_r) = pe_local
-end do
+      NB%potential_energy(i_r) = pe_local
+    end do
 !$acc end parallel loop
     t_end = omp_get_wtime()
     total_time_forces = total_time_forces + (t_end - t_start)
-end subroutine compute_forces_acc
+  end subroutine compute_forces_acc
 
   subroutine get_global_metrics_acc(NB)
     implicit none
@@ -258,16 +256,16 @@ end subroutine compute_forces_acc
 !$acc parallel present(NB, NB%kinetic_energy, NB%potential_energy, NB%sum_energy, NB%vel, NB%mass, &
     !$acc&                 NB%N_bodies, ndim, NB%total_kinetic_energy, NB%total_potential_energy, &
     !$acc&                 NB%center_of_mass, NB%pos, NB%total_mass_inv, NB%center_of_mass_velocity,total_com_vel, total_com, total_PE, total_KE) &
-    !$acc& default(none) 
+    !$acc& default(none)
     !$acc loop gang vector private(i)
     do i = 1, NB%N_bodies
-      NB%kinetic_energy(i) = 0.5_wp * NB%mass(i) * sum(NB%vel(i, 1:ndim)**2)
+      NB%kinetic_energy(i) = 0.5_wp*NB%mass(i)*sum(NB%vel(i, 1:ndim)**2)
       NB%sum_energy(i) = NB%kinetic_energy(i) + NB%potential_energy(i)
     end do
     !$acc end loop
 
     ! Now sum total energies and compute center of mass and center of mass velocity
-    !$acc loop gang vector private(i) reduction(+:total_KE) 
+    !$acc loop gang vector private(i) reduction(+:total_KE)
     do i = 1, NB%N_bodies
       total_KE = total_KE + NB%kinetic_energy(i)
     end do
@@ -284,7 +282,7 @@ end subroutine compute_forces_acc
       !$acc loop seq
       do nd = 1, ndim
         total_COM(nd) = total_COM(nd) + &
-          NB%mass(i) * NB%pos(i, nd) * NB%total_mass_inv
+                        NB%mass(i)*NB%pos(i, nd)*NB%total_mass_inv
       end do
     end do
     !$acc end loop
@@ -294,7 +292,7 @@ end subroutine compute_forces_acc
       !$acc loop seq
       do nd = 1, ndim
         total_COM_vel(nd) = total_COM_vel(nd) + &
-          NB%mass(i) * NB%vel(i, nd) * NB%total_mass_inv
+                            NB%mass(i)*NB%vel(i, nd)*NB%total_mass_inv
       end do
     end do
     !$acc end loop
@@ -306,66 +304,12 @@ end subroutine compute_forces_acc
     NB%total_potential_energy = total_PE
     NB%total_energy = NB%total_kinetic_energy + NB%total_potential_energy
     NB%center_of_mass(1:ndim) = total_COM(1:ndim)
-    NB%center_of_mass_velocity(1:ndim) = total_COM_vel(1:ndim) 
+    NB%center_of_mass_velocity(1:ndim) = total_COM_vel(1:ndim)
     !$acc end kernels
 
     t_end = omp_get_wtime()
     total_time_metrics = total_time_metrics + (t_end - t_start)
   end subroutine get_global_metrics_acc
-
-subroutine softening_length_setup_acc(NB)
-    implicit none
-    type(NBodies_type), intent(inout) :: NB
-    real(kind=wp) :: E_total, KE_max, KE_initial, PE_initial
-    real(kind=wp) :: v_max, r_min, max_mass
-    
-    ! First, ensure all necessary data is on the host
-    ! Download energy values from device
-    !$acc update host(NB%total_kinetic_energy, NB%total_potential_energy) async(1)
-    
-    ! Download mass array from device
-    !$acc update host(NB%mass(1:NB%N_bodies)) async(1)
-    
-    ! Download total_mass_inv if it's not already on host
-    !$acc update host(NB%total_mass_inv) async(1)
-    
-    ! Wait for all transfers to complete
-    !$acc wait(1)
-    
-    ! Now perform all calculations on CPU
-    KE_initial = NB%total_kinetic_energy
-    PE_initial = NB%total_potential_energy
-    E_total = KE_initial + PE_initial
-
-    if (E_total < 0.0_wp) then
-      KE_max = abs(E_total) + KE_initial
-    else
-      KE_max = KE_initial + abs(PE_initial)
-    end if
-
-    ! Estimate maximum velocity
-    v_max = sqrt(2.0_wp * KE_max * NB%total_mass_inv)
-
-    ! Find maximum mass (now data is already on host)
-    max_mass = maxval(NB%mass(1:NB%N_bodies))
-
-    ! Calculate softening length
-    r_min = Gravitational_Constant * max_mass / (v_max**2 + 1e-4_wp)
-    softening_length = 10_wp * r_min
-    softening_length_squared = max(softening_length**2, 1e-4_wp)
-    softening_length_squared = 1.0e-2_wp 
-    softening_length = 1.0e-1_wp 
-    print *, "Calculated softening length (CPU): ", softening_length
-    print *, "Calculated softening length squared (CPU): ", softening_length_squared
-    print *, "Updating softening length on device..."
-    ! Update device with new softening length values
-    !$acc update device(softening_length, softening_length_squared) async(1)
-    
-    ! Wait for update to complete before continuing
-    !$acc wait(1)
-
-    print *, "Estimated softening length: ", softening_length
-end subroutine softening_length_setup_acc
 
   subroutine update_positions_acc(NB)
     implicit none
@@ -395,16 +339,16 @@ end subroutine softening_length_setup_acc
 !$acc&                 NB%bc_factor, REFLECTIVE_BC, iReflective_BC, &
 !$acc&                 NB%pos, L_bound, NB%pos_0) default(none)
 
-!$acc loop gang vector collapse(2) private(i,nd) 
+!$acc loop gang vector collapse(2) private(i,nd)
     do i = 1, NB%N_bodies
       do nd = 1, ndim
-        NB%accel(i, nd) = NB%force(i, nd) * NB%mass_inv(i) ;
+        NB%accel(i, nd) = NB%force(i, nd)*NB%mass_inv(i); 
         ! Update velocities (full step for diagnostics, half step for position update)
         ! Half-step velocity for position update
-        NB%vel_h(i, nd) = NB%vel_0(i, nd) + NB%accel(i, nd) * dt_half;
+        NB%vel_h(i, nd) = NB%vel_0(i, nd) + NB%accel(i, nd)*dt_half; 
         ! Full-step velocity for next iteration and diagnostics
-        NB%vel(i, nd) = NB%vel_0(i, nd) + NB%accel(i, nd) * dt
-        NB%pos(i, nd) = NB%pos_0(i, nd) + NB%vel_h(i, nd) * dt
+        NB%vel(i, nd) = NB%vel_0(i, nd) + NB%accel(i, nd)*dt
+        NB%pos(i, nd) = NB%pos_0(i, nd) + NB%vel_h(i, nd)*dt
         ! Store current values as old values for next iteration
         NB%pos_0(i, nd) = NB%pos(i, nd)
         NB%vel_0(i, nd) = NB%vel(i, nd)
@@ -416,9 +360,5 @@ end subroutine softening_length_setup_acc
     total_time_verlet = total_time_verlet + (t_end - t_start)
   end subroutine update_positions_acc
 
-
 end module acc_nbodies
-
-
-
 

@@ -1,72 +1,73 @@
-submodule (nbodies) input_output
+submodule(nbodies) input_output
   implicit none
 contains
-  module   subroutine read_input_parameters(NB)
+  module subroutine read_input_parameters(NB)
     implicit none
     type(NBodies_type), intent(inout) :: NB
     integer :: ios
     character(len=200) :: line
 
-    open(newunit=ifinput_unit, file='input.dat', status='old', action='read', iostat=ios)
+    open (newunit=ifinput_unit, file='input.dat', status='old', action='read', iostat=ios)
     if (ios /= 0) then
       print *, "Error: Cannot open input file ", trim('input.dat')
       stop
     end if
 
     ! Read dimensions and number of bodies
-    read(ifinput_unit, *) ! Skip header line
-    read(ifinput_unit, *) ndim, NB%n_bodies, Force_Diagnose
+    read (ifinput_unit, *) ! Skip header line
+    read (ifinput_unit, *) ndim, NB%n_bodies, Force_Diagnose
 
     ! Read gravitational constant
-    read(ifinput_unit, *) ! Skip header line
-    read(ifinput_unit, *) Gravitational_Constant
+    read (ifinput_unit, *) ! Skip header line
+    read (ifinput_unit, *) Gravitational_Constant
 
     ! Read mass and radius parameters
-    read(ifinput_unit, *) ! Skip header line
-    read(ifinput_unit, *) mass_0, radius_0, radius_var
+    read (ifinput_unit, *) ! Skip header line
+    read (ifinput_unit, *) mass_0, radius_0, radius_var
 
     ! Read time parameters
-    read(ifinput_unit, *) ! Skip header line
-    read(ifinput_unit, *) dt, nsteps, nprint, ndump
-
+    read (ifinput_unit, *) ! Skip header line
+    read (ifinput_unit, *) dt, nsteps, nprint, ndump
+    ! Read Mass initialization type
+    read (ifinput_unit, *) ! Skip header line
+    read (ifinput_unit, *) MASS_INITIALIZATION_TYPE
     ! Read initialization type
-    read(ifinput_unit, *) ! Skip header line
-    read(ifinput_unit, *) INITIALIZATION_TYPE
-
+    read (ifinput_unit, *) ! Skip header line
+    read (ifinput_unit, *) INITIALIZATION_TYPE
     ! Read initial grid dimensions
-    read(ifinput_unit, *) ! Skip header line
-    read(ifinput_unit, *) nbx_init(1), nbx_init(2), nbx_init(3)
+    read (ifinput_unit, *) ! Skip header line
+    read (ifinput_unit, *) nbx_init(1), nbx_init(2), nbx_init(3)
 
     ! Read initial box dimensions
-    read(ifinput_unit, *) ! Skip header line
-    read(ifinput_unit, *) L_init(1), L_init(2), L_init(3)
+    read (ifinput_unit, *) ! Skip header line
+    read (ifinput_unit, *) L_init(1), L_init(2), L_init(3)
 
     ! Read velocity initialization type
-    read(ifinput_unit, *) ! Skip header line
-    read(ifinput_unit, *) VELOCITY_INITIALIZATION_TYPE
+    read (ifinput_unit, *) ! Skip header line
+    read (ifinput_unit, *) VELOCITY_INITIALIZATION_TYPE
 
     ! Read velocity parameters
-    read(ifinput_unit, *) ! Skip header line
-    read(ifinput_unit, *) vel_var, omega_init
+    read (ifinput_unit, *) ! Skip header line
+    read (ifinput_unit, *) vel_var, omega_init
 
     ! Read boundary condition type
-    read(ifinput_unit, *) ! Skip header line
-    read(ifinput_unit, *) BOUNDARY_CONDITION_TYPE
+    read (ifinput_unit, *) ! Skip header line
+    read (ifinput_unit, *) BOUNDARY_CONDITION_TYPE
 
     ! Read boundary dimensions
-    read(ifinput_unit, *) ! Skip header line
-    read(ifinput_unit, *) iReflective_BC(1), iReflective_BC(2), iReflective_BC(3)
-    read(ifinput_unit, *) ! Skip header line
-    read(ifinput_unit, *) L_bound(1), L_bound(2), L_bound(3)
+    read (ifinput_unit, *) ! Skip header line
+    read (ifinput_unit, *) iReflective_BC(1), iReflective_BC(2), iReflective_BC(3)
+    read (ifinput_unit, *) ! Skip header line
+    read (ifinput_unit, *) L_bound(1), L_bound(2), L_bound(3)
 
     ! Close file
-    close(ifinput_unit)
+    close (ifinput_unit)
 
     ! Set derived parameters
-    dt_half = 0.5_wp * dt
-    dt_squared = dt * dt
+    dt_half = 0.5_wp*dt
+    dt_squared = dt*dt
     REFLECTIVE_BC = (BOUNDARY_CONDITION_TYPE == 2)
-    if(REFLECTIVE_BC .eq. .false.) then
+    if (REFLECTIVE_BC .eq. .false.) then
       iReflective_BC = 0.0_wp
     end if
 
@@ -81,11 +82,11 @@ contains
     integer :: i, ios
     idump = idump + 1
     ! Create filename with 7-digit timestep number
-    write(step_str, '(I7.7)') idump
-    filename = './NBDUMPCSV/nb.' // step_str // '.csv'
+    write (step_str, '(I7.7)') idump
+    filename = './NBDUMPCSV/nb.'//step_str//'.csv'
 
     ! Open file for writing
-    open(newunit=ifdump_unit, file=trim(filename), status='replace', action='write', iostat=ios)
+    open (newunit=ifdump_unit, file=trim(filename), status='replace', action='write', iostat=ios)
     if (ios /= 0) then
       print *, "Error: Cannot open CSV dump file ", trim(filename)
       return
@@ -93,44 +94,44 @@ contains
 
     ! Write CSV header based on dimension
     if (ndim == 3) then
-      write(ifdump_unit, '(A)') 'id,type,x,y,z,vx,vy,vz,ax,ay,az,fx,fy,fz,mass,radius,ke,pe,te'
+      write (ifdump_unit, '(A)') 'id,type,x,y,z,vx,vy,vz,ax,ay,az,fx,fy,fz,mass,radius,ke,pe,te'
     else if (ndim == 2) then
-      write(ifdump_unit, '(A)') 'id,type,x,y,vx,vy,ax,ay,fx,fy,mass,radius,ke,pe,te'
+      write (ifdump_unit, '(A)') 'id,type,x,y,vx,vy,ax,ay,fx,fy,mass,radius,ke,pe,te'
     else ! ndim == 1
-      write(ifdump_unit, '(A)') 'id,type,x,vx,ax,fx,mass,radius,ke,pe,te'
+      write (ifdump_unit, '(A)') 'id,type,x,vx,ax,fx,mass,radius,ke,pe,te'
     end if
 
     ! Write particle data
     do i = 1, NB%n_bodies
       if (ndim == 3) then
-        write(ifdump_unit, '(I0,A,I0,17(A,ES14.6))') i, ',', 1, &
-          ',', NB%pos(i,1), ',', NB%pos(i,2), ',', NB%pos(i,3), &
-          ',', NB%vel(i,1), ',', NB%vel(i,2), ',', NB%vel(i,3), &
-          ',', NB%accel(i,1), ',', NB%accel(i,2), ',', NB%accel(i,3), &
-          ',', NB%force(i,1), ',', NB%force(i,2), ',', NB%force(i,3), &
+        write (ifdump_unit, '(I0,A,I0,17(A,ES14.6))') i, ',', 1, &
+          ',', NB%pos(i, 1), ',', NB%pos(i, 2), ',', NB%pos(i, 3), &
+          ',', NB%vel(i, 1), ',', NB%vel(i, 2), ',', NB%vel(i, 3), &
+          ',', NB%accel(i, 1), ',', NB%accel(i, 2), ',', NB%accel(i, 3), &
+          ',', NB%force(i, 1), ',', NB%force(i, 2), ',', NB%force(i, 3), &
           ',', NB%mass(i), ',', NB%radius(i), &
           ',', NB%kinetic_energy(i), ',', NB%potential_energy(i), ',', NB%sum_energy(i)
       else if (ndim == 2) then
-        write(ifdump_unit, '(I0,A,I0,14(A,ES14.6))') i, ',', 1, &
-          ',', NB%pos(i,1), ',', NB%pos(i,2), &
-          ',', NB%vel(i,1), ',', NB%vel(i,2), &
-          ',', NB%accel(i,1), ',', NB%accel(i,2), &
-          ',', NB%force(i,1), ',', NB%force(i,2), &
+        write (ifdump_unit, '(I0,A,I0,14(A,ES14.6))') i, ',', 1, &
+          ',', NB%pos(i, 1), ',', NB%pos(i, 2), &
+          ',', NB%vel(i, 1), ',', NB%vel(i, 2), &
+          ',', NB%accel(i, 1), ',', NB%accel(i, 2), &
+          ',', NB%force(i, 1), ',', NB%force(i, 2), &
           ',', NB%mass(i), ',', NB%radius(i), &
           ',', NB%kinetic_energy(i), ',', NB%potential_energy(i), ',', NB%sum_energy(i)
       else ! ndim == 1
-        write(ifdump_unit, '(I0,A,I0,10(A,ES14.6))') i, ',', 1, &
-          ',', NB%pos(i,1), &
-          ',', NB%vel(i,1), &
-          ',', NB%accel(i,1), &
-          ',', NB%force(i,1), &
+        write (ifdump_unit, '(I0,A,I0,10(A,ES14.6))') i, ',', 1, &
+          ',', NB%pos(i, 1), &
+          ',', NB%vel(i, 1), &
+          ',', NB%accel(i, 1), &
+          ',', NB%force(i, 1), &
           ',', NB%mass(i), ',', NB%radius(i), &
           ',', NB%kinetic_energy(i), ',', NB%potential_energy(i), ',', NB%sum_energy(i)
       end if
     end do
 
     ! Close file
-    close(ifdump_unit)
+    close (ifdump_unit)
   end subroutine dump_data
 
   ! module subroutine dump_data_old(NB)
@@ -265,32 +266,31 @@ contains
   !   close(ifdump_unit)
   ! end subroutine dump_data_old
 
-
-  module  subroutine output_diagnostics(NB)
+  module subroutine output_diagnostics(NB)
     implicit none
     type(NBodies_type), intent(in) :: NB
 
     print '(A,I8,A,F12.6)', "Step: ", istep, ", Time: ", time
-    print '(A,F12.6)',  "  dt:                ", dt
+    print '(A,F12.6)', "  dt:                ", dt
     print '(A,ES15.8)', "  Total KE:          ", NB%total_kinetic_energy
     print '(A,ES15.8)', "  Total PE:          ", NB%total_potential_energy
     print '(A,ES15.8)', "  Total E:           ", NB%total_energy
     print '(A,F15.8,A)', "  Delta E:           ", &
-      ((NB%total_energy - NB%total_energy_initial) / ABS(NB%total_energy_initial)) * 100.0_wp," %"
+      ((NB%total_energy - NB%total_energy_initial)/ABS(NB%total_energy_initial))*100.0_wp, " %"
     print '(A,ES15.8)', "  Virial F (2KE+PE): ", NB%total_kinetic_energy*2.0_wp + NB%total_potential_energy
     ! In the time loop:
-    if(ndim == 2) then
+    if (ndim == 2) then
       print '(A,2ES12.4)', "  COM position: ", NB%center_of_mass(1:ndim)
       print '(A,2ES12.4)', "  COM velocity: ", NB%center_of_mass_velocity(1:ndim)
-      write(iftimehistory_unit, '(I8,1X,F12.6,1X,8ES16.8)') &
+      write (iftimehistory_unit, '(I8,1X,F12.6,1X,8ES16.8)') &
         istep, time, &
         NB%center_of_mass(1), NB%center_of_mass(2), &
         NB%center_of_mass_velocity(1), NB%center_of_mass_velocity(2), &
         NB%total_kinetic_energy, NB%total_potential_energy, NB%total_energy
-    else if(ndim == 3) then
+    else if (ndim == 3) then
       print '(A,3ES12.4)', "  COM position: ", NB%center_of_mass(1:ndim)
       print '(A,3ES12.4)', "  COM velocity: ", NB%center_of_mass_velocity(1:ndim)
-      write(iftimehistory_unit, '(I8,1X,F12.6,1X,9ES16.8)') &
+      write (iftimehistory_unit, '(I8,1X,F12.6,1X,9ES16.8)') &
         istep, time, &
         NB%center_of_mass(1), NB%center_of_mass(2), NB%center_of_mass(3), &
         NB%center_of_mass_velocity(1), NB%center_of_mass_velocity(2), NB%center_of_mass_velocity(3), &
@@ -298,7 +298,6 @@ contains
     end if
 
   end subroutine output_diagnostics
-
 
 end submodule input_output
 

@@ -12,16 +12,15 @@ program SerialNbodiesSolver
   ! Initialize the simulation (this reads input and sets up everything)
   call initialize_simulation(NB)
 
-  idump = -1 ; ! so that first dump is at 0 step
+  idump = -1; ! so that first dump is at 0 step
   call compute_forces_serial(NB)
-  if(Force_Diagnose == 1) then
+  if (Force_Diagnose == 1) then
     call compute_forces_serial_diagnosis(NB)
   end if
   call get_global_metrics_serial(NB)
   NB%total_energy_initial = NB%total_energy
   call output_diagnostics(NB)
   call dump_data(NB) ! dump initial state
-  call softening_length_setup_serial(NB)
 
   ! Time integration loop
   start_time = omp_get_wtime()  ! Start timing here
@@ -34,11 +33,11 @@ program SerialNbodiesSolver
 
     ! Update simulation time
     time = time + dt
-    if(mod(istep, ndump) == 0 .or. mod(istep, nprint) == 0) then
+    if (mod(istep, ndump) == 0 .or. mod(istep, nprint) == 0) then
       call get_global_metrics_serial(NB)
     end if
 
-    if(mod(istep, ndump) == 0) then
+    if (mod(istep, ndump) == 0) then
       call dump_data(NB)
     end if
 
@@ -55,8 +54,8 @@ program SerialNbodiesSolver
   print *, ""
   print *, "=== Simulation Complete ==="
   print '(A,F15.8,A)', "Total wall time: ", elapsed_time, " seconds"
-  print '(A,F15.8,A)', "Time per step: ", elapsed_time/real(nsteps,8), " seconds"
-  print '(A,F15.8,A)', "Steps per second: ", real(nsteps,8)/elapsed_time, " steps/s"
+  print '(A,F15.8,A)', "Time per step: ", elapsed_time/real(nsteps, 8), " seconds"
+  print '(A,F15.8,A)', "Steps per second: ", real(nsteps, 8)/elapsed_time, " steps/s"
   print '(A,F15.8,A)', "Time in compute_forces_serial: ", s_tforces, " seconds"
   print '(A,F15.8,A)', "Time in update_positions_serial: ", s_tverlet, " seconds"
   print '(A,F15.8,A)', "Time in get_global_metrics_serial: ", s_tmetrics, " seconds"

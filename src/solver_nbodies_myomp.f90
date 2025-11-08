@@ -21,22 +21,21 @@ program MyOMPNbodiesSolver
   print *, "=== My OpenMP N-Body Simulation ==="
   print '(A,I4)', "Number of OpenMP threads: ", num_threads
   print *, "Maximum threads available:", omp_get_max_threads()
-  print *, "Number of processors:", omp_get_num_procs() 
+  print *, "Number of processors:", omp_get_num_procs()
   print *, "================================"
   call initialize_simulation(NB)
 
-  idump = -1 ; ! so that first dump is at 0 step
+  idump = -1; ! so that first dump is at 0 step
   call compute_forces_serial(NB)
-  if(Force_Diagnose == 1) then
+  if (Force_Diagnose == 1) then
     call compute_forces_serial_diagnosis(NB)
   end if
   call get_global_metrics_serial(NB)
   NB%total_energy_initial = NB%total_energy
   call output_diagnostics(NB)
   call dump_data(NB) ! dump initial state
-  call softening_length_setup_myomp(NB)
   ! Time integration loop
-  cpu_start = omp_get_wtime() 
+  cpu_start = omp_get_wtime()
   do istep = 1, nsteps
     ! Compute gravitational forces
     call compute_forces_myomp(NB)
@@ -45,11 +44,11 @@ program MyOMPNbodiesSolver
 
     ! Update simulation time
     time = time + dt
-    if(mod(istep, ndump) == 0 .or. mod(istep, nprint) == 0) then
+    if (mod(istep, ndump) == 0 .or. mod(istep, nprint) == 0) then
       call get_global_metrics_myomp(NB)
     end if
 
-    if(mod(istep, ndump) == 0) then
+    if (mod(istep, ndump) == 0) then
       call dump_data(NB)
     end if
     ! Output diagnostics at specified intervals

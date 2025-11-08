@@ -8,6 +8,7 @@ maintainer = "ssjain221@gmail.com"
 auto-executables = true
 auto-tests = false
 auto-examples = false
+external-modules = ["cudafor", "openacc"]  # Tell FPM these are external
 
 [fortran]
 implicit-typing = true
@@ -35,6 +36,12 @@ dependencies.stdlib = "*"
 name = "mynbodies_acc_out"
 source-dir = "src"
 main = "solver_nbodies_acc.f90"
+dependencies.stdlib = "*"
+
+[[executable]]
+name = "mynbodies_cuda_out"
+source-dir = "src"
+main = "solver_nbodies_cuda.f90"
 dependencies.stdlib = "*"
 
 [install]

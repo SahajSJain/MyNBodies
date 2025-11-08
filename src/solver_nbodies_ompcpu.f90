@@ -24,14 +24,13 @@ program OMPNbodiesSolver
 
   idump = -1 ! so that first dump is at 0 step
   call compute_forces_omp(NB)
-  if(Force_Diagnose == 1) then
+  if (Force_Diagnose == 1) then
     call compute_forces_serial_diagnosis(NB)
   end if
   call get_global_metrics_omp(NB)
   NB%total_energy_initial = NB%total_energy
   call output_diagnostics(NB)
   call dump_data(NB) ! dump initial state
-  call softening_length_setup_omp(NB)
   ! Time integration loop
   start_time = omp_get_wtime()
   do istep = 1, nsteps
@@ -42,11 +41,11 @@ program OMPNbodiesSolver
     call update_positions_omp(NB)
     ! Update simulation time
     time = time + dt
-    if(mod(istep, ndump) == 0 .or. mod(istep, nprint) == 0) then
+    if (mod(istep, ndump) == 0 .or. mod(istep, nprint) == 0) then
       call get_global_metrics_omp(NB)
     end if
 
-    if(mod(istep, ndump) == 0) then
+    if (mod(istep, ndump) == 0) then
       call dump_data(NB)
     end if
     ! Output diagnostics at specified intervals

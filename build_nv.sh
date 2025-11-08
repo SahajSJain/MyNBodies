@@ -3,27 +3,32 @@
 # Set build type
 BUILD_TYPE=${1:-release}  # Default to 'release' if no argument is given
 
+# Common settings
+export FC=nvfortran
+
+# Common flags for all build types
+GPU_ARCH="-gpu=cc70,cc75,cc80,cc86,cc89,cc90"  # or specific arch like -gpu=cc80
+COMMON_FFLAGS="$GPU_ARCH -mp -Minfo=accel,mp -acc -cuda -cudalib=cufft,cublas,cusolver -DP32"
+COMMON_LDFLAGS="$GPU_ARCH -mp -acc -cuda -cudalib=cufft,cublas,cusolver"
+
+
 # Configure flags based on build type
 if [ "$BUILD_TYPE" == "debug" ]; then
-    export FC=nvfortran
     echo ">>> Building in DEBUG mode with compiler $FC for NVIDIA GPU with OpenMP+OpenACC"
-    export FPM_FFLAGS="-acc=gpu -mp -Minfo=accel,mp -g -O0 -traceback -Mbounds -Mchkptr -Mchkstk -Ktrap=fp -DP32"
-    export FPM_LDFLAGS="-acc=gpu -mp"
+    export FPM_FFLAGS="$COMMON_FFLAGS -g -O0 -traceback -Mbounds -Mchkptr -Mchkstk -Ktrap=fp -gpu=debug,lineinfo -Minfo=accel"
+    export FPM_LDFLAGS="$COMMON_LDFLAGS"
 elif [ "$BUILD_TYPE" == "traceback" ]; then
-    export FC=nvfortran
     echo ">>> Building in RELEASE mode with traceback with compiler $FC for NVIDIA GPU with OpenMP+OpenACC"
-    export FPM_FFLAGS="-acc=gpu -mp -Minfo=accel,mp -g -traceback -O3 -fast -DP32"
-    export FPM_LDFLAGS="-acc=gpu -mp"
+    export FPM_FFLAGS="$COMMON_FFLAGS -g -traceback -O3 -fast"
+    export FPM_LDFLAGS="$COMMON_LDFLAGS"
 elif [ "$BUILD_TYPE" == "release" ]; then
-    export FC=nvfortran
     echo ">>> Building in RELEASE mode with compiler $FC for NVIDIA GPU with OpenMP+OpenACC"
-    export FPM_FFLAGS="-acc=gpu -mp -Minfo=accel,mp -g -O3 -fast -DP32"
-    export FPM_LDFLAGS="-acc=gpu -mp"
+    export FPM_FFLAGS="$COMMON_FFLAGS -g -O3"
+    export FPM_LDFLAGS="$COMMON_LDFLAGS"
 elif [ "$BUILD_TYPE" == "profile" ]; then
-    export FC=nvfortran
     echo ">>> Building in PROFILE mode with compiler $FC for NVIDIA GPU with OpenMP+OpenACC"
-    export FPM_FFLAGS="-acc=gpu -mp -Minfo=accel,mp -O3 -fast -pg -DP32"
-    export FPM_LDFLAGS="-acc=gpu -mp -pg"
+    export FPM_FFLAGS="$COMMON_FFLAGS -O3 -fast -pg"
+    export FPM_LDFLAGS="$COMMON_LDFLAGS -pg"
 else
     echo "!!! Unknown build type: $BUILD_TYPE"
     echo "!!! Usage: ./build.sh [release|debug|traceback|profile]"

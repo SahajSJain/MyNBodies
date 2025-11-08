@@ -29,11 +29,9 @@ module nbodies
 ! #endif
 
   ! Mathematical constants in working precision
-  real(kind=wp), parameter :: pi = 4.0_wp * atan(1.0_wp)
+  real(kind=wp), parameter :: pi = 4.0_wp*atan(1.0_wp)
   real(kind=wp), parameter :: e = exp(1.0_wp)
-  real(kind=wp), parameter :: small_number = 2.0_wp * epsilon(1.0_wp) ! 2x machine small_number for working precision
-  real(kind=wp) :: softening_length = 1.e-5_wp ! default softening length
-  real(kind=wp) :: softening_length_squared = 1.e-10_wp ! default softening length squared
+  real(kind=wp), parameter :: small_number = 2.0_wp*epsilon(1.0_wp) ! 2x machine small_number for working precision
   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   ! SIMULATION PARAMETERS (kept as module variables)
   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -62,9 +60,10 @@ module nbodies
   integer :: INITIALIZATION_TYPE      ! 1=random, 2=ordered placement
   integer :: nbx_init(1:3)            ! Number of bodies in each dimension for ordered
   real(kind=wp) :: L_init(1:3)        ! Box dimensions for placement
-
+  ! Mass initialization
+  integer :: MASS_INITIALIZATION_TYPE ! 0=from file, 1=normalized
   ! Velocity initialization
-  integer :: VELOCITY_INITIALIZATION_TYPE   ! 1=random, 2=solid body rotation
+  integer :: VELOCITY_INITIALIZATION_TYPE    ! 1=random, 2=solid body rotation
   real(kind=wp) :: vel_var                  ! Initial velocity scale for random
   real(kind=wp) :: omega_init               ! Angular velocity for rotation
 
@@ -90,22 +89,22 @@ module nbodies
 
     ! DYNAMICAL ARRAYS - BODY PROPERTIES
     ! Position and velocity arrays (n_bodies x ndim)
-    real(kind=wp), allocatable :: pos(:,:)       ! Current positions
-    real(kind=wp), allocatable :: pos_0(:,:)     ! Previous positions
-    real(kind=wp), allocatable :: vel(:,:)       ! Current velocities
-    real(kind=wp), allocatable :: vel_0(:,:)     ! Previous velocities
-    real(kind=wp), allocatable :: vel_h(:,:)     ! Half-step velocities
+    real(kind=wp), allocatable :: pos(:, :)       ! Current positions
+    real(kind=wp), allocatable :: pos_0(:, :)     ! Previous positions
+    real(kind=wp), allocatable :: vel(:, :)       ! Current velocities
+    real(kind=wp), allocatable :: vel_0(:, :)     ! Previous velocities
+    real(kind=wp), allocatable :: vel_h(:, :)     ! Half-step velocities
 
     ! Force and acceleration arrays (n_bodies x ndim)
-    real(kind=wp), allocatable :: accel(:,:)     ! Accelerations
-    real(kind=wp), allocatable :: force(:,:)     ! Force vectors
-    real(kind=wp), allocatable :: bc_factor(:,:) ! Boundary condition factors
+    real(kind=wp), allocatable :: accel(:, :)     ! Accelerations
+    real(kind=wp), allocatable :: force(:, :)     ! Force vectors
+    real(kind=wp), allocatable :: bc_factor(:, :) ! Boundary condition factors
 
     ! Mass and geometry arrays (n_bodies)
     real(kind=wp), allocatable :: mass(:)        ! Body masses
     real(kind=wp), allocatable :: mass_inv(:)    ! Inverse masses
     real(kind=wp), allocatable :: radius(:)      ! Body radii
-
+    real(kind=wp), allocatable :: radius2(:)      ! Body radii squared
     ! ENERGY AND GLOBAL PROPERTIES
     ! Per-body energy arrays (n_bodies)
     real(kind=wp), allocatable :: kinetic_energy(:)    ! KE per body
@@ -128,7 +127,7 @@ module nbodies
     real(kind=wp) :: min_vel, max_vel, min_accel, max_accel ! min-max magnitudes
     real(kind=wp) :: char_dist                   ! min-max distances
     ! Force Diagnoses
-    real(kind=wp), allocatable :: Force_matrix(:,:,:)  ! matrix to store forces for diagnosis
+    real(kind=wp), allocatable :: Force_matrix(:, :, :)  ! matrix to store forces for diagnosis
     ! (to,from,ndim)
   contains
     procedure :: allocate => allocate_nbodies
@@ -143,47 +142,47 @@ module nbodies
     module subroutine initialize_positions(NB)
       type(NBodies_type), intent(inout) :: NB
     end subroutine initialize_positions
-    module   subroutine read_input_parameters(NB)
+    module subroutine read_input_parameters(NB)
       type(NBodies_type), intent(inout) :: NB
     end subroutine read_input_parameters
     module subroutine dump_data(NB)
       type(NBodies_type), intent(inout) :: NB
     end subroutine dump_data
-    module  subroutine output_diagnostics(NB)
+    module subroutine output_diagnostics(NB)
       type(NBodies_type), intent(in) :: NB
     end subroutine output_diagnostics
   end interface
 
 contains
-subroutine estimate_memory_nbodies(this)
+  subroutine estimate_memory_nbodies(this)
     class(NBodies_type), intent(in) :: this
     integer(kind=8) :: total_bytes
     integer :: n
-    
+
     n = this%n_bodies
     total_bytes = 0
-    
+
     ! Position and velocity arrays (n_bodies x ndim)
-    total_bytes = total_bytes + 5 * n * ndim * storage_size(1.0_wp)/8  ! pos, pos_0, vel, vel_0, vel_h
-    
+    total_bytes = total_bytes + 5*n*ndim*storage_size(1.0_wp)/8  ! pos, pos_0, vel, vel_0, vel_h
+
     ! Force and acceleration arrays (n_bodies x ndim)
-    total_bytes = total_bytes + 3 * n * ndim * storage_size(1.0_wp)/8  ! accel, force, bc_factor
-    
+    total_bytes = total_bytes + 3*n*ndim*storage_size(1.0_wp)/8  ! accel, force, bc_factor
+
     ! Mass and geometry arrays (n_bodies)
-    total_bytes = total_bytes + 3 * n * storage_size(1.0_wp)/8  ! mass, mass_inv, radius
-    
+    total_bytes = total_bytes + 4*n*storage_size(1.0_wp)/8  ! mass, mass_inv, radius, radius2
+
     ! Energy arrays (n_bodies)
-    total_bytes = total_bytes + 3 * n * storage_size(1.0_wp)/8  ! kinetic_energy, potential_energy, sum_energy
-    
+    total_bytes = total_bytes + 3*n*storage_size(1.0_wp)/8  ! kinetic_energy, potential_energy, sum_energy
+
     ! Center of mass arrays (ndim)
-    total_bytes = total_bytes + 2 * ndim * storage_size(1.0_wp)/8  ! center_of_mass, center_of_mass_velocity
-    
+    total_bytes = total_bytes + 2*ndim*storage_size(1.0_wp)/8  ! center_of_mass, center_of_mass_velocity
+
     ! Random vector (ndim)
-    total_bytes = total_bytes + ndim * storage_size(1.0_wp)/8  ! rand_vec
-    
+    total_bytes = total_bytes + ndim*storage_size(1.0_wp)/8  ! rand_vec
+
     ! Force matrix (n_bodies x n_bodies x ndim)
-    total_bytes = total_bytes + n * n * ndim * storage_size(1.0_wp)/8  ! Force_matrix
-    
+    total_bytes = total_bytes + n*n*ndim*storage_size(1.0_wp)/8  ! Force_matrix
+
     ! Print results
     print '(A)', '--- Memory Estimate for NBodies_type ---'
     print '(A,I0)', 'Number of bodies: ', n
@@ -191,8 +190,8 @@ subroutine estimate_memory_nbodies(this)
     print '(A,I0,A)', 'Total memory required: ', total_bytes, ' bytes'
     print '(A,F0.2,A)', 'Total memory required: ', real(total_bytes)/1024.0, ' KB'
     print '(A,F0.2,A)', 'Total memory required: ', real(total_bytes)/1048576.0, ' MB'
-    
-end subroutine estimate_memory_nbodies
+
+  end subroutine estimate_memory_nbodies
   subroutine allocate_nbodies(this, num_bodies)
     implicit none
     class(NBodies_type), intent(inout) :: this
@@ -208,55 +207,57 @@ end subroutine estimate_memory_nbodies
     end if
 
     ! Allocate position and velocity arrays
-    allocate(this%pos(this%n_bodies, ndim), source=0.0_wp)
-    allocate(this%pos_0(this%n_bodies, ndim), source=0.0_wp)
-    allocate(this%vel(this%n_bodies, ndim), source=0.0_wp)
-    allocate(this%vel_0(this%n_bodies, ndim), source=0.0_wp)
-    allocate(this%vel_h(this%n_bodies, ndim), source=0.0_wp)
+    allocate (this%pos(this%n_bodies, ndim), source=0.0_wp)
+    allocate (this%pos_0(this%n_bodies, ndim), source=0.0_wp)
+    allocate (this%vel(this%n_bodies, ndim), source=0.0_wp)
+    allocate (this%vel_0(this%n_bodies, ndim), source=0.0_wp)
+    allocate (this%vel_h(this%n_bodies, ndim), source=0.0_wp)
 
     ! Allocate force and acceleration arrays
-    allocate(this%accel(this%n_bodies, ndim), source=0.0_wp)
-    allocate(this%force(this%n_bodies, 3), source=0.0_wp)
-    allocate(this%bc_factor(this%n_bodies, ndim), source=0.0_wp)
+    allocate (this%accel(this%n_bodies, ndim), source=0.0_wp)
+    allocate (this%force(this%n_bodies, 3), source=0.0_wp)
+    allocate (this%bc_factor(this%n_bodies, ndim), source=0.0_wp)
 
     ! Allocate mass and geometry arrays
-    allocate(this%mass(this%n_bodies), source=0.0_wp)
-    allocate(this%mass_inv(this%n_bodies), source=0.0_wp)
-    allocate(this%radius(this%n_bodies), source=0.0_wp)
+    allocate (this%mass(this%n_bodies), source=0.0_wp)
+    allocate (this%mass_inv(this%n_bodies), source=0.0_wp)
+    allocate (this%radius(this%n_bodies), source=0.0_wp)
+    allocate (this%radius2(this%n_bodies), source=0.0_wp)
 
     ! Allocate energy arrays
-    allocate(this%kinetic_energy(this%n_bodies), source=0.0_wp)
-    allocate(this%potential_energy(this%n_bodies), source=0.0_wp)
-    allocate(this%sum_energy(this%n_bodies), source=0.0_wp)
+    allocate (this%kinetic_energy(this%n_bodies), source=0.0_wp)
+    allocate (this%potential_energy(this%n_bodies), source=0.0_wp)
+    allocate (this%sum_energy(this%n_bodies), source=0.0_wp)
 
     ! Allocate center of mass arrays
-    allocate(this%center_of_mass(3), source=0.0_wp)
-    allocate(this%center_of_mass_velocity(3), source=0.0_wp) 
+    allocate (this%center_of_mass(3), source=0.0_wp)
+    allocate (this%center_of_mass_velocity(3), source=0.0_wp)
 
     ! Allocate temporary arrays
-    allocate(this%rand_vec(ndim), source=0.0_wp)
+    allocate (this%rand_vec(ndim), source=0.0_wp)
 
     ! Allocate force diagnosis matrix if needed
-    if(Force_Diagnose == 1) then
-      allocate(this%Force_matrix(this%n_bodies, this%n_bodies, ndim), source=0.0_wp)
+    if (Force_Diagnose == 1) then
+      allocate (this%Force_matrix(this%n_bodies, this%n_bodies, ndim), source=0.0_wp)
     end if
 
     ! Initialize radii with variation
     radius_var = max(0.0_wp, min(radius_var, 0.9_wp)) ! clamp between 0 and 0.9
     do i = 1, this%n_bodies
       call random_number(rand_val)
-      this%radius(i) = radius_0 * ((1.0_wp - radius_var) + rand_val * 2.0_wp * radius_var)
+      this%radius(i) = radius_0*((1.0_wp - radius_var) + rand_val*2.0_wp*radius_var)
+      this%radius2(i) = this%radius(i)*this%radius(i) ! used in softening for force calculation
     end do
 
     ! Initialize masses based on radii (assuming constant density)
     do i = 1, this%n_bodies
-      this%mass(i) = mass_0 * (this%radius(i) / radius_0)**ndim
+      this%mass(i) = mass_0*(this%radius(i)/radius_0)**ndim
     end do
 
     ! Calculate inverse masses and total mass
-    this%mass_inv = 1.0_wp / (this%mass + small_number)
+    this%mass_inv = 1.0_wp/(this%mass + small_number)
     this%total_mass = sum(this%mass)
-    this%total_mass_inv = 1.0_wp / (this%total_mass + small_number)
+    this%total_mass_inv = 1.0_wp/(this%total_mass + small_number)
 
     ! Initialize global properties
     this%total_kinetic_energy = 0.0_wp
@@ -287,88 +288,91 @@ end subroutine estimate_memory_nbodies
 
     ! Deallocate position arrays
     if (allocated(this%pos)) then
-      deallocate(this%pos, stat=stat)
+      deallocate (this%pos, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating pos, stat =", stat
     end if
     if (allocated(this%pos_0)) then
-      deallocate(this%pos_0, stat=stat)
+      deallocate (this%pos_0, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating pos_0, stat =", stat
     end if
     ! Deallocate velocity arrays
     if (allocated(this%vel)) then
-      deallocate(this%vel, stat=stat)
+      deallocate (this%vel, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating vel, stat =", stat
     end if
     if (allocated(this%vel_0)) then
-      deallocate(this%vel_0, stat=stat)
+      deallocate (this%vel_0, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating vel_0, stat =", stat
     end if
     if (allocated(this%vel_h)) then
-      deallocate(this%vel_h, stat=stat)
+      deallocate (this%vel_h, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating vel_h, stat =", stat
     end if
 
     ! Deallocate acceleration arrays
     if (allocated(this%accel)) then
-      deallocate(this%accel, stat=stat)
+      deallocate (this%accel, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating accel, stat =", stat
     end if
 
     ! Deallocate force arrays
     if (allocated(this%force)) then
-      deallocate(this%force, stat=stat)
+      deallocate (this%force, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating force, stat =", stat
     end if
     if (allocated(this%bc_factor)) then
-      deallocate(this%bc_factor, stat=stat)
+      deallocate (this%bc_factor, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating bc_factor, stat =", stat
     end if
 
     ! Deallocate mass and geometry arrays
     if (allocated(this%mass)) then
-      deallocate(this%mass, stat=stat)
+      deallocate (this%mass, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating mass, stat =", stat
     end if
     if (allocated(this%mass_inv)) then
-      deallocate(this%mass_inv, stat=stat)
+      deallocate (this%mass_inv, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating mass_inv, stat =", stat
     end if
     if (allocated(this%radius)) then
-      deallocate(this%radius, stat=stat)
+      deallocate (this%radius, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating radius, stat =", stat
     end if
-
+    if (allocated(this%radius2)) then
+      deallocate (this%radius2, stat=stat)
+      if (stat /= 0 .and. debug) print *, "Warning: Error deallocating radius2, stat =", stat
+    end if
     ! Deallocate energy arrays
     if (allocated(this%kinetic_energy)) then
-      deallocate(this%kinetic_energy, stat=stat)
+      deallocate (this%kinetic_energy, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating kinetic_energy, stat =", stat
     end if
     if (allocated(this%potential_energy)) then
-      deallocate(this%potential_energy, stat=stat)
+      deallocate (this%potential_energy, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating potential_energy, stat =", stat
     end if
     if (allocated(this%sum_energy)) then
-      deallocate(this%sum_energy, stat=stat)
+      deallocate (this%sum_energy, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating sum_energy, stat =", stat
     end if
 
     ! Deallocate center of mass arrays
     if (allocated(this%center_of_mass)) then
-      deallocate(this%center_of_mass, stat=stat)
+      deallocate (this%center_of_mass, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating center_of_mass, stat =", stat
     end if
     if (allocated(this%center_of_mass_velocity)) then
-      deallocate(this%center_of_mass_velocity, stat=stat)
+      deallocate (this%center_of_mass_velocity, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating center_of_mass_velocity, stat =", stat
     end if
 
     ! Deallocate temporary arrays
     if (allocated(this%rand_vec)) then
-      deallocate(this%rand_vec, stat=stat)
+      deallocate (this%rand_vec, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating rand_vec, stat =", stat
     end if
     if (allocated(this%Force_matrix)) then
-      deallocate(this%Force_matrix, stat=stat)
+      deallocate (this%Force_matrix, stat=stat)
       if (stat /= 0 .and. debug) print *, "Warning: Error deallocating Force_matrix, stat =", stat
     end if
 
@@ -410,7 +414,7 @@ end subroutine estimate_memory_nbodies
     ! Initialize velocities
     call initialize_velocities(NB)
     ! initialize masses
-    call normalize_mass(NB)
+    call set_mass(NB) ! normalize masses only if not read in from file
     ! Create output directory if it doesn't exist
     INQUIRE (FILE='./NBDUMP/', EXIST=dir_exists)
     IF (.NOT. dir_exists) THEN
@@ -420,17 +424,17 @@ end subroutine estimate_memory_nbodies
     IF (.NOT. dir_exists) THEN
       CALL EXECUTE_COMMAND_LINE('mkdir -p ./NBDUMPCSV/')
     END IF
-    open(newunit=iftimehistory_unit, file='Time_History.dat', status='replace', action='write', iostat=ios)
+    open (newunit=iftimehistory_unit, file='Time_History.dat', status='replace', action='write', iostat=ios)
     if (ios /= 0) then
       print *, "Error: Cannot open input file ", trim('Time_History.dat')
       stop
     end if
     ! Write header for time history file (do this once before the time loop)
-    if(ndim == 2) then
-      write(iftimehistory_unit, '(A)') 'step, time, COM_x, COM_y, ' // &
+    if (ndim == 2) then
+      write (iftimehistory_unit, '(A)') 'step, time, COM_x, COM_y, '// &
         'COM_vx, COM_vy, KE_total, PE_total, E_total'
-    else if(ndim == 3) then
-      write(iftimehistory_unit, '(A)') 'step, time, COM_x, COM_y, COM_z, ' // &
+    else if (ndim == 3) then
+      write (iftimehistory_unit, '(A)') 'step, time, COM_x, COM_y, COM_z, '// &
         'COM_vx, COM_vy, COM_vz, KE_total, PE_total, E_total'
     end if
 
@@ -441,16 +445,16 @@ end subroutine estimate_memory_nbodies
     ! Initialize time variables
     time = 0.0_wp
     istep = 0
-    dt_half = 0.5_wp * dt
-    dt_squared = dt * dt
-    dt_min = dt * 0.01_wp
-    dt_max = dt * 100.0_wp
+    dt_half = 0.5_wp*dt
+    dt_squared = dt*dt
+    dt_min = dt*0.01_wp
+    dt_max = dt*100.0_wp
     ! Print summary of parameters read
     print *, "=== Input Parameters Read Successfully ==="
     print '(A,I3,A,I6)', "Dimensions: ", ndim, ", Bodies: ", NB%n_bodies
     print '(A,F8.3)', "Gravitational constant: ", Gravitational_Constant
-    print '(A,F15.8,A,F8.3,A,F8.3)', "Mass: ", mass_0, ", Radius: ", radius_0, &
-      ", Radius variation: ", radius_var
+    print '(A,F15.8,A,F8.3,A,F8.3,A,F8.3)', "Mass: ", mass_0, ", Radius: ", radius_0, &
+      ", Radius variation: ", radius_var, "radius^2_0 used in softening: ", radius_0*radius_0
     print '(A,F8.6,A,I8)', "Time step: ", dt, ", Number of steps: ", nsteps
     print '(A,I2)', "Initialization type: ", INITIALIZATION_TYPE
     print '(A,I2)', "Velocity initialization type: ", VELOCITY_INITIALIZATION_TYPE
@@ -458,7 +462,7 @@ end subroutine estimate_memory_nbodies
     print *, "========================================="
 
     print *, "=== Simulation Initialized Successfully ==="
-    print '(A)', " Precision: " // trim(precision_name)
+    print '(A)', " Precision: "//trim(precision_name)
     print '(A,I8)', " Number of bodies: ", NB%n_bodies
     print '(A,I2)', " Dimensions: ", ndim
     print '(A,F12.6)', " Time step (dt): ", dt
@@ -470,7 +474,6 @@ end subroutine estimate_memory_nbodies
     print *, "==========================================="
     call estimate_memory_nbodies(NB)
   end subroutine initialize_simulation
-
 
   subroutine finalize_simulation(NB)
     implicit none
@@ -521,20 +524,20 @@ end subroutine estimate_memory_nbodies
           ! force.
           ! in vectorized form:
           pos_diff = NB%pos(j, 1:ndim) - NB%pos(i, 1:ndim)
-          dist = sqrt(sum(pos_diff(1:ndim)**2)) + small_number ! Softening to avoid singularity
+          dist = sqrt(sum(pos_diff(1:ndim)**2)) + NB%radius2(i) + NB%radius2(j) ! Softening to avoid singularity
           dist_cubed = dist**3
 
           NB%force(i, 1:ndim) = NB%force(i, 1:ndim) &
-            + Gravitational_Constant * NB%mass(i) * NB%mass(j) * (pos_diff(1:ndim) &
-            / dist_cubed)
+                                + Gravitational_Constant*NB%mass(i)*NB%mass(j)*(pos_diff(1:ndim) &
+                                                                                /dist_cubed)
 
-          NB%Force_matrix(i, j, 1:ndim) = Gravitational_Constant * NB%mass(i) &
-            * NB%mass(j) * (pos_diff(1:ndim) / dist_cubed)
+          NB%Force_matrix(i, j, 1:ndim) = Gravitational_Constant*NB%mass(i) &
+                                          *NB%mass(j)*(pos_diff(1:ndim)/dist_cubed)
           ! Calculate potential energy for diagnostics
           ! Note: Using 0.5 factor to avoid double counting since we loop over
           ! all pairs
           NB%potential_energy(i) = NB%potential_energy(i) - &
-            (Gravitational_Constant * NB%mass(i) * NB%mass(j) / dist) * 0.5_wp
+                                   (Gravitational_Constant*NB%mass(i)*NB%mass(j)/dist)*0.5_wp
         end if
       end do
     end do
@@ -546,48 +549,48 @@ end subroutine estimate_memory_nbodies
       CALL EXECUTE_COMMAND_LINE('mkdir -p ./ForceMatrixCSV/')
     END IF
 
-    do i=1, NB%n_bodies
-      write(step_str, '(I7.7)') i
-      filename = './ForceMatrixCSV/nb.' // step_str // '.csv'
+    do i = 1, NB%n_bodies
+      write (step_str, '(I7.7)') i
+      filename = './ForceMatrixCSV/nb.'//step_str//'.csv'
       ! Open file for writing
-      open(newunit=ifforcematrix_unit, file=trim(filename), status='replace', action='write', iostat=ios)
+      open (newunit=ifforcematrix_unit, file=trim(filename), status='replace', action='write', iostat=ios)
       if (ios /= 0) then
         print *, "Error: Cannot open Force Matrix CSV file ", trim(filename)
         return
       end if
 
       ! Write CSV header and data based on dimension
-      if(ndim == 2) then
-        write(ifforcematrix_unit, '(A)') 'from_id,dx,dy,mt,mf,fx,fy'
-        do j=1, NB%n_bodies
+      if (ndim == 2) then
+        write (ifforcematrix_unit, '(A)') 'from_id,dx,dy,mt,mf,fx,fy'
+        do j = 1, NB%n_bodies
           if (i /= j) then
             ! vector is: to -> from .
             ! ie. goes from point "to" (i) to point "from" (j)
             pos_diff = NB%pos(j, 1:ndim) - NB%pos(i, 1:ndim) ! vector going as: from - to
-            write(ifforcematrix_unit, '(I0,6(",",ES14.6))') &
+            write (ifforcematrix_unit, '(I0,6(",",ES14.6))') &
               j, pos_diff(1), pos_diff(2), NB%mass(j), NB%mass(i), &
-              NB%Force_matrix(i,j,1), NB%Force_matrix(i,j,2)
+              NB%Force_matrix(i, j, 1), NB%Force_matrix(i, j, 2)
           end if
         end do
-      else if(ndim == 3) then
-        write(ifforcematrix_unit, '(A)') 'from_id,dx,dy,dz,mt,mf,fx,fy,fz'
-        do j=1, NB%n_bodies
+      else if (ndim == 3) then
+        write (ifforcematrix_unit, '(A)') 'from_id,dx,dy,dz,mt,mf,fx,fy,fz'
+        do j = 1, NB%n_bodies
           if (i /= j) then
             pos_diff = NB%pos(j, 1:ndim) - NB%pos(i, 1:ndim) ! vector going as: from - to
-            write(ifforcematrix_unit, '(I0,8(",",ES14.6))') &
+            write (ifforcematrix_unit, '(I0,8(",",ES14.6))') &
               j, pos_diff(1), pos_diff(2), pos_diff(3), NB%mass(j), NB%mass(i), &
-              NB%Force_matrix(i,j,1), NB%Force_matrix(i,j,2), NB%Force_matrix(i,j,3)
+              NB%Force_matrix(i, j, 1), NB%Force_matrix(i, j, 2), NB%Force_matrix(i, j, 3)
           end if
         end do
       end if
 
       ! Close file
-      close(ifforcematrix_unit)
-    enddo
+      close (ifforcematrix_unit)
+    end do
 
   end subroutine compute_forces_serial_diagnosis
 
-  subroutine normalize_mass(NB)
+  subroutine set_mass(NB)
     implicit none
     type(NBodies_type), intent(inout) :: NB
     integer :: i, j
@@ -595,7 +598,57 @@ end subroutine estimate_memory_nbodies
     real(kind=wp) :: dist
     real(kind=wp) :: v_squared_sum, pe_coefficient
     real(kind=wp) :: KE_total, PE_total
+    ! Local variables
+    integer :: ios
+    integer :: n_bodies_from_file
+    integer :: file_unit
+    character(len=256) :: filename
+    integer :: step_size, sample_index
 
+    if (MASS_INITIALIZATION_TYPE == 0) then
+      ! Masses are read from file, do not modify
+      ! Also read radius from file
+      ! read masses from file
+      filename = 'data/masses_ascii.dat'
+      open (newunit=file_unit, file=trim(filename), status='old', action='read', iostat=ios)
+      do i = 1, NB%n_bodies
+        read (file_unit, *) NB%mass(i)
+        NB%mass_inv(i) = 1.0_wp/NB%mass(i)
+      end do
+      NB%total_mass = sum(NB%mass(1:NB%n_bodies))
+      NB%total_mass_inv = 1.0_wp/NB%total_mass
+      close (file_unit)
+
+      filename = 'data/radii_ascii.dat'
+      open (newunit=file_unit, file=trim(filename), status='old', action='read', iostat=ios)
+      do i = 1, NB%n_bodies
+        read (file_unit, *) NB%radius(i)
+        NB%radius2(i) = NB%radius(i)*NB%radius(i) ! used in softening for force calculation
+      end do
+      close (file_unit)
+
+      ! Print sample masses and radii
+      write (*, *) ''
+      write (*, *) 'Sample masses and radii (10 equally spaced particles):'
+      write (*, *) '--------------------------------------------------------'
+      write (*, '(A10,A15,A15)') 'Index', 'Mass', 'Radius'
+      write (*, *) '--------------------------------------------------------'
+
+      ! Calculate step size to get 10 samples
+      step_size = max(1, NB%n_bodies/10)
+
+      do i = 1, 10
+        sample_index = min(i*step_size, NB%n_bodies)
+        write (*, '(I10,2E15.6)') sample_index, NB%mass(sample_index), NB%radius(sample_index)
+      end do
+
+      write (*, *) '--------------------------------------------------------'
+      write (*, '(A,E15.6)') 'Total mass: ', NB%total_mass
+      write (*, '(A,I10)') 'Total particles: ', NB%n_bodies
+      write (*, *) ''
+
+      return
+    end if
     v_squared_sum = 0.0_wp
     pe_coefficient = 0.0_wp
 
@@ -606,10 +659,10 @@ end subroutine estimate_memory_nbodies
 
     ! Calculate PE coefficient (sum of 1/r_ij)
     do i = 1, NB%n_bodies
-      do j = i+1, NB%n_bodies
+      do j = i + 1, NB%n_bodies ! avoid double counting
         pos_diff = NB%pos(j, 1:ndim) - NB%pos(i, 1:ndim)
-        dist = sqrt(sum(pos_diff(1:ndim)**2) + softening_length_squared)
-        pe_coefficient = pe_coefficient - 1.0_wp / dist  ! Negative because PE is negative
+        dist = sqrt(sum(pos_diff(1:ndim)**2) + NB%radius(i)*NB%radius(j))
+        pe_coefficient = pe_coefficient - 1.0_wp/dist  ! Negative because PE is negative
       end do
     end do
 
@@ -620,20 +673,20 @@ end subroutine estimate_memory_nbodies
     ! So: 0.5 * m * v_squared_sum = -0.5 * G * m^2 * pe_coefficient
     ! Therefore: m = -v_squared_sum / (G * pe_coefficient)
 
-    mass_0 = -v_squared_sum / (Gravitational_Constant * pe_coefficient)
+    mass_0 = -v_squared_sum/(Gravitational_Constant*pe_coefficient)
 
     ! Set all masses to mass_0
     do i = 1, NB%n_bodies
       NB%mass(i) = mass_0
-      NB%mass_inv(i) = 1.0_wp / NB%mass(i)
+      NB%mass_inv(i) = 1.0_wp/NB%mass(i)
     end do
 
-    NB%total_mass = NB%n_bodies * mass_0
-    NB%total_mass_inv = 1.0_wp / NB%total_mass
+    NB%total_mass = NB%n_bodies*mass_0
+    NB%total_mass_inv = 1.0_wp/NB%total_mass
 
     ! Verify virial equilibrium
-    KE_total = 0.5_wp * mass_0 * v_squared_sum
-    PE_total = Gravitational_Constant * mass_0**2 * pe_coefficient
+    KE_total = 0.5_wp*mass_0*v_squared_sum
+    PE_total = Gravitational_Constant*mass_0**2*pe_coefficient
 
     print *, "Mass per particle:", mass_0
     print *, "Total KE:", KE_total
@@ -641,81 +694,81 @@ end subroutine estimate_memory_nbodies
     print *, "Virial ratio KE/|PE|:", KE_total/abs(PE_total)
     print *, "2*KE + PE:", 2.0_wp*KE_total + PE_total
 
-  end subroutine normalize_mass
+  end subroutine set_mass
 end module nbodies
 
- ! subroutine adjust_timestep_acceleration(NB)
- !   ! Based on :arXiv:2401.02849v1 [astro-ph.EP] 05 Jan 2024
- !   ! A new timestep criterion for N-body simulations - P, R, S
- !   implicit none
- !   type(NBodies_type), intent(inout) :: NB
+! subroutine adjust_timestep_acceleration(NB)
+!   ! Based on :arXiv:2401.02849v1 [astro-ph.EP] 05 Jan 2024
+!   ! A new timestep criterion for N-body simulations - P, R, S
+!   implicit none
+!   type(NBodies_type), intent(inout) :: NB
 
- !   real(wp) :: tau_prs, tau_min, tau_local
- !   real(wp) :: accel_mag, snap_mag
- !   real(wp) :: snap(ndim), accel(ndim), accel_0(ndim), accel_00(ndim)
- !   real(wp) :: jerk(ndim), jerk_mag
- !   real(wp) :: dt_calculated, dt_close, min_distance, dist, relative_vel
- !   real(wp), parameter :: eta_aarseth = 0.02_wp  ! Aarseth accuracy parameter
- !   real(wp), parameter :: eta_close = 0.1_wp
- !   real(wp), parameter :: safety_factor = 0.5_wp
- !   real(wp), parameter :: eta_prs = (5.04*(10**(-6)))**(1.0_wp/7.0_wp) ! From the paper
- !   real(wp), parameter :: epsilon_prs = (eta_prs**7.0_wp)/5040.0_wp
- !   real(wp) :: numerator, denominator
- !   integer :: i, j
+!   real(wp) :: tau_prs, tau_min, tau_local
+!   real(wp) :: accel_mag, snap_mag
+!   real(wp) :: snap(ndim), accel(ndim), accel_0(ndim), accel_00(ndim)
+!   real(wp) :: jerk(ndim), jerk_mag
+!   real(wp) :: dt_calculated, dt_close, min_distance, dist, relative_vel
+!   real(wp), parameter :: eta_aarseth = 0.02_wp  ! Aarseth accuracy parameter
+!   real(wp), parameter :: eta_close = 0.1_wp
+!   real(wp), parameter :: safety_factor = 0.5_wp
+!   real(wp), parameter :: eta_prs = (5.04*(10**(-6)))**(1.0_wp/7.0_wp) ! From the paper
+!   real(wp), parameter :: epsilon_prs = (eta_prs**7.0_wp)/5040.0_wp
+!   real(wp) :: numerator, denominator
+!   integer :: i, j
 
- !   ! Initialize
- !   tau_min = huge(1.0_wp)
- !   min_distance = huge(1.0_wp)
- !   dt_close = dt_max
+!   ! Initialize
+!   tau_min = huge(1.0_wp)
+!   min_distance = huge(1.0_wp)
+!   dt_close = dt_max
 
- !   ! Calculate derivatives for Aarseth criterion
- !   !$omp parallel do default(shared) &
- !   !$omp private(i, accel_mag, snap_mag, jerk_mag, accel, accel_0, accel_00, &
- !   !$omp         jerk, snap, numerator, denominator, tau_prs) &
- !   !$omp reduction(min:tau_min)
- !   do i = 1, NB%n_bodies
- !     ! Compute acceleration magnitude
- !     accel_mag = sqrt(sum(NB%accel(i, 1:ndim)**2))
+!   ! Calculate derivatives for Aarseth criterion
+!   !$omp parallel do default(shared) &
+!   !$omp private(i, accel_mag, snap_mag, jerk_mag, accel, accel_0, accel_00, &
+!   !$omp         jerk, snap, numerator, denominator, tau_prs) &
+!   !$omp reduction(min:tau_min)
+!   do i = 1, NB%n_bodies
+!     ! Compute acceleration magnitude
+!     accel_mag = sqrt(sum(NB%accel(i, 1:ndim)**2))
 
- !     ! Compute jerk and its magnitude
- !     accel = NB%accel(i, 1:ndim)
- !     accel_0 = NB%accel_0(i, 1:ndim)
- !     jerk = (accel - accel_0) / dt
- !     jerk_mag = sqrt(sum(jerk**2))
+!     ! Compute jerk and its magnitude
+!     accel = NB%accel(i, 1:ndim)
+!     accel_0 = NB%accel_0(i, 1:ndim)
+!     jerk = (accel - accel_0) / dt
+!     jerk_mag = sqrt(sum(jerk**2))
 
- !     ! Compute snap and its magnitude
- !     accel_00 = NB%accel_00(i, 1:ndim)
- !     snap = (accel - 2.0_wp * accel_0 + accel_00) / dt**2
- !     snap_mag = sqrt(sum(snap**2))
+!     ! Compute snap and its magnitude
+!     accel_00 = NB%accel_00(i, 1:ndim)
+!     snap = (accel - 2.0_wp * accel_0 + accel_00) / dt**2
+!     snap_mag = sqrt(sum(snap**2))
 
- !     ! Use the formula from the image to compute tau_prs
- !     if (snap_mag > epsilon(1.0_wp) .and. jerk_mag > epsilon(1.0_wp) .and. accel_mag > epsilon(1.0_wp)) then
- !       numerator = 2.0_wp * accel_mag**2
- !       denominator = jerk_mag**2 + accel_mag * snap_mag + small_number
- !       if (denominator > epsilon(1.0_wp)) then
- !         tau_prs = sqrt(2.0_wp * (numerator / denominator))  ! From formula (16) scaled with sqrt(2)
+!     ! Use the formula from the image to compute tau_prs
+!     if (snap_mag > epsilon(1.0_wp) .and. jerk_mag > epsilon(1.0_wp) .and. accel_mag > epsilon(1.0_wp)) then
+!       numerator = 2.0_wp * accel_mag**2
+!       denominator = jerk_mag**2 + accel_mag * snap_mag + small_number
+!       if (denominator > epsilon(1.0_wp)) then
+!         tau_prs = sqrt(2.0_wp * (numerator / denominator))  ! From formula (16) scaled with sqrt(2)
 
- !         ! Find minimum tau_prs across all bodies through OpenMP reduction
- !         tau_min = min(tau_min, tau_prs)
- !       end if
- !     end if
- !   end do
- !   !$omp end parallel do
+!         ! Find minimum tau_prs across all bodies through OpenMP reduction
+!         tau_min = min(tau_min, tau_prs)
+!       end if
+!     end if
+!   end do
+!   !$omp end parallel do
 
- !   dt_calculated = (5040.0_wp*epsilon_prs)**(1.0_wp/7.0_wp) * tau_min
+!   dt_calculated = (5040.0_wp*epsilon_prs)**(1.0_wp/7.0_wp) * tau_min
 
- !   ! Apply safety factor and limits
- !   ! dt_calculated = safety_factor * dt_calculated
+!   ! Apply safety factor and limits
+!   ! dt_calculated = safety_factor * dt_calculated
 
- !   ! Apply absolute limits
- !   dt = min(max(dt_calculated, dt_min), dt_max)
- !   dt = dt_min*100.0_wp ! For testing, fix dt to a constant value
- !   dt_half = 0.5_wp * dt
- !   dt_squared = dt * dt
+!   ! Apply absolute limits
+!   dt = min(max(dt_calculated, dt_min), dt_max)
+!   dt = dt_min*100.0_wp ! For testing, fix dt to a constant value
+!   dt_half = 0.5_wp * dt
+!   dt_squared = dt * dt
 
- !   ! Diagnostic output
- !   if (mod(istep, nprint) == 0) then
- !     print '(A,4ES12.5)', "  Timestep info: dt, dt_arseth, dt_min, dt_max = ", &
- !       dt, dt_calculated, dt_min, dt_max
- !   end if
- ! end subroutine adjust_timestep_acceleration
+!   ! Diagnostic output
+!   if (mod(istep, nprint) == 0) then
+!     print '(A,4ES12.5)', "  Timestep info: dt, dt_arseth, dt_min, dt_max = ", &
+!       dt, dt_calculated, dt_min, dt_max
+!   end if
+! end subroutine adjust_timestep_acceleration

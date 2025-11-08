@@ -1,4 +1,4 @@
-submodule (nbodies) init_vel
+submodule(nbodies) init_vel
   implicit none
 contains
 
@@ -8,15 +8,15 @@ contains
 
     ! Initialize velocities based on VELOCITY_INITIALIZATION_TYPE
     select case (VELOCITY_INITIALIZATION_TYPE)
-     case (0)
+    case (0)
       call read_velocities_from_file(NB)
-     case (1)
+    case (1)
       call random_velocities_random_speed(NB)
-     case (2)
+    case (2)
       call solid_body_rotation_velocities(NB)
-     case (3)
+    case (3)
       call random_velocities_fixed_speed(NB)
-     case default
+    case default
       print *, "Error: Unknown VELOCITY_INITIALIZATION_TYPE ", &
         VELOCITY_INITIALIZATION_TYPE
       stop
@@ -35,8 +35,8 @@ contains
 
     do i = 1, NB%n_bodies
       ! u = -omega * y, v = omega * x for 2D rotation about z-axis
-      NB%vel(i, 1) = -omega_init * NB%pos(i, 2)
-      NB%vel(i, 2) = omega_init * NB%pos(i, 1)
+      NB%vel(i, 1) = -omega_init*NB%pos(i, 2)
+      NB%vel(i, 2) = omega_init*NB%pos(i, 1)
       if (ndim == 3) then
         ! w = 0 for rotation about z-axis
         NB%vel(i, 3) = 0.0_wp
@@ -47,7 +47,7 @@ contains
       ! add random perturbation scaled by vel_var (between 0 and 1) of the local
       ! velocity magnitude
       NB%vel(i, 1:ndim) = NB%vel(i, 1:ndim) + &
-        vel_var * vel_magnitude * (NB%rand_vec(1:ndim) - 0.5_wp) * 2.0_wp
+                          vel_var*vel_magnitude*(NB%rand_vec(1:ndim) - 0.5_wp)*2.0_wp
     end do
   end subroutine solid_body_rotation_velocities
 
@@ -65,12 +65,12 @@ contains
       ! Procedure:
       ! First generate random vector in [-1,1] in each dimension
       call random_number(NB%rand_vec)
-      NB%vel(i, 1:ndim) = vel_var * (NB%rand_vec(1:ndim) - 0.5_wp) * 2.0_wp
+      NB%vel(i, 1:ndim) = vel_var*(NB%rand_vec(1:ndim) - 0.5_wp)*2.0_wp
       ! Then normalize to 1
       vel_magnitude = sqrt(sum(NB%vel(i, 1:ndim)**2)) + small_number ! avoid division by zero
-      NB%vel(i, 1:ndim) = NB%vel(i, 1:ndim) / vel_magnitude
+      NB%vel(i, 1:ndim) = NB%vel(i, 1:ndim)/vel_magnitude
       ! Finally scale to desired vel_var magnitude
-      NB%vel(i, 1:ndim) = NB%vel(i, 1:ndim) * vel_var
+      NB%vel(i, 1:ndim) = NB%vel(i, 1:ndim)*vel_var
     end do
   end subroutine random_velocities_fixed_speed
 
@@ -88,14 +88,14 @@ contains
       ! Procedure:
       ! First generate random vector in [-1,1] in each dimension
       call random_number(NB%rand_vec)
-      NB%vel(i, 1:ndim) = vel_var * (NB%rand_vec(1:ndim) - 0.5_wp) * 2.0_wp
+      NB%vel(i, 1:ndim) = vel_var*(NB%rand_vec(1:ndim) - 0.5_wp)*2.0_wp
       ! Then normalize to 1
       vel_magnitude = sqrt(sum(NB%vel(i, 1:ndim)**2)) + small_number ! avoid division by zero
-      NB%vel(i, 1:ndim) = NB%vel(i, 1:ndim) / vel_magnitude
+      NB%vel(i, 1:ndim) = NB%vel(i, 1:ndim)/vel_magnitude
       ! Then select a random speed in [0, vel_var]
       call random_number(rand_val) ! rand_val in [0,1]
-      vel_magnitude = rand_val * vel_var
-      NB%vel(i, 1:ndim) = NB%vel(i, 1:ndim) * vel_magnitude
+      vel_magnitude = rand_val*vel_var
+      NB%vel(i, 1:ndim) = NB%vel(i, 1:ndim)*vel_magnitude
     end do
   end subroutine random_velocities_random_speed
   subroutine read_velocities_from_file(NB)
@@ -111,15 +111,15 @@ contains
     filename = 'data/velocities_ascii.dat'
 
     ! Open velocity file
-    open(newunit=file_unit, file=trim(filename), status='old', action='read', iostat=ios)
+    open (newunit=file_unit, file=trim(filename), status='old', action='read', iostat=ios)
 
     ! Read velocities
     do i = 1, NB%n_bodies
-      read(file_unit, *) NB%vel(i, 1), NB%vel(i, 2), NB%vel(i, 3)
+      read (file_unit, *) NB%vel(i, 1), NB%vel(i, 2), NB%vel(i, 3)
     end do
 
     ! Close file
-    close(file_unit)
+    close (file_unit)
 
     ! Initialize old velocities
     NB%vel_0 = NB%vel
