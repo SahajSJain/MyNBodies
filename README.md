@@ -10,7 +10,7 @@ This will generate 4 executables:
 4. `mynbodies_acc_out` : An OpenACC solver for GPU parallelization, featuring a one-time data transfer avoiding redundant and repeated host-device copies.
 5. `mynbodies_cuda_out` : A CUDA Fortran solver for GPU parallelization, using explicit memory management.
 
-The force calculations in all of these follow a vary naive implementation with `N x N` calculations. I am well aware that far more sophisticated methods like PPM exist, or that you can implement variable time steping with RK 45 like methods but since this is just a personal project to teach myself CUDA fortran, I am not interested nor do I have the time.
+The force calculations in all of these follow a vary naive implementation with `N x N` calculations. I am well aware that far more sophisticated methods like PPM exist, or that you can implement variable time steping with RK 45 like methods but since this is just a personal project to teach myself CUDA fortran, I am neither interested (for now) nor do I have the time.
 
 Observed a 25-32x speedup with an OpenACC simulation on an NVIDA a100 and 38-55x with CUDA Fortran compared to an OpenMP CPU simulation on a 48 core Intel Xeon Gold Cascade Lake 6248R. 
 1. With 43802 bodies
@@ -35,7 +35,7 @@ Observed a 25-32x speedup with an OpenACC simulation on an NVIDA a100 and 38-55x
 These will generate .csv file outputs which can be visualized using Paraview. I also experimented with LAMMPS dump format but dumped that idea as ParaView can be a bit glitchy. 
 Shout out to https://github.com/lele394 for help with the pre-processing scripts. Julia pre-processing scripts in the Input folder were LLM generated.
 
-Simulation examples : These setups were obtained from a UMD database (https://bima.astro.umd.edu/nemo/archive/). Have not validated these as I am not in the field: 
+Simulation examples : These setups were obtained from a UMD database (https://bima.astro.umd.edu/nemo/archive/). Have not validated these as I don't know all that much about astronomy: 
 1. Galactic collision between the milky way and the andromeda galaxy (Dubinski, Mihos & Hernquist, 1996, ApJ, 462, 576) : ~80k stars 
    ![til](./Galaxy_Collision.gif)
 2. Galactic Bulge: Based on  Sellwood (1993) A Bar model for the Galactic Bulge . : ~ 40k stars
